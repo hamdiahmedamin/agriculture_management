@@ -6,7 +6,7 @@ app_publisher = "aminos"
 app_description = "Agriculture Management System"
 app_email = "hamdiahmedamin@gmail.com"
 app_license = "mit"
-app_include_icons ="agriculture/icons.html"
+app_include_icons ="agriculture_management/icons.html"
 required_apps = [erpnext]
 
 # Includes in <head>
