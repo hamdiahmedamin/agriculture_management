@@ -1,5 +1,3 @@
-from . import __version__ as app_version
-
 app_name = "agriculture_management"
 app_title = "Agriculture Management"
 app_publisher = "aminos"
@@ -7,7 +5,8 @@ app_description = "Agriculture Management System"
 app_email = "hamdiahmedamin@gmail.com"
 app_license = "mit"
 app_include_icons ="agriculture_management/icons.html"
-required_apps = [erpnext]
+
+#required_apps = [frappe]
 
 # Includes in <head>
 # ------------------
