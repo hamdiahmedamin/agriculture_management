@@ -55,10 +55,11 @@
   }
  ],
  "links": [],
- "modified": "2023-10-28 23:02:19.808607",
+ "modified": "2023-10-29 05:50:03.410287",
  "modified_by": "Administrator",
  "module": "Agriculture Management",
  "name": "Fertilizer",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -84,7 +85,6 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Agriculture Management",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

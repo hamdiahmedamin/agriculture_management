@@ -53,10 +53,11 @@
   }
  ],
  "links": [],
- "modified": "2023-10-28 23:02:24.396992",
+ "modified": "2023-10-29 05:54:52.196037",
  "modified_by": "Administrator",
  "module": "Agriculture Management",
  "name": "Weather",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -82,7 +83,6 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Agriculture Management",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

@@ -6,7 +6,7 @@ app_email = "hamdiahmedamin@gmail.com"
 app_license = "mit"
 app_include_icons ="agriculture_management/icons.html"
 
-#required_apps = [frappe]
+required_apps = ["erpnext"]
 
 # Includes in <head>
 # ------------------
@@ -70,12 +70,13 @@ app_include_icons ="agriculture_management/icons.html"
 # ------------
 
 # before_install = "agriculture_management.install.before_install"
-# after_install = "agriculture_management.install.after_install"
+after_install = "agriculture_management.install.after_install"
+after_sync = "agriculture_management.install.after_sync"
 
 # Uninstallation
 # ------------
 
-# before_uninstall = "agriculture_management.uninstall.before_uninstall"
+before_uninstall = "agriculture_management.uninstall.before_uninstall"
 # after_uninstall = "agriculture_management.uninstall.after_uninstall"
 
 # Integration Setup
@@ -221,3 +222,22 @@ app_include_icons ="agriculture_management/icons.html"
 # auth_hooks = [
 #	"agriculture_management.auth.validate"
 # ]
+
+global_search_doctypes = {
+	"Agriculture Management": [
+		{'doctype': 'Weather', 'index': 1},
+		{'doctype': 'Soil Texture', 'index': 2},
+		{'doctype': 'Water Analysis', 'index': 3},
+		{'doctype': 'Soil Analysis', 'index': 4},
+		{'doctype': 'Plant Analysis', 'index': 5},
+		{'doctype': 'Agriculture Analysis Criteria', 'index': 6},
+		{'doctype': 'Disease', 'index': 7},
+		{'doctype': 'Crop', 'index': 8},
+		{'doctype': 'Fertilizer', 'index': 9},
+		{'doctype': 'Crop Cycle', 'index': 10}
+	]
+}
+
+domains = {
+	'Agriculture Management': 'agriculture_management.agriculture_management.agriculture_management',
+}

@@ -209,10 +209,11 @@
   }
  ],
  "links": [],
- "modified": "2023-10-28 23:02:25.384172",
+ "modified": "2023-10-29 05:55:09.306789",
  "modified_by": "Administrator",
  "module": "Agriculture Management",
  "name": "Crop",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -238,7 +239,6 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Agriculture Management",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

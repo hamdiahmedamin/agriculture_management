@@ -107,10 +107,11 @@
   }
  ],
  "links": [],
- "modified": "2023-10-28 23:02:22.797429",
+ "modified": "2023-10-29 05:54:02.792250",
  "modified_by": "Administrator",
  "module": "Agriculture Management",
  "name": "Water Analysis",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -136,7 +137,6 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Agriculture Management",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

@@ -98,10 +98,11 @@
   }
  ],
  "links": [],
- "modified": "2023-10-28 23:02:23.778704",
+ "modified": "2023-10-29 05:54:36.921749",
  "modified_by": "Administrator",
  "module": "Agriculture Management",
  "name": "Soil Texture",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -127,7 +128,6 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Agriculture Management",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
