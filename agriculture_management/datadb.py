@@ -5,7 +5,7 @@ itemgroups = [
         {"item_group_name":"Agriculture Items Group","is_group":1},
         {"item_group_name":"Fertilizer","is_group":0,"parent_item_group":"Agriculture Items Group"},
 		{"item_group_name":"Seeds","is_group":0,"parent_item_group":"Agriculture Items Group"},
-        {"item_group_name":"By-product","is_group":0,"parent_item_group":"Agriculture Items Group"},
+        {"item_group_name":"By Product","is_group":0,"parent_item_group":"Agriculture Items Group"},
         {"item_group_name":"Produce","is_group":0,"parent_item_group":"Agriculture Items Group"},
         ]
 

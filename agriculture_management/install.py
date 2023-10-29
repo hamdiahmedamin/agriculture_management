@@ -1,3 +1,4 @@
+import click
 import agriculture_management.datadb as datadb
 import frappe
 from frappe import _
@@ -5,8 +6,9 @@ from frappe.desk.page.setup_wizard.setup_wizard import add_all_roles_to
 
 
 def after_install():
-	add_item_group()
-	add_agriculture_analysis_criteria()
+    click.echo("Installing Agriculture Customizations ...")
+    add_item_group()
+    add_agriculture_analysis_criteria()
 
 
 def after_sync():
@@ -20,7 +22,7 @@ def add_item_group():
             frappe.get_doc(
 				{
 					"doctype": "Item Group",
-					"item_group_name": itemgroup.get("item_group_name"),
+					"item_group_name": itemgroup.get(_("item_group_name")),
 					"is_group": itemgroup.get("is_group"),
 					"parent_item_group": itemgroup.get("parent_item_group"),
 				}
@@ -30,6 +32,7 @@ def add_item_group():
             item_group.item_group_name = itemgroup.get("item_group_name")
             item_group.parent_item_group = _("All Item Groups")
             item_group.save() """
+    click.echo("Agriculture Items Group added ...")
 
             
 def add_agriculture_analysis_criteria():    
@@ -43,10 +46,12 @@ def add_agriculture_analysis_criteria():
 					"linked_doctype": analysiscriteria.get("linked_doctype"),
 				}
 			).save()
+    click.echo("Agriculture Analysis Criteria added ...")
             
 def create_agriculture_roles():
 	create_agriculture_user_role()
 	create_agriculture_manager_role()
+	click.echo("Agriculture Roles created ...")
 
 def create_agriculture_user_role():
 	if not frappe.db.exists("Role", "Agriculture User"):

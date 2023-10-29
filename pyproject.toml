@@ -3,7 +3,7 @@ name = "agriculture_management"
 authors = [
     { name = "aminos", email = "hamdiahmedamin@gmail.com"}
 ]
-description = "Agriculture Management System"
+description = "Agriculture"
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]

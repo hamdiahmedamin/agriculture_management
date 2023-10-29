@@ -1,6 +1,6 @@
 ## Agriculture Management
 
-Agriculture Management System
+Agriculture
 
 #### License
 
