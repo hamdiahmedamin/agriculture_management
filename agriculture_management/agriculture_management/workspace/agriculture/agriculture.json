@@ -1,0 +1,174 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"vIufz3m64q\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Crop\",\"col\":4}},{\"id\":\"EZ97pOCqXv\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fertilizer\",\"col\":4}},{\"id\":\"dKtt3yWoae\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports &amp; Masters</span><br>\",\"col\":12}},{\"id\":\"rmp9cfsjxS\",\"type\":\"card\",\"data\":{\"card_name\":\"Crops and lands\",\"col\":4}},{\"id\":\"LXMnW75Ioy\",\"type\":\"card\",\"data\":{\"card_name\":\"Analytic\",\"col\":4}},{\"id\":\"XqwWYYvjWN\",\"type\":\"card\",\"data\":{\"card_name\":\"Disease & Fertilizer\",\"col\":4}}]",
+ "creation": "2023-10-28 22:58:01.519385",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "farm",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Agriculture",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Crops and lands",
+   "link_count": 3,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Culture",
+   "link_count": 0,
+   "link_to": "Crop",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Cycle de r\u00e9colte",
+   "link_count": 0,
+   "link_to": "Crop Cycle",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Location",
+   "link_count": 0,
+   "link_to": "Location",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Analytic",
+   "link_count": 6,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Plant Analysis",
+   "link_count": 0,
+   "link_to": "Plant Analysis",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Soil Analysis",
+   "link_count": 0,
+   "link_to": "Soil Analysis",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Soil Texture",
+   "link_count": 0,
+   "link_to": "Soil Texture",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Water Analysis",
+   "link_count": 0,
+   "link_to": "Water Analysis",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Weather",
+   "link_count": 0,
+   "link_to": "Weather",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Agriculture Analysis Criteria",
+   "link_count": 0,
+   "link_to": "Agriculture Analysis Criteria",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Disease & Fertilizer",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Disease",
+   "link_count": 0,
+   "link_to": "Disease",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fertilizer",
+   "link_count": 0,
+   "link_to": "Fertilizer",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2023-10-29 16:54:37.898080",
+ "modified_by": "Administrator",
+ "module": "Agriculture Management",
+ "name": "Agriculture",
+ "number_cards": [
+  {
+   "label": "Total Fertilizer",
+   "number_card_name": "Total Fertilizer"
+  },
+  {
+   "label": "Total Crop",
+   "number_card_name": "Total Crop"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 7.0,
+ "shortcuts": [],
+ "title": "Agriculture"
+}
