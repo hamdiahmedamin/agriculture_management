@@ -1,0 +1,69 @@
+{
+  "charts": [],
+  "content": "[{\"id\":\"dKtt3yWoae\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Agriculture Management</span>\",\"col\":12}},{\"id\":\"rmp9cfsjxS\",\"type\":\"card\",\"data\":{\"card_name\":\"Crops and lands\",\"col\":4}}]",
+  "creation": "2023-10-28 22:58:01.519385",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "farm",
+  "idx": 0,
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Agriculture Management",
+  "links": [
+   {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "Crops and lands",
+    "link_count": 3,
+    "onboard": 0,
+    "type": "Card Break"
+   },
+   {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "Culture",
+    "link_count": 0,
+    "link_to": "Crop",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+   },
+   {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "Cycle de r\u00e9colte",
+    "link_count": 0,
+    "link_to": "Crop Cycle",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+   },
+   {
+    "hidden": 0,
+    "is_query_report": 0,
+    "label": "Location",
+    "link_count": 0,
+    "link_to": "Location",
+    "link_type": "DocType",
+    "onboard": 0,
+    "type": "Link"
+   }
+  ],
+  "modified": "2023-10-29 06:09:21.355295",
+  "modified_by": "Administrator",
+  "module": "Agriculture Management",
+  "name": "Agriculture Management",
+  "number_cards": [],
+  "owner": "Administrator",
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": "",
+  "roles": [],
+  "sequence_id": 7.0,
+  "shortcuts": [],
+  "title": "Agriculture Management"
+ }
