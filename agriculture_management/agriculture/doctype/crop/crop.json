@@ -11,9 +11,6 @@
   "crop_name",
   "column_break_4",
   "scientific_name",
-  "section_break_20",
-  "agriculture_task",
-  "period",
   "section_break_9",
   "crop_spacing",
   "crop_spacing_uom",
@@ -31,11 +28,17 @@
   "planting_area",
   "column_break_14",
   "yield_uom",
-  "section_break_16",
+  "tasks_tab",
+  "section_break_20",
+  "agriculture_task",
+  "period",
+  "materials_required_tab",
   "section_break_17",
   "materials_required",
+  "produced_items_tab",
   "section_break_19",
   "produce",
+  "byproducts_tab",
   "section_break_18",
   "byproducts"
  ],
@@ -132,8 +135,9 @@
   },
   {
    "fieldname": "category",
-   "fieldtype": "Data",
-   "label": "Category"
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Crop Category"
   },
   {
    "fieldname": "section_break_8",
@@ -171,10 +175,6 @@
    "options": "UOM"
   },
   {
-   "fieldname": "section_break_16",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "section_break_17",
    "fieldtype": "Section Break",
    "label": "Materials Required"
@@ -206,10 +206,30 @@
    "fieldtype": "Table",
    "label": "Byproducts",
    "options": "BOM Item"
+  },
+  {
+   "fieldname": "tasks_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tasks"
+  },
+  {
+   "fieldname": "materials_required_tab",
+   "fieldtype": "Tab Break",
+   "label": "Materials Required"
+  },
+  {
+   "fieldname": "produced_items_tab",
+   "fieldtype": "Tab Break",
+   "label": "Produced Items"
+  },
+  {
+   "fieldname": "byproducts_tab",
+   "fieldtype": "Tab Break",
+   "label": "Byproducts"
   }
  ],
  "links": [],
- "modified": "2023-10-29 17:46:20.401909",
+ "modified": "2023-10-29 22:15:58.204398",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Crop",

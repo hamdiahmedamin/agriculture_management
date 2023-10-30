@@ -9,6 +9,22 @@ itemgroups = [
         {"item_group_name":"Produce","is_group":0,"parent_item_group":"Agriculture Items Group"},
         ]
 
+cropcategories = [
+        {"category_name":"Cereals","category_description":"This category includes crops like wheat, rice, corn (maize), barley, oats, and millets. Cereals are primarily grown for their edible grains, which are rich in carbohydrates and form the staple food for many societies."},
+        {"category_name":"Pulses/Legumes","category_description":"Pulses comprise crops like beans, lentils, chickpeas, and peas. They are valued for their high protein content and are an essential source of nutrition, especially in vegetarian diets."},
+        {"category_name":"Oilseeds","category_description":"Oilseeds include crops like soybeans, sunflower, canola, and sesame. These crops are cultivated primarily for the extraction of oil from their seeds, which is used in cooking, food processing, and various industrial applications."},
+        {"category_name":"Fruits and Vegetables","category_description":"This category encompasses a wide range of crops, including apples, oranges, tomatoes, carrots, and lettuce. Fruits and vegetables are rich sources of essential vitamins, minerals, and dietary fiber."},
+        {"category_name":"Roots and Tubers","category_description":"This category includes crops like potatoes, sweet potatoes, cassava, and yams. These plants store energy in their underground parts, making them important sources of carbohydrates in many diets."},
+        {"category_name":"Cash Crops","category_description":"Cash crops are grown primarily for sale and profit rather than for personal consumption. Examples include cotton, coffee, cocoa, tea, and tobacco."},
+        {"category_name":"Fiber Crops","category_description":"Fiber crops are cultivated for their fibers, which are used in various industries. Cotton is a prime example of a fiber crop."},
+        {"category_name":"Forage and Fodder Crops","category_description":"These crops, such as alfalfa, clover, and various grasses, are grown to provide feed for livestock."},
+        {"category_name":"Medicinal and Aromatic Plants (MAPs)","category_description":"These crops, like aloe vera, lavender, and mint, are cultivated for their medicinal or aromatic properties and are used in various industries, including pharmaceuticals and perfumery."},
+        {"category_name":"Industrial Crops","category_description":"Industrial crops include plants like sugarcane (for sugar and biofuel production), rubber trees (for natural rubber), and hemp (for fibers and various industrial applications)."},
+        {"category_name":"Spices and Herbs","category_description":"This category includes crops like pepper, basil, oregano, and turmeric. Spices and herbs are used to flavor food and for their medicinal properties."},
+        {"category_name":"Spices and Herbs","category_description":"Crops like tea, coffee, and cacao are grown for the production of beverages."},
+        {"category_name":"Spices and Herbs","category_description":"This category includes crops that are not widely grown but have unique characteristics or are highly valued. Examples include truffles, saffron, and certain exotic fruits."},
+        ]
+
 analysiscriterias = [
         {"title":"Nitrogen Content","standard":1,"linked_doctype":"Fertilizer"},
 		{"title":"Phosphorous Content","standard":1,"linked_doctype":"Fertilizer"},

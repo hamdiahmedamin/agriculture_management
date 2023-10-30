@@ -8,11 +8,13 @@ from frappe.desk.page.setup_wizard.setup_wizard import add_all_roles_to
 def after_install():
     click.echo("Installing Agriculture Customizations ...")
     add_item_group()
+    # add_crop_category()
     add_agriculture_analysis_criteria()
 
 
 def after_sync():
 	create_agriculture_roles()
+	add_crop_category()
 	# set_default_certificate_print_format()
 	add_all_roles_to("Administrator")
 
@@ -34,6 +36,22 @@ def add_item_group():
             item_group.save() """
     click.echo("Agriculture Items Group added ...")
 
+def add_crop_category():
+    for cropcategory in datadb.cropcategories:
+        """ if not frappe.db.exists("Crop Category",cropcategory.get("category_name")):
+            frappe.get_doc(
+				{
+					"doctype": "Crop Category",	
+    				"category_name": _(cropcategory.get("category_name")),
+					"category_description": _(cropcategory.get("category_description")),      
+				}
+			).save() """
+        if not frappe.get_value("Crop Category", cropcategory.get("category_name")):
+            category = frappe.new_doc("Crop Category")
+            category.name = cropcategory.get(_("category_name"))
+            category.category_name = cropcategory.get(_("category_name"))
+            category.category_description = cropcategory.get(_("category_description"))
+            category.save()
             
 def add_agriculture_analysis_criteria():    
     for analysiscriteria in datadb.analysiscriterias:
