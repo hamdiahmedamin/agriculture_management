@@ -2,11 +2,14 @@
  "actions": [],
  "autoname": "field:title",
  "creation": "2017-10-20 01:16:17.606174",
+ "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "title",
+  "column_break_duwc",
+  "image",
   "section_break_2",
   "crop_name",
   "column_break_4",
@@ -226,10 +229,23 @@
    "fieldname": "byproducts_tab",
    "fieldtype": "Tab Break",
    "label": "Byproducts"
+  },
+  {
+   "fieldname": "column_break_duwc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.__islocal",
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
   }
  ],
+ "force_re_route_to_default_view": 1,
+ "image_field": "image",
  "links": [],
- "modified": "2023-10-29 22:15:58.204398",
+ "make_attachments_public": 1,
+ "modified": "2023-10-30 15:43:52.494680",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Crop",
@@ -259,8 +275,11 @@
    "write": 1
   }
  ],
+ "show_preview_popup": 1,
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "title",
  "track_changes": 1
 }

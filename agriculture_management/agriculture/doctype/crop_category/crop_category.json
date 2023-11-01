@@ -27,8 +27,9 @@
    "translatable": 1
   }
  ],
+ "force_re_route_to_default_view": 1,
  "links": [],
- "modified": "2023-10-29 23:06:53.207530",
+ "modified": "2023-10-30 14:52:44.110522",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Crop Category",

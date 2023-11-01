@@ -6,6 +6,10 @@ frappe.provide("erpnext.crop");
 frappe.ui.form.on('Crop', {
 	refresh: (frm) => {
 		frm.fields_dict.materials_required.grid.set_column_disp('bom_no', false);
+		if (!frm.doc.__islocal){
+			frm.add_custom_button(__('Reload Linked Analysis'), () => frm.call("reload_linked_analysis"));
+			frm.toggle_display("image", false);
+		}
 	}
 });
 

@@ -1,8 +1,13 @@
 {
  "charts": [],
- "content": "[{\"id\":\"vIufz3m64q\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Crops\",\"col\":3}},{\"id\":\"EZ97pOCqXv\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fertilizer\",\"col\":3}},{\"id\":\"dKtt3yWoae\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports &amp; Masters</span><br>\",\"col\":12}},{\"id\":\"rmp9cfsjxS\",\"type\":\"card\",\"data\":{\"card_name\":\"Crops and lands\",\"col\":4}},{\"id\":\"LXMnW75Ioy\",\"type\":\"card\",\"data\":{\"card_name\":\"Analytic\",\"col\":4}},{\"id\":\"XqwWYYvjWN\",\"type\":\"card\",\"data\":{\"card_name\":\"Disease & Fertilizer\",\"col\":4}}]",
+ "content": "[{\"id\":\"vIufz3m64q\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Crops\",\"col\":3}},{\"id\":\"EZ97pOCqXv\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Fertilizer\",\"col\":3}},{\"id\":\"xOq8P0sOlu\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"test\",\"col\":12}},{\"id\":\"dKtt3yWoae\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports &amp; Masters</span><br>\",\"col\":12}},{\"id\":\"rmp9cfsjxS\",\"type\":\"card\",\"data\":{\"card_name\":\"Crops and lands\",\"col\":4}},{\"id\":\"LXMnW75Ioy\",\"type\":\"card\",\"data\":{\"card_name\":\"Analytic\",\"col\":4}},{\"id\":\"XqwWYYvjWN\",\"type\":\"card\",\"data\":{\"card_name\":\"Disease & Fertilizer\",\"col\":4}}]",
  "creation": "2023-10-28 22:58:01.519385",
- "custom_blocks": [],
+ "custom_blocks": [
+  {
+   "custom_block_name": "test",
+   "label": "test"
+  }
+ ],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
@@ -158,7 +163,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-10-30 10:45:55.790645",
+ "modified": "2023-10-30 23:46:40.131238",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Agriculture",
