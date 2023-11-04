@@ -237,7 +237,3 @@ global_search_doctypes = {
 		{'doctype': 'Crop Cycle', 'index': 10}
 	]
 }
-
-domains = {
-	'Agriculture Management': 'agriculture_management.agriculture_management',
-}

@@ -12,17 +12,28 @@ frappe.ui.form.on('Weather', {
 		}
 		console.log(false);
 	},
+	
 	refresh: function (frm) {
 		frm.cscript.button_lamf = function (doc) {
+			
 			if (frm.doc.location == "")
 				frappe.msgprint(__('Select Location first'));
 			else {
 				frm.clear_table("weather_parameter");
 				frm.refresh_fields();
-				frappe.show_alert({
-					message:__('Loading Weather Data.'),
-					indicator:'green'
-				}, 5);
+				frm.call({
+					method: 'load_owm',
+					doc: frm.doc,
+					args: {},
+					freeze: true,
+					freeze_message: __('Loading Weather Data.'),
+					callback: function(r) {
+						frappe.show_alert({
+							message:__('Weather Data Loaded.'),
+							indicator:'blue'
+						}, 5);
+					}
+				});			
 				/* frm.call('set_weather').then(r => {
 					if (r.message) {
 						frappe.show_alert({
@@ -30,36 +41,15 @@ frappe.ui.form.on('Weather', {
 							indicator:'blue'
 						}, 5);
 					}
-				}); */
-				/* frappe.call({
-					method: 'agriculture_management.agriculture.doctype.weather.weather.set_weather',
-					args: {},
-					freeze: true,
-					freeze_message: "Please wait ..",
-					callback: function(r) {
-						frappe.show_alert({
-							message:__('Weather Data Loaded.'),
-							indicator:'blue'
-						}, 5);
-					}
-				}); */
-				frappe.call({
-					method: 'agriculture_management.agriculture.doctype.weather.weather.set_weather', 
-					
-					callback: function(r) {
-						frappe.show_alert({
-							message:__('Weather Data Loaded.'),
-							indicator:'blue'
-						}, 5);
-					}
-				});
-				
+				}); */				
 			}
 		}
 	},
-	"source": function (frm) {
+	source: function (frm) {
 		if (frm.doc.source == "Manual") {
 			frm.fields_dict.button_lamf.toggle(false);
+			frm.clear_table("weather_parameter");
+				frm.refresh_fields();
 			frm.call('load_contents');
 			console.log("manual");
 		} else {
@@ -74,6 +64,9 @@ frappe.ui.form.on('Weather', {
 				frm.fields_dict.button_lamf.toggle(true);
 			}
 		}
+	},
+	button_lamf:function(frm){
+		
 	},
 	"location": function (frm) {
 		if (frm.doc.location == "") {

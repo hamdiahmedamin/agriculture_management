@@ -13,16 +13,16 @@ from frappe import _
 
 
 class Weather(Document):
-
+    
     @frappe.whitelist()
     def load_contents(self):
         docs = frappe.get_all("Agriculture Analysis Criteria", filters={'linked_doctype':'Weather'})
         for doc in docs:
             self.append('weather_parameter', {'title': str(doc.name),})
         self.date = today()
-                        
+                    
     @frappe.whitelist()
-    def set_weather(self):
+    def load_owm(self):
         lat = self.latitude
         lon = self.longitude
 
@@ -62,5 +62,3 @@ class Weather(Document):
                 title=_('Error'),
                 msg=_('Select a Location first.')
                 )
-        return False
-
