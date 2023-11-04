@@ -1,6 +1,3 @@
-import frappe
-from frappe import _
-
 itemgroups = [
         {"item_group_name":"Agriculture Items Group","is_group":1},
         {"item_group_name":"Fertilizer","is_group":0,"parent_item_group":"Agriculture Items Group"},
