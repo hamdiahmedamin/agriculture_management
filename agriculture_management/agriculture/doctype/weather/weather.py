@@ -4,10 +4,12 @@
 
 import frappe
 import pyowm
+from frappe.utils import today
 from pyowm import OWM
 from pyowm.utils import config
 from pyowm.utils import timestamps
 from frappe.model.document import Document
+from frappe import _
 
 
 class Weather(Document):
@@ -17,44 +19,48 @@ class Weather(Document):
         docs = frappe.get_all("Agriculture Analysis Criteria", filters={'linked_doctype':'Weather'})
         for doc in docs:
             self.append('weather_parameter', {'title': str(doc.name),})
-    
+        self.date = today()
+                        
     @frappe.whitelist()
     def set_weather(self):
-        owm = OWM('81b09706b0075c212be5ebfb9d69a915')
-        mgr = owm.weather_manager()
-        observation = mgr.weather_at_place('London,GB')
-        docs = frappe.get_all("Agriculture Analysis Criteria", filters={'linked_doctype':'Weather'})
-        for doc in docs:            
-            match str(doc.name):
-                case "Degree Days":
-                    value = observation.weather.humidity
-                case "Insolation/ PAR (Photosynthetically Active Radiation}":
-                    value = observation.weather.humidity
-                case "Pressure":
-                    value = observation.weather.humidity
-                case "Humidity":
-                    value = observation.weather.humidity
-                case "Precipitation Received":
-                    value = observation.weather.humidity
-                case "Dew Point":
-                    value = observation.weather.humidity
-                case "Temperature Average":
-                    value = observation.weather.humidity
-                case "Temperature Low":
-                    value = observation.weather.humidity
-                case "Temperature High":
-                    value = observation.weather.humidity 
-            self.append('weather_parameter', {'title': str(doc.name),'value': value,})
-        
+        lat = self.latitude
+        lon = self.longitude
 
-def switch(name):
-    if name == "JavaScript":
-        return "You can become a web developer."
-    elif name == "PHP":
-        return "You can become a backend developer."
-    elif name == "Python":				
-        return "You can become a Data Scientist"
-    elif name == "Solidity":
-        return "You can become a Blockchain developer."
-    elif name == "Java":
-        return "You can become a mobile app developer"
+        if bool(lat) == True and bool(lon) == True:
+            owm = OWM('81b09706b0075c212be5ebfb9d69a915')
+            mgr = owm.weather_manager()
+            one_call = mgr.one_call(lat, lon)
+            temp_obs = one_call.forecast_daily[0].temperature('celsius').get('day', None)
+            temp_min = one_call.forecast_daily[0].temperature('celsius').get('min', None)
+            temp_max = one_call.forecast_daily[0].temperature('celsius').get('max', None)
+            humidity = one_call.current.humidity
+            docs = frappe.get_all("Agriculture Analysis Criteria", filters={'linked_doctype':'Weather'})
+            for doc in docs:            
+                match str(doc.name):
+                    case "Degree Days":
+                        value = (temp_min+temp_max)/2
+                    case "Insolation/ PAR (Photosynthetically Active Radiation)":
+                        value = one_call.current.uvi
+                    case "Pressure":
+                        value = one_call.forecast_daily[0].pressure
+                    case "Humidity":
+                        value = humidity
+                    case "Precipitation Received":
+                        value = one_call.current.rain
+                    case "Dew Point":
+                        value = temp_obs-((100-humidity)/5)
+                    case "Temperature Average":
+                        value = temp_obs
+                    case "Temperature Low":
+                        value = temp_min
+                    case "Temperature High":
+                        value =temp_max
+                self.append('weather_parameter', {'title': str(doc.name),'value': value,})
+            return True
+        else:
+            frappe.throw(
+                title=_('Error'),
+                msg=_('Select a Location first.')
+                )
+        return False
+

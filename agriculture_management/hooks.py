@@ -239,5 +239,5 @@ global_search_doctypes = {
 }
 
 domains = {
-	'Agriculture Management': 'agriculture_management.agriculture_management.agriculture_management',
+	'Agriculture Management': 'agriculture_management.agriculture_management',
 }

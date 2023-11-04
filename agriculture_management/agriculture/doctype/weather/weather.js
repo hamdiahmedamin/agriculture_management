@@ -6,27 +6,82 @@ frappe.ui.form.on('Weather', {
 		frm.call('load_contents');
 	},*/
 	onload: (frm) => {
-		if (frm.doc.weather_parameter == undefined){
-			frm.call('set_weather');
-			console.log(true);	
+		if (frm.doc.weather_parameter == undefined) {
+			frm.call('load_contents');
+			console.log(true);
 		}
-		console.log(false);		
+		console.log(false);
 	},
-	refresh: function(frm){
-		cur_frm.cscript.button_lamf = function(doc) {
-			//frm.doc.weather_parameter=[];
-			//frm.get_field('weather_parameter').grid.grid_rows[0].remove();
-			/* var tbl = frm.doc.weather_parameter;
-			console.log(tbl.length);
-			for(var i = 0; i < tbl.length; i++)
-			{
-			console.log(frm.get_field('weather_parameter').grid.grid_rows[i]);
-			frm.get_field('weather_parameter').grid.grid_rows[i].remove();
-			
+	refresh: function (frm) {
+		frm.cscript.button_lamf = function (doc) {
+			if (frm.doc.location == "")
+				frappe.msgprint(__('Select Location first'));
+			else {
+				frm.clear_table("weather_parameter");
+				frm.refresh_fields();
+				frappe.show_alert({
+					message:__('Loading Weather Data.'),
+					indicator:'green'
+				}, 5);
+				/* frm.call('set_weather').then(r => {
+					if (r.message) {
+						frappe.show_alert({
+							message:__('Weather Data Loaded.'),
+							indicator:'blue'
+						}, 5);
+					}
+				}); */
+				/* frappe.call({
+					method: 'agriculture_management.agriculture.doctype.weather.weather.set_weather',
+					args: {},
+					freeze: true,
+					freeze_message: "Please wait ..",
+					callback: function(r) {
+						frappe.show_alert({
+							message:__('Weather Data Loaded.'),
+							indicator:'blue'
+						}, 5);
+					}
+				}); */
+				frappe.call({
+					method: 'agriculture_management.agriculture.doctype.weather.weather.set_weather', 
+					
+					callback: function(r) {
+						frappe.show_alert({
+							message:__('Weather Data Loaded.'),
+							indicator:'blue'
+						}, 5);
+					}
+				});
+				
 			}
-			//frm.refresh() */
-			frm.call('set_weather');
-			frappe.msgprint(__('Document updated successfully'));
+		}
+	},
+	"source": function (frm) {
+		if (frm.doc.source == "Manual") {
+			frm.fields_dict.button_lamf.toggle(false);
+			frm.call('load_contents');
+			console.log("manual");
+		} else {
+			if (frm.doc.location == "" || frm.doc.location == undefined) {
+
+				frappe.msgprint(__('Select Location first'));
+				frm.set_value("source", "Manual");
+				frm.clear_table("weather_parameter");
+				frm.refresh_fields();
+				console.log("location");
+			} else {
+				frm.fields_dict.button_lamf.toggle(true);
 			}
-	}
+		}
+	},
+	"location": function (frm) {
+		if (frm.doc.location == "") {
+			frm.fields_dict.latitude.toggle(false);
+			frm.fields_dict.longitude.toggle(false);
+		} else {
+			frm.fields_dict.latitude.toggle(true);
+			frm.fields_dict.longitude.toggle(true);
+		}
+	},
 });

@@ -103,6 +103,6 @@ analysiscriterias = [
         {"title":"Precipitation Received","standard":1,"linked_doctype":"Weather"},
         {"title":"Humidity","standard":1,"linked_doctype":"Weather"},
         {"title":"Pressure","standard":1,"linked_doctype":"Weather"},
-        {"title":"Insolation/ PAR (Photosynthetically Active Radiation}","standard":1,"linked_doctype":"Weather"},
+        {"title":"Insolation/ PAR (Photosynthetically Active Radiation)","standard":1,"linked_doctype":"Weather"},
         {"title":"Degree Days","standard":1,"linked_doctype":"Weather"},    
     ]
