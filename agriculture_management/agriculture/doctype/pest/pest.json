@@ -1,0 +1,99 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:pest_name",
+ "creation": "2023-11-05 09:25:46.280242",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_yghk",
+  "pest_name",
+  "pest_category",
+  "column_break_aszi",
+  "scientific_name",
+  "pest_image",
+  "section_break_gtrb",
+  "tab_damaged_crops"
+ ],
+ "fields": [
+  {
+   "fieldname": "pest_image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "section_break_yghk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pest_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_aszi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "scientific_name",
+   "fieldtype": "Data",
+   "label": "Scientific Name"
+  },
+  {
+   "fieldname": "section_break_gtrb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pest_category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Pest Categories"
+  },
+  {
+   "fieldname": "tab_damaged_crops",
+   "fieldtype": "Table",
+   "label": "Damaged Crops",
+   "options": "Damaged Crops"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-05 10:25:02.297474",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Pest",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

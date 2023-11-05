@@ -14,5 +14,9 @@
             "username": "_264ae153d987ad0c",
             "password": "G6VRd0XsgEkST3nO"
         }
-    ]
+    ],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8",
+        "editor.formatOnSave": true
+    }
 }

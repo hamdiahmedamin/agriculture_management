@@ -26,7 +26,7 @@ frappe.ui.form.on('Weather', {
 					doc: frm.doc,
 					args: {},
 					freeze: true,
-					freeze_message: __('Loading Weather Data.'),
+					freeze_message: __('Fetching Weather Data.'),
 					callback: function(r) {
 						frappe.show_alert({
 							message:__('Weather Data Loaded.'),
