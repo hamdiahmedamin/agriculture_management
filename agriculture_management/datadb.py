@@ -103,3 +103,9 @@ analysiscriterias = [
         {"title":"Insolation/ PAR (Photosynthetically Active Radiation)","standard":1,"linked_doctype":"Weather"},
         {"title":"Degree Days","standard":1,"linked_doctype":"Weather"},    
     ]
+pestcategories = [
+    {"pest_category_name":"Vertebrate","is_group":1,"parent_pest_categories":"Pest Categories Group"},
+    {"pest_category_name":"Invertebrate","is_group":1,"parent_pest_categories":"Pest Categories Group"},
+    {"pest_category_name":"Weeds","is_group":1,"parent_pest_categories":"Pest Categories Group"},
+    {"pest_category_name":"Diseases","is_group":1,"parent_pest_categories":"Pest Categories Group"},
+    ]

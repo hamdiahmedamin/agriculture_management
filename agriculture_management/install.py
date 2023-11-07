@@ -15,6 +15,7 @@ def after_install():
 def after_sync():
 	create_agriculture_roles()
 	add_crop_category()
+	add_pest_categories()
 	# set_default_certificate_print_format()
 	add_all_roles_to("Administrator")
 
@@ -51,6 +52,24 @@ def add_crop_category():
             category.name = cropcategory.get(_("category_name"))
             category.category_name = cropcategory.get(_("category_name"))
             category.category_description = cropcategory.get(_("category_description"))
+            category.save()
+def add_pest_categories():
+    frappe.get_doc(
+				{
+					"doctype": "Pest Categories",
+					"pest_category_name":"Pest Categories Group",
+					"is_group": 1,
+					"is_main": 1,
+					"parent_pest_categories":"",
+				}
+			).save()
+    for pestcategory in datadb.pestcategories:
+        if not frappe.get_value("Pest Categories", pestcategory.get("pest_category_name")):
+            category = frappe.new_doc("Pest Categories")
+            category.name = pestcategory.get(_("pest_category_name"))
+            category.is_group = pestcategory.get("is_group")
+            category.pest_category_name = pestcategory.get(_("pest_category_name"))
+            category.parent_pest_categories = pestcategory.get(_("parent_pest_categories"))
             category.save()
             
 def add_agriculture_analysis_criteria():    

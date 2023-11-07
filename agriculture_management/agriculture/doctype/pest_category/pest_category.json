@@ -2,38 +2,21 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "field:pest_category_name",
- "creation": "2023-11-05 09:41:27.718713",
+ "creation": "2023-11-06 14:58:32.094269",
  "default_view": "List",
  "doctype": "DocType",
+ "document_type": "Setup",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "pest_category_name",
-  "description",
-  "tab_2_tab",
+  "parent_pest_category",
   "lft",
   "rgt",
   "is_group",
-  "old_parent",
-  "parent_pest_categories"
+  "old_parent"
  ],
  "fields": [
-  {
-   "fieldname": "pest_category_name",
-   "fieldtype": "Data",
-   "label": "Name",
-   "unique": 1
-  },
-  {
-   "fieldname": "description",
-   "fieldtype": "Text",
-   "label": "Description"
-  },
-  {
-   "fieldname": "tab_2_tab",
-   "fieldtype": "Tab Break",
-   "label": "Tab 2"
-  },
   {
    "fieldname": "lft",
    "fieldtype": "Int",
@@ -51,6 +34,7 @@
    "read_only": 1
   },
   {
+   "default": "0",
    "fieldname": "is_group",
    "fieldtype": "Check",
    "label": "Is Group"
@@ -59,25 +43,33 @@
    "fieldname": "old_parent",
    "fieldtype": "Link",
    "label": "Old Parent",
-   "options": "Pest Categories"
+   "options": "Pest Category"
   },
   {
-   "fieldname": "parent_pest_categories",
+   "fieldname": "parent_pest_category",
    "fieldtype": "Link",
    "ignore_user_permissions": 1,
-   "label": "Parent Pest Categories",
-   "options": "Pest Categories"
+   "label": "Parent Pest Category",
+   "options": "Pest Category"
+  },
+  {
+   "fieldname": "pest_category_name",
+   "fieldtype": "Data",
+   "label": "Pest Category Name",
+   "unique": 1
   }
  ],
+ "icon": "fa fa-sitemap",
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2023-11-08 00:16:51.468114",
+ "max_attachments": 3,
+ "modified": "2023-11-06 15:04:27.497572",
  "modified_by": "Administrator",
  "module": "Agriculture",
- "name": "Pest Categories",
+ "name": "Pest Category",
  "naming_rule": "By fieldname",
- "nsm_parent_field": "parent_pest_categories",
+ "nsm_parent_field": "parent_pest_category",
  "owner": "Administrator",
  "permissions": [
   {
@@ -88,11 +80,22 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Agriculture Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture User",
+   "share": 1
   }
  ],
+ "search_fields": "parent_pest_category",
+ "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
