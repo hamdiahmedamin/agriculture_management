@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-11 17:30:48.385887",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "filtration_system_section",
+  "filtration_name",
+  "filtration_water_source",
+  "column_break_kkfu",
+  "filtration_system_type",
+  "recommended_replacement_interval",
+  "filter_replacement_schedule_section",
+  "tab_filter_replacement_schedule"
+ ],
+ "fields": [
+  {
+   "fieldname": "filtration_system_section",
+   "fieldtype": "Section Break",
+   "label": "Filtration System"
+  },
+  {
+   "fieldname": "filtration_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "filtration_water_source",
+   "fieldtype": "Link",
+   "label": "Water Source",
+   "options": "Water Source"
+  },
+  {
+   "fieldname": "column_break_kkfu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "filtration_system_type",
+   "fieldtype": "Link",
+   "label": "Filtration System Type",
+   "options": "Filtration System Type"
+  },
+  {
+   "fieldname": "recommended_replacement_interval",
+   "fieldtype": "Select",
+   "label": "Recommended Replacement Interval",
+   "options": "\nWeekly\nBi-weekly\nMonthly\nBi-monthly\nQuarterly\nBi-annually\nAnnually\nOther (Specify)"
+  },
+  {
+   "fieldname": "filter_replacement_schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Filter Replacement Schedule"
+  },
+  {
+   "fieldname": "tab_filter_replacement_schedule",
+   "fieldtype": "Table",
+   "label": "Schedule",
+   "options": "Filter Replacement Schedule"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-11 23:25:03.972195",
+ "modified_by": "Administrator",
+ "module": "Hydroponic",
+ "name": "Filtration System",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

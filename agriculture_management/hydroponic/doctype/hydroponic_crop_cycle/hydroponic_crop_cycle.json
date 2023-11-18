@@ -1,0 +1,180 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-11 23:48:32.556464",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "crop_name",
+  "column_break_pswo",
+  "linked_locations",
+  "section_break_ueco",
+  "cycle_type",
+  "column_break_hqfa",
+  "total_duration",
+  "number_of_harvests",
+  "section_break_bnso",
+  "crop_cycle_project",
+  "column_break_vqbh",
+  "start_date",
+  "end_date",
+  "section_break_hxgs",
+  "lines_number",
+  "crop_spacing",
+  "crop_spacing_uom",
+  "column_break_tpat",
+  "rows_number",
+  "row_spacing",
+  "row_spacing_uom",
+  "detected_pests_and_diseases_section",
+  "multi_select"
+ ],
+ "fields": [
+  {
+   "fieldname": "crop_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Crop",
+   "options": "Crop",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_pswo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "linked_locations",
+   "fieldtype": "Table",
+   "label": "Linked Locations",
+   "options": "Linked Location"
+  },
+  {
+   "fieldname": "section_break_hxgs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "The minimum length between each plant in the field for optimum growth",
+   "fieldname": "crop_spacing",
+   "fieldtype": "Float",
+   "label": "Crop Spacing"
+  },
+  {
+   "fieldname": "crop_spacing_uom",
+   "fieldtype": "Link",
+   "label": "Crop Spacing UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "column_break_tpat",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "The minimum distance between rows of plants for optimum growth",
+   "fieldname": "row_spacing",
+   "fieldtype": "Float",
+   "label": "Row Spacing"
+  },
+  {
+   "fieldname": "row_spacing_uom",
+   "fieldtype": "Link",
+   "label": "Row Spacing UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "section_break_bnso",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "crop_cycle_project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "description": "This will be day 1 of the crop cycle",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "lines_number",
+   "fieldtype": "Float",
+   "label": "Number of lines"
+  },
+  {
+   "fieldname": "rows_number",
+   "fieldtype": "Float",
+   "label": "Number of rows"
+  },
+  {
+   "fieldname": "column_break_vqbh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "section_break_ueco",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "cycle_type",
+   "fieldtype": "Select",
+   "label": "Cycle Type",
+   "options": "\nContinuous\nSuccessive\nSeasonal"
+  },
+  {
+   "description": "Enter the planned number of harvests in this cycle",
+   "fieldname": "number_of_harvests",
+   "fieldtype": "Int",
+   "label": "Number of Harvests"
+  },
+  {
+   "fieldname": "column_break_hqfa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Enter the total duration of the crop cycle",
+   "fieldname": "total_duration",
+   "fieldtype": "Int",
+   "label": "Total Duration"
+  },
+  {
+   "fieldname": "detected_pests_and_diseases_section",
+   "fieldtype": "Section Break",
+   "label": "Detected Pests and Diseases"
+  },
+  {
+   "fieldname": "multi_select",
+   "fieldtype": "Table MultiSelect",
+   "label": "multi",
+   "options": "Detected Disease"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-12 00:52:52.744298",
+ "modified_by": "Administrator",
+ "module": "Hydroponic",
+ "name": "Hydroponic Crop Cycle",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

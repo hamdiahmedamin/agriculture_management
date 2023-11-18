@@ -1,0 +1,43 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-11 15:30:26.528968",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "filter_location",
+  "last_replacement_date",
+  "next_replacement_due_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "filter_location",
+   "fieldtype": "Link",
+   "label": "Filter Location",
+   "options": "Filtre Location Component"
+  },
+  {
+   "fieldname": "last_replacement_date",
+   "fieldtype": "Date",
+   "label": "Date of Last Replacement"
+  },
+  {
+   "fieldname": "next_replacement_due_date",
+   "fieldtype": "Date",
+   "label": "Next Replacement Due Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-11-11 15:55:53.588505",
+ "modified_by": "Administrator",
+ "module": "Hydroponic",
+ "name": "Filter Location Replaced",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

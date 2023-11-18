@@ -1,0 +1,104 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-10 22:52:09.793940",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "water_source_name",
+  "water_source_type",
+  "column_break_ypsh",
+  "water_source_location",
+  "section_break_tprb",
+  "water_ph",
+  "column_break_iffb",
+  "water_ec_level",
+  "water_ec_uom",
+  "section_break_teyi",
+  "additional_note"
+ ],
+ "fields": [
+  {
+   "fieldname": "water_source_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Water Source Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "water_source_location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "column_break_ypsh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_tprb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "water_ph",
+   "fieldtype": "Data",
+   "label": "Water pH"
+  },
+  {
+   "fieldname": "column_break_iffb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "water_ec_level",
+   "fieldtype": "Data",
+   "label": "EC Level"
+  },
+  {
+   "fieldname": "water_ec_uom",
+   "fieldtype": "Link",
+   "label": "Water EC UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "section_break_teyi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "additional_note",
+   "fieldtype": "Text",
+   "label": "Additional Note",
+   "translatable": 1
+  },
+  {
+   "fieldname": "water_source_type",
+   "fieldtype": "Select",
+   "label": "Source Type",
+   "options": "\nTap Water\nWell Water\nRainwater\nReverse Osmosis (RO) Water\nOther",
+   "translatable": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-11 17:52:12.075466",
+ "modified_by": "Administrator",
+ "module": "Hydroponic",
+ "name": "Water Source",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
