@@ -3,7 +3,7 @@
 
 frappe.ui.form.on('Soil Analysis', {
 	onload: (frm) => {
-		if (frm.doc.soil_analysis_criteria == undefined) frm.call('load_contents');
+		if (frm.doc.soil_analysis_criteria.length == 0) frm.call('load_contents');
 	},
 	refresh: (frm) => {
 		let map_tools = ["a.leaflet-draw-draw-polyline",

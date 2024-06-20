@@ -14,7 +14,7 @@ frappe.ui.form.on('Soil Texture', {
 		map_tools.forEach((element) => $(element).hide());
 	},
 	onload: function(frm) {
-		if (frm.doc.soil_texture_criteria == undefined) frm.call('load_contents');
+		if (frm.doc.soil_texture_criteria.length == 0) frm.call('load_contents');
 		if (frm.doc.ternary_plot) return;
 		frm.doc.ternary_plot = new agriculture.TernaryPlot({
 			parent: frm.get_field("ternary_plot").$wrapper,

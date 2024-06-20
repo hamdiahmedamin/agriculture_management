@@ -6,11 +6,8 @@ frappe.ui.form.on('Weather', {
 		frm.call('load_contents');
 	},*/
 	onload: (frm) => {
-		if (frm.doc.weather_parameter == undefined) {
-			frm.call('load_contents');
-			console.log(true);
-		}
-		console.log(false);
+		if (frm.doc.weather_parameter.length == 0) 
+			frm.call('load_contents');		
 	},
 	
 	refresh: function (frm) {

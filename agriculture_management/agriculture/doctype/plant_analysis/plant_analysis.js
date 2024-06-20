@@ -3,7 +3,7 @@
 
 frappe.ui.form.on('Plant Analysis', {
 	onload: (frm) => {
-		if (frm.doc.plant_analysis_criteria == undefined) frm.call('load_contents');
+		if (frm.doc.plant_analysis_criteria.length == 0) frm.call('load_contents');
 	},
 	refresh: (frm) => {
 		let map_tools = ["a.leaflet-draw-draw-polyline",

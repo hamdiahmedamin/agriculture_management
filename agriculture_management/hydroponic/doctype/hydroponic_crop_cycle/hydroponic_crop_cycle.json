@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "AG-HCC-.YYYY.-.#####",
  "creation": "2023-11-11 23:48:32.556464",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -22,12 +23,19 @@
   "lines_number",
   "crop_spacing",
   "crop_spacing_uom",
+  "plant_per_line",
   "column_break_tpat",
   "rows_number",
   "row_spacing",
   "row_spacing_uom",
+  "total_plants",
+  "linked_analysis_tab",
+  "soil_texture",
+  "soil_analysis",
+  "plant_analysis",
+  "pestsdiseases_tab",
   "detected_pests_and_diseases_section",
-  "multi_select"
+  "pests_incidents"
  ],
  "fields": [
   {
@@ -147,18 +155,60 @@
    "label": "Detected Pests and Diseases"
   },
   {
-   "fieldname": "multi_select",
-   "fieldtype": "Table MultiSelect",
-   "label": "multi",
-   "options": "Detected Disease"
+   "fieldname": "plant_per_line",
+   "fieldtype": "Float",
+   "label": "Plant Per Line"
+  },
+  {
+   "fieldname": "total_plants",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Total Plants",
+   "print_hide_if_no_value": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "pestsdiseases_tab",
+   "fieldtype": "Tab Break",
+   "label": "Pests/Diseases"
+  },
+  {
+   "fieldname": "linked_analysis_tab",
+   "fieldtype": "Tab Break",
+   "label": "LInked Analysis"
+  },
+  {
+   "fieldname": "soil_texture",
+   "fieldtype": "Table",
+   "label": "Soil Texture",
+   "options": "Linked Soil Texture"
+  },
+  {
+   "fieldname": "soil_analysis",
+   "fieldtype": "Table",
+   "label": "Soil Analysis",
+   "options": "Linked Soil Analysis"
+  },
+  {
+   "fieldname": "plant_analysis",
+   "fieldtype": "Table",
+   "label": "Plant Analysis",
+   "options": "Linked Plant Analysis"
+  },
+  {
+   "fieldname": "pests_incidents",
+   "fieldtype": "Table",
+   "label": "Pests Incidents",
+   "options": "PestsIncidents"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-12 00:52:52.744298",
+ "modified": "2024-06-19 17:28:06.086283",
  "modified_by": "Administrator",
- "module": "Hydroponic",
+ "module": "hydroponic",
  "name": "Hydroponic Crop Cycle",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
