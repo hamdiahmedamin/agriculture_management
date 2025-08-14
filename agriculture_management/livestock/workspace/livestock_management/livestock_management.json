@@ -1,0 +1,37 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"I_H2Q3SUD-\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Livestock Management</span>\",\"col\":12}},{\"id\":\"iH0yj16Jz9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Livestock Dashboard\",\"col\":3}}]",
+ "creation": "2025-08-06 02:33:26.122597",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "agriculture",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Livestock Management",
+ "links": [],
+ "modified": "2025-08-06 02:36:36.877003",
+ "modified_by": "Administrator",
+ "module": "livestock",
+ "name": "Livestock Management",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Agriculture",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 28.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Livestock Dashboard",
+   "link_to": "Livestock Dashboard",
+   "type": "Dashboard"
+  }
+ ],
+ "title": "Livestock Management"
+}

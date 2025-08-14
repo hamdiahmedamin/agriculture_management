@@ -1,0 +1,120 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:TREAT-{livestock}-{YYYY}-{#####}",
+ "creation": "2025-08-05 16:52:36.302790",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "livestock",
+  "disease",
+  "date_of_treatment",
+  "veterinarian",
+  "medications_administered",
+  "milk_withdrawal_period",
+  "meat_withdrawal_period",
+  "withdrawal_end_date",
+  "status",
+  "section_break_os73",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_os73",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Treatment Record",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "livestock",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Livestock",
+   "options": "Livestock",
+   "reqd": 1
+  },
+  {
+   "fieldname": "disease",
+   "fieldtype": "Link",
+   "label": "Disease",
+   "options": "Livestock Disease"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date_of_treatment",
+   "fieldtype": "Date",
+   "label": "Date of Treatment"
+  },
+  {
+   "fieldname": "veterinarian",
+   "fieldtype": "Link",
+   "label": "Veterinarian",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "medications_administered",
+   "fieldtype": "Table",
+   "label": "Medications Administered",
+   "options": "Medications Administered"
+  },
+  {
+   "fieldname": "milk_withdrawal_period",
+   "fieldtype": "Int",
+   "label": "Milk Withdrawal Period"
+  },
+  {
+   "fieldname": "meat_withdrawal_period",
+   "fieldtype": "Int",
+   "label": "Meat Withdrawal Period"
+  },
+  {
+   "fieldname": "withdrawal_end_date",
+   "fieldtype": "Date",
+   "label": "Withdrawal End Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Planned\nWithdrawal Period Active\nCompleted"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-05 19:29:23.553307",
+ "modified_by": "Administrator",
+ "module": "livestock",
+ "name": "Treatment Record",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

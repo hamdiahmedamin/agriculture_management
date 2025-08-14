@@ -1,0 +1,241 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-08-02 02:07:58.380465",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "status",
+  "column_break_bmhs",
+  "naming_series",
+  "harvest_context_section",
+  "company",
+  "crop_cycle",
+  "column_break_zpwp",
+  "harvested_by",
+  "section_break_yalq",
+  "harvested_items",
+  "quantitative_yield_section",
+  "total_weight_gross",
+  "weight_uom",
+  "quality_grade",
+  "column_break_oefl",
+  "waste_weight",
+  "reason_for_waste",
+  "section_break_ovwr",
+  "harvest_notes",
+  "section_break_lqcx",
+  "target_warehouse",
+  "generated_stock_entry",
+  "yield_per_plant_site",
+  "column_break_gefv",
+  "waste_percentage",
+  "days_to_harvest",
+  "valuation_at_harvest",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending Stock Entry\nCompleted",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_bmhs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "HARV-.YYYY.-.MM.-"
+  },
+  {
+   "fieldname": "harvest_context_section",
+   "fieldtype": "Section Break",
+   "label": "Harvest Context"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "remember_last_selected_value": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "crop_cycle",
+   "fieldtype": "Link",
+   "label": "Crop Cycle",
+   "options": "Crop Cycle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_zpwp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "harvested_by",
+   "fieldtype": "Link",
+   "label": "Harvested By",
+   "options": "User"
+  },
+  {
+   "fieldname": "section_break_yalq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "harvested_items",
+   "fieldtype": "Table",
+   "label": "Harvested Items ",
+   "options": "Harvest Log Item"
+  },
+  {
+   "fieldname": "quantitative_yield_section",
+   "fieldtype": "Section Break",
+   "label": "Quantitative Yield"
+  },
+  {
+   "fieldname": "total_weight_gross",
+   "fieldtype": "Float",
+   "label": "Total Weight (Gross)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "weight_uom",
+   "fieldtype": "Link",
+   "label": "Weight UoM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "quality_grade",
+   "fieldtype": "Select",
+   "label": "Quality Grade\t",
+   "options": "Premium\nGrade A\nGrade B\nProcessing Grade\nTotal Loss"
+  },
+  {
+   "fieldname": "column_break_oefl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "waste_weight",
+   "fieldtype": "Float",
+   "label": "Waste Weight"
+  },
+  {
+   "fieldname": "reason_for_waste",
+   "fieldtype": "Select",
+   "label": "Reason for Waste",
+   "options": "Pest Damage\nDisease\nUnderdeveloped\nPhysical Damage\nBolted"
+  },
+  {
+   "fieldname": "section_break_ovwr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "harvest_notes",
+   "fieldtype": "Text",
+   "label": "Harvest Notes"
+  },
+  {
+   "fieldname": "section_break_lqcx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "generated_stock_entry",
+   "fieldtype": "Link",
+   "label": "Generated Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "yield_per_plant_site",
+   "fieldtype": "Float",
+   "label": "Yield per Plant Site",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_gefv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "fieldname": "waste_percentage",
+   "fieldtype": "Float",
+   "label": "Waste Percentage",
+   "read_only": 1
+  },
+  {
+   "fieldname": "days_to_harvest",
+   "fieldtype": "Int",
+   "label": "Days to Harvest",
+   "read_only": 1
+  },
+  {
+   "fieldname": "valuation_at_harvest",
+   "fieldtype": "Currency",
+   "label": "Valuation at Harvest",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Harvest Log",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-09 12:46:06.613751",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Harvest Log",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

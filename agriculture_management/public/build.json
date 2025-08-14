@@ -1,0 +1,5 @@
+{
+    "js/genealogy-chart.js": [
+        "public/js/genealogy_chart/genealogy_chart.js"
+    ]
+}

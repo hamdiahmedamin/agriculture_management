@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-04 19:22:50.359979",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "animal",
+  "transaction_type",
+  "date",
+  "notes",
+  "related_document_type",
+  "related_document_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "animal",
+   "fieldtype": "Link",
+   "label": "Animal",
+   "options": "Livestock"
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "label": "Transaction Type",
+   "options": "Feeding\nHealth Check\nWeight Measurement\nMovement\nShearing\nMilking"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "related_document_type",
+   "fieldtype": "Select",
+   "label": "Related Document Type"
+  },
+  {
+   "fieldname": "related_document_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Related Document Name",
+   "options": "related_document_type"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-04 19:29:35.914253",
+ "modified_by": "Administrator",
+ "module": "livestock",
+ "name": "Livestock Transaction",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

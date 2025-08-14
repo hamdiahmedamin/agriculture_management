@@ -1,0 +1,110 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-08-04 23:49:03.390503",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "livestock_group",
+  "date",
+  "status",
+  "column_break_kxao",
+  "feed_formulation",
+  "quantity_to_feed",
+  "quantity_to_feed_uom",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "livestock_group",
+   "fieldtype": "Link",
+   "label": "Livestock Group",
+   "options": "Livestock Group"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "feed_formulation",
+   "fieldtype": "Link",
+   "label": "Feed Formulation",
+   "options": "Feed Formulation"
+  },
+  {
+   "fieldname": "quantity_to_feed",
+   "fieldtype": "Float",
+   "label": "Quantity to Feed"
+  },
+  {
+   "fieldname": "quantity_to_feed_uom",
+   "fieldtype": "Link",
+   "label": "Quantity to Feed UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Planned\nCompleted\nSkipped"
+  },
+  {
+   "fieldname": "column_break_kxao",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Feeding Schedule",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "FS-.YYYY.-.MM.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "no_copy": 1,
+   "options": "FS-.YYYY.-\nFS-.YYYY.-.MM.-",
+   "reqd": 1,
+   "set_only_once": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-05 00:13:44.570403",
+ "modified_by": "Administrator",
+ "module": "livestock",
+ "name": "Feeding Schedule",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

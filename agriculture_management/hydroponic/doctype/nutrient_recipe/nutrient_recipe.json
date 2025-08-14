@@ -1,0 +1,217 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-08-01 17:02:10.336916",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "status",
+  "column_break_wxhr",
+  "naming_series",
+  "recipe_identity_section",
+  "version",
+  "source_water_profile",
+  "column_break_rhwx",
+  "target_crop",
+  "growth_stage",
+  "target_chemistry_section",
+  "target_ph",
+  "acceptable_ph_range",
+  "column_break_adtc",
+  "target_ec",
+  "ec_unit",
+  "section_break_tedr",
+  "ingredients",
+  "stock_solution_mixing_instructions_section",
+  "markdown_editor_lplz",
+  "markdown_editor_zkvn",
+  "final_reservoir_dosing_section",
+  "dosing_instructions",
+  "section_break_ilmv",
+  "related_bom",
+  "cost_per_1000l",
+  "average_yield"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nActive\nArchived"
+  },
+  {
+   "fieldname": "recipe_identity_section",
+   "fieldtype": "Section Break",
+   "label": "Recipe Identity"
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Version"
+  },
+  {
+   "fieldname": "target_crop",
+   "fieldtype": "Link",
+   "label": "Target Crop",
+   "options": "Crop"
+  },
+  {
+   "fieldname": "growth_stage",
+   "fieldtype": "Select",
+   "label": "Growth Stage",
+   "options": "Germination\nSeedling\nVegetative\nFlowering\nFruiting"
+  },
+  {
+   "fieldname": "source_water_profile",
+   "fieldtype": "Link",
+   "label": "Source Water Profile",
+   "options": "Water Source"
+  },
+  {
+   "fieldname": "column_break_rhwx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_chemistry_section",
+   "fieldtype": "Section Break",
+   "label": "Target Chemistry"
+  },
+  {
+   "fieldname": "target_ph",
+   "fieldtype": "Float",
+   "label": "Target pH"
+  },
+  {
+   "fieldname": "acceptable_ph_range",
+   "fieldtype": "Data",
+   "label": "Acceptable pH Range"
+  },
+  {
+   "fieldname": "column_break_adtc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_ec",
+   "fieldtype": "Float",
+   "label": "Target EC"
+  },
+  {
+   "fieldname": "ec_unit",
+   "fieldtype": "Link",
+   "label": "EC Unit",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "section_break_tedr",
+   "fieldtype": "Section Break",
+   "label": "Ingredients"
+  },
+  {
+   "fieldname": "ingredients",
+   "fieldtype": "Table",
+   "options": "Recipe Ingredient"
+  },
+  {
+   "fieldname": "stock_solution_mixing_instructions_section",
+   "fieldtype": "Section Break",
+   "label": "Mixing Procedure & Safety"
+  },
+  {
+   "fieldname": "markdown_editor_lplz",
+   "fieldtype": "Markdown Editor",
+   "label": "Stock Solution Mixing Instructions"
+  },
+  {
+   "fieldname": "markdown_editor_zkvn",
+   "fieldtype": "Markdown Editor",
+   "label": "Safety Notes"
+  },
+  {
+   "fieldname": "final_reservoir_dosing_section",
+   "fieldtype": "Section Break",
+   "label": "Final Reservoir Dosing"
+  },
+  {
+   "fieldname": "dosing_instructions",
+   "fieldtype": "Table",
+   "label": "Dosing Instructions",
+   "options": "Dosing Instruction"
+  },
+  {
+   "fieldname": "section_break_ilmv",
+   "fieldtype": "Section Break",
+   "label": "ERPNext Integration"
+  },
+  {
+   "fieldname": "related_bom",
+   "fieldtype": "Link",
+   "label": "Related BOM",
+   "options": "BOM",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "cost_per_1000l",
+   "fieldtype": "Currency",
+   "label": "Cost per 1000L",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_yield",
+   "fieldtype": "Float",
+   "label": "Average Yield",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_wxhr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "AGR-HNR-.YYYY.-"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-01 23:43:25.199173",
+ "modified_by": "Administrator",
+ "module": "hydroponic",
+ "name": "Nutrient Recipe",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

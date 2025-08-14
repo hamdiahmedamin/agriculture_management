@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-03 13:59:02.291328",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sanitizing_agent",
+  "quantity_used",
+  "uom",
+  "source_warehouse"
+ ],
+ "fields": [
+  {
+   "fieldname": "sanitizing_agent",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sanitizing Agent ",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "quantity_used",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity Used",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "sanitizing_agent.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-04 03:00:11.716037",
+ "modified_by": "Administrator",
+ "module": "hydroponic",
+ "name": "Sanitization Chemical",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

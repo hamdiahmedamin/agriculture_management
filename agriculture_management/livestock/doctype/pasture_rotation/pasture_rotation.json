@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-05 04:28:55.282533",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "pasture",
+  "planned_move_in_date",
+  "planned_days",
+  "actual_move_in_date",
+  "actual_move_out_date",
+  "rest_days"
+ ],
+ "fields": [
+  {
+   "fieldname": "pasture",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Pasture",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "planned_move_in_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Planned Move-in Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "planned_days",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Planned Days",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "actual_move_in_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Actual Move-in Date"
+  },
+  {
+   "fieldname": "actual_move_out_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Actual Move-out Date"
+  },
+  {
+   "fieldname": "rest_days",
+   "fieldtype": "Int",
+   "label": "Rest Days",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-05 04:48:36.755088",
+ "modified_by": "Administrator",
+ "module": "livestock",
+ "name": "Pasture Rotation",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

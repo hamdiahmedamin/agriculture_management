@@ -4,6 +4,22 @@ itemgroups = [
 		{"item_group_name":"Seeds","is_group":0,"parent_item_group":"Agriculture Items Group"},
         {"item_group_name":"By Product","is_group":0,"parent_item_group":"Agriculture Items Group"},
         {"item_group_name":"Produce","is_group":0,"parent_item_group":"Agriculture Items Group"},
+        {"item_group_name": "Livestock", "is_group": 1},
+        {"item_group_name": "Live Animals", "is_group": 0, "parent_item_group": "Livestock"},
+        {"item_group_name": "Animal Products", "is_group": 1, "parent_item_group": "Livestock"},
+        {"item_group_name": "Meat", "is_group": 0, "parent_item_group": "Animal Products"},
+        {"item_group_name": "Milk", "is_group": 0, "parent_item_group": "Animal Products"},
+        {"item_group_name": "Eggs", "is_group": 0, "parent_item_group": "Animal Products"},
+        {"item_group_name": "Wool", "is_group": 0, "parent_item_group": "Animal Products"},
+        {"item_group_name": "Livestock Consumables", "is_group": 1},
+        {"item_group_name": "Animal Feed", "is_group": 1, "parent_item_group": "Livestock Consumables"},
+        {"item_group_name": "Base Feeds", "is_group": 0, "parent_item_group": "Animal Feed"},
+        {"item_group_name": "Forage", "is_group": 0, "parent_item_group": "Animal Feed"},
+        {"item_group_name": "Supplements", "is_group": 0, "parent_item_group": "Animal Feed"},
+        {"item_group_name": "Veterinary Medicine", "is_group": 1, "parent_item_group": "Livestock Consumables"},
+        {"item_group_name": "Vaccines", "is_group": 0, "parent_item_group": "Veterinary Medicine"},
+        {"item_group_name": "Antibiotics", "is_group": 0, "parent_item_group": "Veterinary Medicine"},
+        {"item_group_name": "Dewormers", "is_group": 0, "parent_item_group": "Veterinary Medicine"}
         ]
 
 cropcategories = [

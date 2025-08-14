@@ -1,0 +1,43 @@
+{
+ "cards": [
+  {
+   "card": "Total Active Animals"
+  },
+  {
+   "card": "Animals in Withdrawal"
+  },
+  {
+   "card": "Total Asset Value of Herd"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Animals by Species",
+   "width": "Half"
+  },
+  {
+   "chart": "Monthly Feed Cost",
+   "width": "Half"
+  },
+  {
+   "chart": "Animals by Status",
+   "width": "Half"
+  },
+  {
+   "chart": "Herd Weight Gain Over Time",
+   "width": "Half"
+  }
+ ],
+ "creation": "2025-08-06 00:23:26.397928",
+ "dashboard_name": "Livestock Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2025-08-06 01:20:06.686023",
+ "modified_by": "Administrator",
+ "module": "livestock",
+ "name": "Livestock Dashboard",
+ "owner": "Administrator"
+}

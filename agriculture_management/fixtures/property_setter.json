@@ -1,0 +1,18 @@
+[
+ {
+  "default_value": null,
+  "doc_type": "Quality Inspection",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "reference_type",
+  "is_system_generated": 1,
+  "modified": "2025-08-04 17:23:27.737848",
+  "module": null,
+  "name": "Quality Inspection-reference_type-options",
+  "property": "options",
+  "property_type": "Small Text",
+  "row_name": null,
+  "value": "Purchase Receipt\nPurchase Invoice\nSubcontracting Receipt\nDelivery Note\nSales Invoice\nStock Entry\nJob Card\nHarvest Log"
+ }
+]

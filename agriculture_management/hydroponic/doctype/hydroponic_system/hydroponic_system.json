@@ -1,0 +1,209 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-08-01 03:12:55.129866",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_info_section",
+  "hs_data_name",
+  "hs_select_status",
+  "column_break_jonf",
+  "naming_series",
+  "photo",
+  "section_break_irgk",
+  "hs_link_location",
+  "hs_select_type",
+  "column_break_stfw",
+  "system_manufacturer",
+  "model_number",
+  "system_specs_section",
+  "hs_data_datecommissioned",
+  "system_dimensions_lxwxh",
+  "growing_medium",
+  "channelbed_specs",
+  "column_break_yfwa",
+  "hs_data_waterreservoir",
+  "plant_capacity",
+  "operational_params_section",
+  "lighting_schedule",
+  "default_flow_rate",
+  "flow_rate_unit",
+  "aeration_schedule",
+  "linked_equipment_section",
+  "hs_table_linkedasset"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_info_section",
+   "fieldtype": "Section Break",
+   "label": "General Info"
+  },
+  {
+   "fieldname": "hs_data_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "hs_select_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive\nDecommissioned\nMaintenance"
+  },
+  {
+   "fieldname": "hs_link_location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "system_specs_section",
+   "fieldtype": "Section Break",
+   "label": "System Specs"
+  },
+  {
+   "fieldname": "hs_select_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "NFT\nDWC\nEbb and Flow\nAeroponics"
+  },
+  {
+   "fieldname": "hs_data_datecommissioned",
+   "fieldtype": "Date",
+   "label": "Date Commissioned"
+  },
+  {
+   "fieldname": "column_break_yfwa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hs_data_waterreservoir",
+   "fieldtype": "Link",
+   "label": "Water Reservoir",
+   "options": "Water Reservoir"
+  },
+  {
+   "fieldname": "column_break_jonf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "linked_equipment_section",
+   "fieldtype": "Section Break",
+   "label": "Linked Equipment"
+  },
+  {
+   "fieldname": "hs_table_linkedasset",
+   "fieldtype": "Table",
+   "options": "Linked Asset"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Data",
+   "label": "Naming Series",
+   "options": "AGR-HS-.YYYY.-"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "section_break_irgk",
+   "fieldtype": "Section Break",
+   "label": "Core Details"
+  },
+  {
+   "fieldname": "system_manufacturer",
+   "fieldtype": "Link",
+   "label": "System Manufacturer",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "column_break_stfw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "model_number",
+   "fieldtype": "Data",
+   "label": "Model Number"
+  },
+  {
+   "fieldname": "system_dimensions_lxwxh",
+   "fieldtype": "Data",
+   "label": "System Dimensions (LxWxH)"
+  },
+  {
+   "fieldname": "growing_medium",
+   "fieldtype": "Select",
+   "label": "Growing Medium",
+   "options": "None\nRockwool\nCoco Coir\nPerlite\nClay Pebbles"
+  },
+  {
+   "fieldname": "channelbed_specs",
+   "fieldtype": "Small Text",
+   "label": "Channel/Bed Specs"
+  },
+  {
+   "fieldname": "operational_params_section",
+   "fieldtype": "Section Break",
+   "label": "Operational Params"
+  },
+  {
+   "fieldname": "lighting_schedule",
+   "fieldtype": "Data",
+   "label": "Lighting Schedule"
+  },
+  {
+   "fieldname": "default_flow_rate",
+   "fieldtype": "Float",
+   "label": "Default Flow Rate"
+  },
+  {
+   "fieldname": "flow_rate_unit",
+   "fieldtype": "Link",
+   "label": "Flow Rate Unit",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "aeration_schedule",
+   "fieldtype": "Data",
+   "label": "Aeration Schedule"
+  },
+  {
+   "fieldname": "plant_capacity",
+   "fieldtype": "Float",
+   "label": "Plant Capacity"
+  }
+ ],
+ "grid_page_length": 50,
+ "image_field": "photo",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-02 18:57:12.401674",
+ "modified_by": "Administrator",
+ "module": "hydroponic",
+ "name": "Hydroponic System",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

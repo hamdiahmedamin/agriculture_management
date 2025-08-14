@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-04 23:38:47.994726",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "disease_name",
+  "species_affected",
+  "symptoms",
+  "recommended_treatment",
+  "prevention_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "disease_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Disease Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "species_affected",
+   "fieldtype": "Link",
+   "label": "Species Affected",
+   "options": "Livestock Species"
+  },
+  {
+   "fieldname": "symptoms",
+   "fieldtype": "Text",
+   "label": "Symptoms"
+  },
+  {
+   "fieldname": "recommended_treatment",
+   "fieldtype": "Text",
+   "label": "Recommended Treatment"
+  },
+  {
+   "fieldname": "prevention_notes",
+   "fieldtype": "Text",
+   "label": "Prevention Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-04 23:42:31.492727",
+ "modified_by": "Administrator",
+ "module": "livestock",
+ "name": "Livestock Disease",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-04 23:44:39.584860",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "percentage",
+  "quantity",
+  "quantity_uom"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "percentage",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Percentage"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "in_standard_filter": 1,
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "quantity_uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Quantity UOM",
+   "options": "UOM"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-04 23:48:20.209649",
+ "modified_by": "Administrator",
+ "module": "livestock",
+ "name": "Feed Formulation  Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

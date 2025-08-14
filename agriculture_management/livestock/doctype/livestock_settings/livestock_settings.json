@@ -1,0 +1,134 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-05 01:19:23.088490",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_and_defaults_section",
+  "livestock_naming_series",
+  "default_animal_uom",
+  "column_break_aefe",
+  "default_item_group_for_animals",
+  "default_acquisition_warehouse",
+  "financial_defaults_section",
+  "default_livestock_cost_center",
+  "asset_disposal_expense_account",
+  "column_break_iexz",
+  "default_fixed_asset_account",
+  "default_accumulated_depreciation_account",
+  "automation_and_alerts_section",
+  "default_feed_warehouse",
+  "alert_recipient"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_and_defaults_section",
+   "fieldtype": "Section Break",
+   "label": "Naming and Defaults"
+  },
+  {
+   "fieldname": "livestock_naming_series",
+   "fieldtype": "Select",
+   "label": "Livestock Naming Series",
+   "options": "LVS-.YYYY.-."
+  },
+  {
+   "fieldname": "default_item_group_for_animals",
+   "fieldtype": "Link",
+   "label": "Default Item Group for Animals",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "default_animal_uom",
+   "fieldtype": "Link",
+   "label": "Default Animal UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "default_acquisition_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Acquisition Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "financial_defaults_section",
+   "fieldtype": "Section Break",
+   "label": "Financial Defaults"
+  },
+  {
+   "fieldname": "default_livestock_cost_center",
+   "fieldtype": "Link",
+   "label": "Default Livestock Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "automation_and_alerts_section",
+   "fieldtype": "Section Break",
+   "label": "Automation and Alerts"
+  },
+  {
+   "fieldname": "default_feed_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Feed Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "alert_recipient",
+   "fieldtype": "Link",
+   "label": "Alert Recipient",
+   "options": "User"
+  },
+  {
+   "fieldname": "asset_disposal_expense_account",
+   "fieldtype": "Link",
+   "label": "Asset Disposal Expense Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "default_fixed_asset_account",
+   "fieldtype": "Link",
+   "label": "Default Fixed Asset Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "default_accumulated_depreciation_account",
+   "fieldtype": "Link",
+   "label": "Default Accumulated Depreciation Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "column_break_aefe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_iexz",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-08-05 11:38:16.916187",
+ "modified_by": "Administrator",
+ "module": "livestock",
+ "name": "Livestock Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

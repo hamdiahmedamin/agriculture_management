@@ -1,0 +1,90 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:HERD-SNAP-{livestock_group}-{YYYY}-{#####}",
+ "creation": "2025-08-05 18:00:56.819521",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "livestock_group",
+  "snapshot_date",
+  "total_animals",
+  "average_age",
+  "average_weight",
+  "total_asset_value",
+  "snapshot_animal_list"
+ ],
+ "fields": [
+  {
+   "fieldname": "livestock_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Livestock Group",
+   "options": "Livestock Group",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "snapshot_date",
+   "fieldtype": "Date",
+   "label": "Snapshot Date"
+  },
+  {
+   "fieldname": "total_animals",
+   "fieldtype": "Int",
+   "label": "Total Animals",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_age",
+   "fieldtype": "Float",
+   "label": "Average Age",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_weight",
+   "fieldtype": "Float",
+   "label": "Average Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_asset_value",
+   "fieldtype": "Currency",
+   "label": "Total Asset Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "snapshot_animal_list",
+   "fieldtype": "Table",
+   "label": "Snapshot Animal List",
+   "options": "Snapshot Animal List"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-05 19:36:05.661274",
+ "modified_by": "Administrator",
+ "module": "livestock",
+ "name": "Herd Snapshot",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

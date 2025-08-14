@@ -1,0 +1,117 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:FARM-LOG-{YYYY}-{#####}",
+ "creation": "2025-08-07 19:44:07.448921",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "log_date",
+  "logged_by",
+  "category",
+  "column_break_iugl",
+  "related_landfield_unit",
+  "related_livestock_group",
+  "section_break_rrlr",
+  "observations",
+  "attachments_section",
+  "image",
+  "documents"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "log_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Log Date",
+   "reqd": 1
+  },
+  {
+   "default": "User",
+   "fieldname": "logged_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Logged By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "related_livestock_group",
+   "fieldtype": "Link",
+   "label": "Related Livestock Group",
+   "options": "Livestock Group"
+  },
+  {
+   "fieldname": "observations",
+   "fieldtype": "Text Editor",
+   "label": "Notes",
+   "reqd": 1
+  },
+  {
+   "fieldname": "attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "documents",
+   "fieldtype": "Table",
+   "label": "Documents",
+   "options": "Farm Log Attachment"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "\nGeneral Observation\nCrop Issue\nLivestock\nHealth\nMachinery\nFault\nWeather Event\nSecurity Note",
+   "reqd": 1
+  },
+  {
+   "fieldname": "related_landfield_unit",
+   "fieldtype": "Link",
+   "label": "Related Land/Field Unit",
+   "options": "Location"
+  },
+  {
+   "fieldname": "column_break_iugl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_rrlr",
+   "fieldtype": "Section Break",
+   "label": "Observations"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-07 23:36:19.347117",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Daily Farm Log",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

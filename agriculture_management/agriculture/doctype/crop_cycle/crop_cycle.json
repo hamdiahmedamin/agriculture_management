@@ -1,16 +1,25 @@
 {
  "actions": [],
- "autoname": "field:title",
+ "autoname": "naming_series:",
  "creation": "2017-11-02 03:09:35.449880",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "dashboard_section",
+  "total_expenses",
+  "total_yield_kg",
+  "expense_per_kg",
+  "section_break_uhck",
   "title",
   "crop",
-  "column_break_3",
-  "linked_location",
+  "growth_method",
+  "naming_series",
+  "column_break_sodd",
+  "land_unit",
+  "hydroponic_system",
   "section_break_3",
+  "cost_center",
   "project",
   "column_break_12",
   "start_date",
@@ -25,12 +34,25 @@
   "column_break_11",
   "row_spacing",
   "row_spacing_uom",
+  "hydroponic_cycle_details_section",
+  "number_of_harvests",
+  "total_duration",
+  "column_break_xpvr",
+  "number_of_lines",
+  "plants_per_line",
+  "number_of_rows",
+  "total_plants",
+  "incidents_tab",
   "section_break_14",
   "detected_disease",
+  "analysis_tab",
   "section_break_22",
   "soil_texture",
   "soil_analysis",
-  "plant_analysis"
+  "plant_analysis",
+  "harvest_tab",
+  "harvest_details_section",
+  "harvest_log"
  ],
  "fields": [
   {
@@ -48,18 +70,6 @@
    "label": "Crop",
    "options": "Crop",
    "reqd": 1
-  },
-  {
-   "fieldname": "column_break_3",
-   "fieldtype": "Column Break",
-   "label": "Linked Location"
-  },
-  {
-   "description": "A link to all the Locations in which the Crop is growing",
-   "fieldname": "linked_location",
-   "fieldtype": "Table",
-   "label": "Linked Location",
-   "options": "Linked Location"
   },
   {
    "fieldname": "section_break_3",
@@ -110,7 +120,7 @@
    "fieldname": "cycle_type",
    "fieldtype": "Select",
    "label": "Cycle Type",
-   "options": "Yearly\nLess than a year"
+   "options": "Yearly\nLess than a year\nContinuous\nSuccessive\nSeasonal"
   },
   {
    "fieldname": "section_break_12",
@@ -157,22 +167,23 @@
    "fieldname": "detected_disease",
    "fieldtype": "Table",
    "label": "Detected Disease",
-   "options": "Detected Disease"
+   "options": "Agronomic Incidents"
   },
   {
-   "collapsible": 1,
    "collapsible_depends_on": "eval:false",
    "fieldname": "section_break_22",
    "fieldtype": "Section Break",
    "label": "LInked Analysis"
   },
   {
+   "depends_on": "eval:doc.growth_method=='Soil-Based'",
    "fieldname": "soil_texture",
    "fieldtype": "Table",
    "label": "Soil Texture",
    "options": "Linked Soil Texture"
   },
   {
+   "depends_on": "eval:doc.growth_method=='Soil-Based'",
    "fieldname": "soil_analysis",
    "fieldtype": "Table",
    "label": "Soil Analysis",
@@ -183,14 +194,151 @@
    "fieldtype": "Table",
    "label": "Plant Analysis",
    "options": "Linked Plant Analysis"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "link_filters": "[[\"Cost Center\",\"is_group\",\"=\",0]]",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "incidents_tab",
+   "fieldtype": "Tab Break",
+   "label": "Incidents"
+  },
+  {
+   "fieldname": "analysis_tab",
+   "fieldtype": "Tab Break",
+   "label": "Analysis"
+  },
+  {
+   "fieldname": "column_break_sodd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "dashboard_section",
+   "fieldtype": "Section Break",
+   "label": "Dashboard"
+  },
+  {
+   "fieldname": "total_expenses",
+   "fieldtype": "Currency",
+   "label": "Total Expenses",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_yield_kg",
+   "fieldtype": "Float",
+   "label": "Total Yield (Kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "expense_per_kg",
+   "fieldtype": "Currency",
+   "label": "Expense per Kg",
+   "read_only": 1
+  },
+  {
+   "fieldname": "growth_method",
+   "fieldtype": "Select",
+   "label": "Growth Method",
+   "options": "\nSoil-Based\nHydroponic",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.growth_method=='Soil-Based'",
+   "fieldname": "land_unit",
+   "fieldtype": "Link",
+   "label": "Land Unit",
+   "options": "Location"
+  },
+  {
+   "depends_on": "eval:doc.growth_method=='Hydroponic'",
+   "fieldname": "hydroponic_system",
+   "fieldtype": "Link",
+   "label": "Hydroponic System",
+   "link_filters": "[[\"Asset\",\"asset_category\",\"=\",\"Hydroponic Systems\"]]",
+   "options": "Asset"
+  },
+  {
+   "depends_on": "eval:doc.growth_method=='Hydroponic'",
+   "fieldname": "hydroponic_cycle_details_section",
+   "fieldtype": "Section Break",
+   "label": "Hydroponic Cycle Details"
+  },
+  {
+   "depends_on": "eval:doc.growth_method=='Hydroponic'",
+   "fieldname": "number_of_harvests",
+   "fieldtype": "Int",
+   "label": "Number of Harvests"
+  },
+  {
+   "fieldname": "total_duration",
+   "fieldtype": "Int",
+   "label": "Total Duration (Days)"
+  },
+  {
+   "fieldname": "number_of_lines",
+   "fieldtype": "Int",
+   "label": "Number of Lines"
+  },
+  {
+   "fieldname": "plants_per_line",
+   "fieldtype": "Int",
+   "label": "Plants Per Line"
+  },
+  {
+   "fieldname": "number_of_rows",
+   "fieldtype": "Int",
+   "label": "Number of Rows"
+  },
+  {
+   "fieldname": "total_plants",
+   "fieldtype": "Int",
+   "label": "Total Plants"
+  },
+  {
+   "fieldname": "column_break_xpvr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "no_copy": 1,
+   "options": "CC-.YYYY.-\nHCC-.YYYY.-",
+   "read_only": 1
+  },
+  {
+   "fieldname": "harvest_tab",
+   "fieldtype": "Tab Break",
+   "label": "Harvest"
+  },
+  {
+   "fieldname": "harvest_details_section",
+   "fieldtype": "Section Break",
+   "label": "Harvest Details"
+  },
+  {
+   "fieldname": "harvest_log",
+   "fieldtype": "Table",
+   "label": "Harvest Log",
+   "options": "Crop Cycle Harvest Summary"
+  },
+  {
+   "fieldname": "section_break_uhck",
+   "fieldtype": "Section Break"
   }
  ],
  "links": [],
- "modified": "2023-10-29 17:46:18.557148",
+ "modified": "2025-08-09 13:32:17.689711",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Crop Cycle",
- "naming_rule": "By fieldname",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -216,6 +364,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

@@ -10,6 +10,8 @@ def after_install():
     add_item_group()
     # add_crop_category()
     add_agriculture_analysis_criteria()
+    add_custom_fields_to_time_log()
+    add_custom_fields_for_quality_inspection()
 
 
 def after_sync():
@@ -53,6 +55,7 @@ def add_crop_category():
             category.category_name = cropcategory.get(_("category_name"))
             category.category_description = cropcategory.get(_("category_description"))
             category.save()
+            
 def add_pest_categories():
     frappe.get_doc(
 				{
@@ -112,3 +115,65 @@ def create_agriculture_manager_role():
 			}
 		)
 		role.save()
+
+def add_custom_fields_to_time_log():
+	"""
+	This function adds custom link fields to the 'Timesheet Detail' DocType
+	to connect it to our custom hydroponics workflow.
+	"""
+	# --- Field 1: Link to Hydroponic Crop Cycle ---
+	if not frappe.db.exists("Custom Field", {"dt": "Timesheet Detail", "fieldname": "custom_linked_crop_cycle"}):
+		print("Creating custom field 'custom_linked_crop_cycle' in Timesheet Detail...")
+		
+		# Create a new 'Custom Field' document
+		custom_field = frappe.new_doc("Custom Field")
+		custom_field.dt = "Timesheet Detail"  # The DocType we are modifying
+		custom_field.fieldname = "custom_linked_crop_cycle"
+		custom_field.label = "Linked Hydroponic Crop Cycle"
+		custom_field.fieldtype = "Link"
+		custom_field.options = "Hydroponic Crop Cycle"  # The DocType to link to
+		
+		# This determines where the new field appears on the form.
+		# We'll place it after the 'activity_type' field.
+		custom_field.insert_after = "activity_type"
+		
+		# Save the new Custom Field document
+		custom_field.insert()
+		print("...done.")
+	else:
+		print("'custom_linked_crop_cycle' field already exists in Timesheet Detail.")
+
+	# --- Field 2: Link to Sanitization Log ---
+	if not frappe.db.exists("Custom Field", {"dt": "Timesheet Detail", "fieldname": "custom_linked_sanitization_log"}):
+		print("Creating custom field 'custom_linked_sanitization_log' in Timesheet Detail...")
+		
+		custom_field = frappe.new_doc("Custom Field")
+		custom_field.dt = "Timesheet Detail"
+		custom_field.fieldname = "custom_linked_sanitization_log"
+		custom_field.label = "Linked Sanitization Log"
+		custom_field.fieldtype = "Link"
+		custom_field.options = "Sanitization Log"
+		
+		# Place this field right after the one we just created
+		custom_field.insert_after = "custom_linked_crop_cycle"
+		
+		custom_field.insert()
+		print("...done.")
+	else:
+		print("'custom_linked_sanitization_log' field already exists in Timesheet Detail.")
+	
+	frappe.db.commit()
+      
+def add_custom_fields_for_quality_inspection():
+    # Add a field to Harvest Log to link it back to the Quality Inspection
+    if not frappe.db.exists("Custom Field", {"dt": "Harvest Log", "fieldname": "custom_linked_quality_inspection"}):
+        click.echo("Creating custom field 'custom_linked_quality_inspection' in Harvest Log...")
+        custom_field = frappe.new_doc("Custom Field")
+        custom_field.dt = "Harvest Log"
+        custom_field.fieldname = "custom_linked_quality_inspection"
+        custom_field.label = "Linked Quality Inspection"
+        custom_field.fieldtype = "Link"
+        custom_field.options = "Quality Inspection"
+        custom_field.read_only = 1 # This field will be set by our script
+        custom_field.insert_after = "status"
+        custom_field.insert()

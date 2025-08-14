@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-04 20:04:51.181636",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "mate",
+  "breeding_date",
+  "expected_due_date",
+  "outcome",
+  "offspring"
+ ],
+ "fields": [
+  {
+   "fieldname": "mate",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Mate",
+   "options": "Livestock",
+   "reqd": 1
+  },
+  {
+   "fieldname": "breeding_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Breeding Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expected_due_date",
+   "fieldtype": "Date",
+   "label": "Expected Due Date"
+  },
+  {
+   "fieldname": "outcome",
+   "fieldtype": "Select",
+   "label": "Outcome",
+   "options": "In Progress\nSuccessful\nFailed\nMiscarriage/Aborted"
+  },
+  {
+   "fieldname": "offspring",
+   "fieldtype": "Link",
+   "label": "Offspring",
+   "options": "Livestock"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-04 20:18:22.471550",
+ "modified_by": "Administrator",
+ "module": "livestock",
+ "name": "Breeding History",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

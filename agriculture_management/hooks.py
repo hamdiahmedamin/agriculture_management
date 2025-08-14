@@ -5,7 +5,7 @@ app_description = "Agriculture Management System"
 app_email = "hamdiahmedamin@gmail.com"
 app_license = "mit"
 app_include_icons ="agriculture_management/icons.html"
-
+app_include_css = "/assets/agriculture_management/css/vis-network.css"
 required_apps = ["erpnext"]
 
 # Includes in <head>
@@ -132,7 +132,17 @@ before_uninstall = "agriculture_management.uninstall.before_uninstall"
 #		"on_trash": "method"
 #	}
 # }
-
+doc_events = {
+    "Livestock": {
+        "on_update": "agriculture_management.livestock.api.handle_livestock_status_change"
+    },
+    "Sales Invoice": {
+        "on_submit": "agriculture_management.livestock.api.update_livestock_status_on_sale"
+    },
+    "Stock Entry": {
+        "on_submit": "agriculture_management.livestock.api.sync_livestock_location_on_move"
+    }
+}
 # Scheduled Tasks
 # ---------------
 
@@ -153,6 +163,17 @@ before_uninstall = "agriculture_management.uninstall.before_uninstall"
 #		"agriculture_management.tasks.monthly"
 #	],
 # }
+scheduler_events = {
+    "cron": {
+    "*/5 * * * *": [ # This means "run every 5 minutes"
+        "agriculture_management.livestock.tasks.process_device_logs"
+    ]},
+    "daily": [
+        "agriculture_management.livestock.tasks.check_for_due_health_events",
+		"agriculture_management.livestock.tasks.check_for_pasture_moves",
+        "agriculture_management.livestock.tasks.check_withdrawal_periods"
+    ]
+}
 
 # Testing
 # -------
@@ -215,14 +236,22 @@ before_uninstall = "agriculture_management.uninstall.before_uninstall"
 #		"doctype": "{doctype_4}"
 #	}
 # ]
+# number_card_functions = {
+#     # The key is what the user will see in the Number Card's 'Custom Function' dropdown.
+#     # The value is the full Python path to the function we just wrote.
+#     "Get Total Herd Asset Value": "agriculture_management.livestock.api.get_total_herd_asset_value"
+# }
 
 # Authentication and authorization
 # --------------------------------
-
+fixtures = [
+    "Custom Field",
+    "Property Setter" # <-- ADD THIS
+]
 # auth_hooks = [
 #	"agriculture_management.auth.validate"
 # ]
-
+# fixtures = ["Custom Field"]
 global_search_doctypes = {
 	"Agriculture Management": [
 		{'doctype': 'Weather', 'index': 1},

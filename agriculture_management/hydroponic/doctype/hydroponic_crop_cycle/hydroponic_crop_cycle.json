@@ -199,12 +199,12 @@
    "fieldname": "pests_incidents",
    "fieldtype": "Table",
    "label": "Pests Incidents",
-   "options": "PestsIncidents"
+   "options": "Agronomic Incidents"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-19 17:28:06.086283",
+ "modified": "2025-08-08 05:13:14.244336",
  "modified_by": "Administrator",
  "module": "hydroponic",
  "name": "Hydroponic Crop Cycle",
@@ -224,6 +224,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

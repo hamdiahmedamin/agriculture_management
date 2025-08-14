@@ -1,0 +1,189 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-08-02 00:34:46.053366",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "status",
+  "log_context_section",
+  "hydroponic_system",
+  "crop_cycle",
+  "column_break_sknf",
+  "log_timestamp",
+  "logged_by",
+  "target_vs_actuals_section",
+  "target_ph",
+  "measured_ph",
+  "water_temperature_c",
+  "column_break_dkrs",
+  "target_ec",
+  "measured_ec_mscm",
+  "reservoir_level_",
+  "observations_section",
+  "solution_clarity",
+  "root_health",
+  "general_notes",
+  "actions_taken_section",
+  "corrective_action"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "AGR-HWQ-.YYYY.-"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Normal\nAction Taken\nRequires Follow-up",
+   "reqd": 1
+  },
+  {
+   "fieldname": "log_context_section",
+   "fieldtype": "Section Break",
+   "label": "Log Context"
+  },
+  {
+   "fieldname": "hydroponic_system",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Hydroponic System",
+   "options": "Hydroponic System",
+   "reqd": 1
+  },
+  {
+   "fieldname": "crop_cycle",
+   "fieldtype": "Link",
+   "label": "Crop Cycle",
+   "options": "Hydroponic Crop Cycle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_sknf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "log_timestamp",
+   "fieldtype": "Datetime",
+   "label": "Log Timestamp",
+   "reqd": 1
+  },
+  {
+   "fieldname": "logged_by",
+   "fieldtype": "Link",
+   "label": "Logged By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_vs_actuals_section",
+   "fieldtype": "Section Break",
+   "label": "Target vs. Actuals"
+  },
+  {
+   "bold": 1,
+   "fieldname": "target_ph",
+   "fieldtype": "Data",
+   "label": "Target pH",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dkrs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "measured_ph",
+   "fieldtype": "Float",
+   "label": "Measured pH"
+  },
+  {
+   "bold": 1,
+   "fieldname": "target_ec",
+   "fieldtype": "Data",
+   "label": "Target EC",
+   "read_only": 1
+  },
+  {
+   "fieldname": "measured_ec_mscm",
+   "fieldtype": "Float",
+   "label": "Measured EC (mS/cm)"
+  },
+  {
+   "fieldname": "water_temperature_c",
+   "fieldtype": "Float",
+   "label": "Water Temperature (\u00b0C)"
+  },
+  {
+   "fieldname": "reservoir_level_",
+   "fieldtype": "Percent",
+   "label": "Reservoir Level (%)"
+  },
+  {
+   "fieldname": "observations_section",
+   "fieldtype": "Section Break",
+   "label": "Observations"
+  },
+  {
+   "fieldname": "solution_clarity",
+   "fieldtype": "Select",
+   "label": "Solution Clarity",
+   "options": "Clear\nSlightly Cloudy\nCloudy\nAlgae Present"
+  },
+  {
+   "fieldname": "root_health",
+   "fieldtype": "Select",
+   "label": "Root Health",
+   "options": "White & Healthy\nSlightly Stained\nBrown/Rotting"
+  },
+  {
+   "fieldname": "general_notes",
+   "fieldtype": "Text",
+   "label": "General Notes"
+  },
+  {
+   "fieldname": "actions_taken_section",
+   "fieldtype": "Section Break",
+   "label": "Actions Taken"
+  },
+  {
+   "fieldname": "corrective_action",
+   "fieldtype": "Table",
+   "label": "Corrective Action",
+   "options": "Corrective Action"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-02 01:41:16.584648",
+ "modified_by": "Administrator",
+ "module": "hydroponic",
+ "name": "Water Quality Log",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

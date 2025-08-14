@@ -1,0 +1,147 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-08-03 13:08:35.458164",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "hydroponic_system",
+  "sanitization_date",
+  "column_break_qjpm",
+  "performed_by",
+  "linked_maintenance",
+  "chemicals_consumables",
+  "chemicals_used",
+  "section_break_qpwx",
+  "post_sanitization_check",
+  "notes",
+  "stock_traceability",
+  "generated_stock_entry",
+  "section_break_npbr",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_npbr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sanitization Log",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "SANLOG-.hydroponic_system.-.YYYY.-.MM.-"
+  },
+  {
+   "fieldname": "hydroponic_system",
+   "fieldtype": "Link",
+   "label": "Hydroponic System",
+   "options": "Hydroponic System",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sanitization_date",
+   "fieldtype": "Date",
+   "label": "Sanitization Date"
+  },
+  {
+   "default": "User",
+   "fieldname": "performed_by",
+   "fieldtype": "Link",
+   "label": "Performed By",
+   "options": "User"
+  },
+  {
+   "fieldname": "linked_maintenance",
+   "fieldtype": "Link",
+   "label": "Linked Maintenance",
+   "options": "Asset Maintenance"
+  },
+  {
+   "fieldname": "column_break_qjpm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chemicals_consumables",
+   "fieldtype": "Section Break",
+   "label": "Chemicals & Consumables"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "chemicals_used",
+   "fieldtype": "Table",
+   "label": "Chemicals Used",
+   "options": "Sanitization Chemical"
+  },
+  {
+   "fieldname": "section_break_qpwx",
+   "fieldtype": "Section Break",
+   "label": "Verification"
+  },
+  {
+   "fieldname": "post_sanitization_check",
+   "fieldtype": "Select",
+   "label": "Post-Sanitization Check",
+   "options": "Pass\nFail\nNot Performed"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes / Observations"
+  },
+  {
+   "fieldname": "stock_traceability",
+   "fieldtype": "Section Break",
+   "label": "Stock & Traceability"
+  },
+  {
+   "fieldname": "generated_stock_entry",
+   "fieldtype": "Link",
+   "label": "Generated Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-04 01:14:25.881221",
+ "modified_by": "Administrator",
+ "module": "hydroponic",
+ "name": "Sanitization Log",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

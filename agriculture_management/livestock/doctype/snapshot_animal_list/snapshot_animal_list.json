@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-05 18:04:11.497668",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "livestock",
+  "age_at_snapshot",
+  "weight_at_snapshot",
+  "asset_value_at_snapshot"
+ ],
+ "fields": [
+  {
+   "fieldname": "livestock",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Livestock",
+   "options": "Livestock",
+   "reqd": 1
+  },
+  {
+   "fieldname": "age_at_snapshot",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Age at Snapshot"
+  },
+  {
+   "fieldname": "weight_at_snapshot",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Weight at Snapshot"
+  },
+  {
+   "fieldname": "asset_value_at_snapshot",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Asset Value at Snapshot"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-05 18:05:52.016243",
+ "modified_by": "Administrator",
+ "module": "livestock",
+ "name": "Snapshot Animal List",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
