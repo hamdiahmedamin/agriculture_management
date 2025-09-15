@@ -11,11 +11,10 @@
   "section_break_yghk",
   "pest_name",
   "pest_category",
+  "type",
   "column_break_aszi",
   "scientific_name",
-  "pest_image",
-  "section_break_gtrb",
-  "tab_damaged_crops"
+  "pest_image"
  ],
  "fields": [
   {
@@ -45,25 +44,22 @@
    "label": "Scientific Name"
   },
   {
-   "fieldname": "section_break_gtrb",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "pest_category",
    "fieldtype": "Link",
    "label": "Category",
-   "options": "Pest Categories"
+   "options": "Pest Category"
   },
   {
-   "fieldname": "tab_damaged_crops",
-   "fieldtype": "Table",
-   "label": "Damaged Crops",
-   "options": "Damaged Crops"
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "\nPest\nDisease",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-05 10:25:02.297474",
+ "modified": "2025-08-25 08:51:11.302335",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Pest",

@@ -1,0 +1,527 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:naming_series",
+ "creation": "2025-09-03 02:00:03.284891",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "primary_details_section",
+  "naming_series",
+  "status",
+  "reason_for_culling",
+  "column_break_1",
+  "item",
+  "batch",
+  "image",
+  "flock_details_section",
+  "flock_type",
+  "specie",
+  "strain",
+  "coop",
+  "column_break_2",
+  "hatch_date",
+  "acquisition_date",
+  "age_in_days",
+  "performance_standard",
+  "head_count_section",
+  "initial_head_count",
+  "current_head_count",
+  "sync_head_count_button",
+  "key_metrics_section",
+  "in_withdrawal_until",
+  "livability_rate",
+  "cost_per_bird",
+  "average_body_weight",
+  "column_break_kpi",
+  "total_eggs_collected",
+  "cost_per_dozen_eggs",
+  "fcr",
+  "total_weight_sold_kg",
+  "links_section",
+  "livestock_group",
+  "cost_center",
+  "weight_tracking_tab",
+  "weight_tracking_section",
+  "record_weight_button",
+  "weight_tracking_history",
+  "health_tab",
+  "health_section",
+  "refresh_health_history",
+  "health_history_log",
+  "mortality_section",
+  "refresh_mortality_history",
+  "mortality_history_log",
+  "financials_tab",
+  "financials_stat_section",
+  "refresh_financials",
+  "total_feed_cost",
+  "total_medication_cost",
+  "column_break_financials",
+  "total_revenue",
+  "gross_profit",
+  "financials_sales_section",
+  "refresh_sales_history",
+  "sales_history_log",
+  "feeding_history_tab",
+  "feeding_history_section",
+  "refresh_feeding_history",
+  "feeding_history",
+  "dashboard_tab",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "primary_details_section",
+   "fieldtype": "Section Break",
+   "label": "Primary Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "FLOCK-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "default": "Planning",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Planning\nActive\nIn Withdrawal\nSold\nCulled\nDeceased\nQuarantined\nDisbanded",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.status=='Culled'",
+   "fieldname": "reason_for_culling",
+   "fieldtype": "Small Text",
+   "label": "Reason for Culling"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item (Represents Flock)",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "batch",
+   "fieldtype": "Link",
+   "label": "Linked Batch",
+   "options": "Batch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "flock_details_section",
+   "fieldtype": "Section Break",
+   "label": "Flock Details"
+  },
+  {
+   "fieldname": "flock_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Flock Type",
+   "options": "Broiler\nLayer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "specie",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Species",
+   "options": "Livestock Species",
+   "reqd": 1
+  },
+  {
+   "fieldname": "strain",
+   "fieldtype": "Link",
+   "label": "Strain/Breed",
+   "options": "Livestock Breed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "coop",
+   "fieldtype": "Link",
+   "label": "Coop/Location",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hatch_date",
+   "fieldtype": "Date",
+   "label": "Hatch Date"
+  },
+  {
+   "fieldname": "acquisition_date",
+   "fieldtype": "Date",
+   "label": "Acquisition Date"
+  },
+  {
+   "fieldname": "age_in_days",
+   "fieldtype": "Int",
+   "label": "Age (Days)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "head_count_section",
+   "fieldtype": "Section Break",
+   "label": "Head Count"
+  },
+  {
+   "fieldname": "initial_head_count",
+   "fieldtype": "Int",
+   "label": "Initial Head Count",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "current_head_count",
+   "fieldtype": "Int",
+   "label": "Current Head Count",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sync_head_count_button",
+   "fieldtype": "Button",
+   "label": "Sync Head Count with Batch Stock"
+  },
+  {
+   "fieldname": "key_metrics_section",
+   "fieldtype": "Section Break",
+   "label": "Key Performance Indicators"
+  },
+  {
+   "fieldname": "in_withdrawal_until",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "In Withdrawal Period Until",
+   "read_only": 1
+  },
+  {
+   "fieldname": "livability_rate",
+   "fieldtype": "Percent",
+   "label": "Livability Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost_per_bird",
+   "fieldtype": "Currency",
+   "label": "Cost Per Bird",
+   "read_only": 1
+  },
+  {
+   "fieldname": "average_body_weight",
+   "fieldtype": "Float",
+   "label": "Latest Avg. Weight (Kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kpi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.flock_type=='Layer'",
+   "fieldname": "total_eggs_collected",
+   "fieldtype": "Int",
+   "label": "Total Good Eggs Collected",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.flock_type=='Layer'",
+   "fieldname": "cost_per_dozen_eggs",
+   "fieldtype": "Currency",
+   "label": "Cost Per Dozen Eggs",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.flock_type=='Broiler'",
+   "description": "Total Feed Consumed (kg) / Total Weight Gained (kg). Lower is better.",
+   "fieldname": "fcr",
+   "fieldtype": "Float",
+   "label": "Feed Conversion Ratio (FCR)",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_weight_sold_kg",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Total Weight Sold (kg)",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "links_section",
+   "fieldtype": "Section Break",
+   "label": "ERP Links"
+  },
+  {
+   "fieldname": "livestock_group",
+   "fieldtype": "Link",
+   "label": "Linked Livestock Group",
+   "options": "Livestock Group",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "weight_tracking_tab",
+   "fieldtype": "Tab Break",
+   "label": "Weight Tracking"
+  },
+  {
+   "fieldname": "weight_tracking_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "record_weight_button",
+   "fieldtype": "Button",
+   "label": "Record Weight"
+  },
+  {
+   "fieldname": "weight_tracking_history",
+   "fieldtype": "Table",
+   "label": "Weight Tracking History",
+   "options": "Weight Log"
+  },
+  {
+   "fieldname": "health_tab",
+   "fieldtype": "Tab Break",
+   "label": "Health & Mortality"
+  },
+  {
+   "fieldname": "health_section",
+   "fieldtype": "Section Break",
+   "label": "Health History"
+  },
+  {
+   "fieldname": "refresh_health_history",
+   "fieldtype": "Button",
+   "label": "Refresh Health History"
+  },
+  {
+   "fieldname": "health_history_log",
+   "fieldtype": "Table",
+   "label": "Health History",
+   "options": "Health History Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mortality_section",
+   "fieldtype": "Section Break",
+   "label": "Mortality History"
+  },
+  {
+   "fieldname": "refresh_mortality_history",
+   "fieldtype": "Button",
+   "label": "Refresh Mortality History"
+  },
+  {
+   "fieldname": "mortality_history_log",
+   "fieldtype": "Table",
+   "label": "Mortality History",
+   "options": "Mortality Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "financials_tab",
+   "fieldtype": "Tab Break",
+   "label": "Financials"
+  },
+  {
+   "fieldname": "financials_stat_section",
+   "fieldtype": "Section Break",
+   "label": "Cost & Profit Analysis"
+  },
+  {
+   "fieldname": "refresh_financials",
+   "fieldtype": "Button",
+   "label": "Refresh Financials"
+  },
+  {
+   "fieldname": "total_feed_cost",
+   "fieldtype": "Currency",
+   "label": "Total Feed Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_medication_cost",
+   "fieldtype": "Currency",
+   "label": "Total Health Cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_financials",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_revenue",
+   "fieldtype": "Currency",
+   "label": "Total Sales Revenue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gross_profit",
+   "fieldtype": "Currency",
+   "label": "Gross Profit / Loss",
+   "read_only": 1
+  },
+  {
+   "fieldname": "financials_sales_section",
+   "fieldtype": "Section Break",
+   "label": "Sales History"
+  },
+  {
+   "fieldname": "refresh_sales_history",
+   "fieldtype": "Button",
+   "label": "Refresh Sales History"
+  },
+  {
+   "fieldname": "sales_history_log",
+   "fieldtype": "Table",
+   "label": "Sales History",
+   "options": "Sales Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "feeding_history_tab",
+   "fieldtype": "Tab Break",
+   "label": "Feeding History"
+  },
+  {
+   "fieldname": "feeding_history_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "refresh_feeding_history",
+   "fieldtype": "Button",
+   "label": "Refresh Feeding History"
+  },
+  {
+   "fieldname": "feeding_history",
+   "fieldtype": "Table",
+   "label": "Feeding History",
+   "options": "Feeding History Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dashboard_tab",
+   "fieldtype": "Tab Break",
+   "label": "Dashboard",
+   "show_dashboard": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Poultry Flock",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "description": "Select the breed performance standard for this flock to enable automated calculations.",
+   "fieldname": "performance_standard",
+   "fieldtype": "Link",
+   "label": "Performance Standard",
+   "options": "Performance Standard"
+  }
+ ],
+ "image_field": "image",
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "group": "Health Records",
+   "link_doctype": "Group Treatment",
+   "link_fieldname": "livestock_group"
+  },
+  {
+   "group": "Health Records",
+   "link_doctype": "Group Vaccination",
+   "link_fieldname": "livestock_group"
+  },
+  {
+   "group": "Feeding Records",
+   "link_doctype": "Feeding Schedule",
+   "link_fieldname": "livestock_group"
+  },
+  {
+   "link_doctype": "Delivery Note",
+   "link_fieldname": "custom_livestock_group"
+  }
+ ],
+ "modified": "2025-09-10 14:49:20.191354",
+ "modified_by": "Administrator",
+ "module": "Livestock",
+ "name": "Poultry Flock",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Cyan",
+   "title": "Planning"
+  },
+  {
+   "color": "Yellow",
+   "title": "In Withdrawal"
+  },
+  {
+   "color": "Green",
+   "title": "Active"
+  },
+  {
+   "color": "Blue",
+   "title": "Sold"
+  },
+  {
+   "color": "Purple",
+   "title": "Culled"
+  },
+  {
+   "color": "Red",
+   "title": "Deceased"
+  },
+  {
+   "color": "Orange",
+   "title": "Disbanded"
+  }
+ ]
+}

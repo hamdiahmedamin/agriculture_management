@@ -10,20 +10,28 @@
   "total_expenses",
   "total_yield_kg",
   "expense_per_kg",
+  "column_break_xjcm",
+  "valuation_at_harvest",
+  "days_to_harvest",
+  "waste_percentage",
   "section_break_uhck",
   "title",
   "crop",
   "growth_method",
-  "naming_series",
+  "status",
   "column_break_sodd",
+  "company",
   "land_unit",
   "hydroponic_system",
+  "linked_planting_schedule",
+  "naming_series",
   "section_break_3",
   "cost_center",
   "project",
   "column_break_12",
   "start_date",
   "end_date",
+  "expected_harvest_date",
   "section_break_7",
   "iso_8601_standard",
   "column_break_5",
@@ -36,20 +44,25 @@
   "row_spacing_uom",
   "hydroponic_cycle_details_section",
   "number_of_harvests",
+  "cycle_duration",
   "total_duration",
+  "nutrient_recipe",
   "column_break_xpvr",
   "number_of_lines",
   "plants_per_line",
   "number_of_rows",
   "total_plants",
+  "section_break_ampn",
+  "growing_zones",
   "incidents_tab",
   "section_break_14",
-  "detected_disease",
+  "pest_and_disease_log_list",
   "analysis_tab",
-  "section_break_22",
+  "linked_analysis_section",
   "soil_texture",
   "soil_analysis",
   "plant_analysis",
+  "water_analysis",
   "harvest_tab",
   "harvest_details_section",
   "harvest_log"
@@ -98,9 +111,8 @@
   {
    "fetch_from": "project.expected_end_date",
    "fieldname": "end_date",
-   "fieldtype": "Data",
-   "label": "End Date",
-   "read_only": 1
+   "fieldtype": "Date",
+   "label": "End Date"
   },
   {
    "fieldname": "section_break_7",
@@ -120,20 +132,23 @@
    "fieldname": "cycle_type",
    "fieldtype": "Select",
    "label": "Cycle Type",
-   "options": "Yearly\nLess than a year\nContinuous\nSuccessive\nSeasonal"
+   "options": "\nYearly\nLess than a year\nContinuous\nSuccessive\nSeasonal",
+   "reqd": 1
   },
   {
+   "depends_on": "eval:doc.growth_method=='Soil-Based'",
    "fieldname": "section_break_12",
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.growth_method=='Soil-Based'",
    "description": "The minimum length between each plant in the field for optimum growth",
-   "fetch_from": "crop.crop_spacing",
    "fieldname": "crop_spacing",
    "fieldtype": "Float",
    "label": "Crop Spacing"
   },
   {
+   "depends_on": "eval:doc.growth_method=='Soil-Based'",
    "fieldname": "crop_spacing_uom",
    "fieldtype": "Link",
    "label": "Crop Spacing UOM",
@@ -144,13 +159,14 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.growth_method=='Soil-Based'",
    "description": "The minimum distance between rows of plants for optimum growth",
-   "fetch_from": "crop.row_spacing",
    "fieldname": "row_spacing",
    "fieldtype": "Float",
    "label": "Row Spacing"
   },
   {
+   "depends_on": "eval:doc.growth_method=='Soil-Based'",
    "fieldname": "row_spacing_uom",
    "fieldtype": "Link",
    "label": "Row Spacing UOM",
@@ -162,18 +178,6 @@
    "fieldname": "section_break_14",
    "fieldtype": "Section Break",
    "label": "Detected Diseases"
-  },
-  {
-   "fieldname": "detected_disease",
-   "fieldtype": "Table",
-   "label": "Detected Disease",
-   "options": "Agronomic Incidents"
-  },
-  {
-   "collapsible_depends_on": "eval:false",
-   "fieldname": "section_break_22",
-   "fieldtype": "Section Break",
-   "label": "LInked Analysis"
   },
   {
    "depends_on": "eval:doc.growth_method=='Soil-Based'",
@@ -199,7 +203,6 @@
    "fieldname": "cost_center",
    "fieldtype": "Link",
    "label": "Cost Center",
-   "link_filters": "[[\"Cost Center\",\"is_group\",\"=\",0]]",
    "options": "Cost Center"
   },
   {
@@ -243,6 +246,8 @@
   {
    "fieldname": "growth_method",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Growth Method",
    "options": "\nSoil-Based\nHydroponic",
    "reqd": 1
@@ -251,15 +256,20 @@
    "depends_on": "eval:doc.growth_method=='Soil-Based'",
    "fieldname": "land_unit",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Land Unit",
+   "mandatory_depends_on": "eval:doc.growth_method=='Soil-Based'",
    "options": "Location"
   },
   {
    "depends_on": "eval:doc.growth_method=='Hydroponic'",
    "fieldname": "hydroponic_system",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Hydroponic System",
-   "link_filters": "[[\"Asset\",\"asset_category\",\"=\",\"Hydroponic Systems\"]]",
+   "mandatory_depends_on": "eval:doc.growth_method=='Hydroponic'",
    "options": "Asset"
   },
   {
@@ -272,32 +282,40 @@
    "depends_on": "eval:doc.growth_method=='Hydroponic'",
    "fieldname": "number_of_harvests",
    "fieldtype": "Int",
-   "label": "Number of Harvests"
+   "label": "Number of Harvests",
+   "non_negative": 1
   },
   {
    "fieldname": "total_duration",
    "fieldtype": "Int",
-   "label": "Total Duration (Days)"
+   "label": "Total Duration (Days)",
+   "non_negative": 1,
+   "read_only": 1
   },
   {
    "fieldname": "number_of_lines",
    "fieldtype": "Int",
-   "label": "Number of Lines"
+   "label": "Number of Lines",
+   "non_negative": 1
   },
   {
    "fieldname": "plants_per_line",
    "fieldtype": "Int",
-   "label": "Plants Per Line"
+   "label": "Plants Per Line",
+   "non_negative": 1
   },
   {
    "fieldname": "number_of_rows",
    "fieldtype": "Int",
-   "label": "Number of Rows"
+   "label": "Number of Rows",
+   "non_negative": 1
   },
   {
    "fieldname": "total_plants",
    "fieldtype": "Int",
-   "label": "Total Plants"
+   "label": "Total Plants",
+   "non_negative": 1,
+   "read_only": 1
   },
   {
    "fieldname": "column_break_xpvr",
@@ -326,15 +344,105 @@
    "fieldname": "harvest_log",
    "fieldtype": "Table",
    "label": "Harvest Log",
-   "options": "Crop Cycle Harvest Summary"
+   "options": "Crop Cycle Harvest Summary",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_uhck",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nPlanned\nStarted\nIn-Progress\nCompleted",
+   "reqd": 1
+  },
+  {
+   "fieldname": "linked_planting_schedule",
+   "fieldtype": "Link",
+   "label": "Linked Planting Schedule",
+   "options": "Planting Schedule",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_ampn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.growth_method=='Hydroponic'",
+   "fieldname": "growing_zones",
+   "fieldtype": "Table",
+   "label": "Growing Zones",
+   "options": "Crop Cycle Zone"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pest_and_disease_log_list",
+   "fieldtype": "HTML",
+   "label": "Pest and Disease Logs"
+  },
+  {
+   "fieldname": "water_analysis",
+   "fieldtype": "Table",
+   "label": "Water Analysis",
+   "options": "Linked Water Analysis"
+  },
+  {
+   "depends_on": "eval:doc.growth_method == 'Hydroponic'",
+   "fieldname": "nutrient_recipe",
+   "fieldtype": "Link",
+   "label": "Nutrient Recipe",
+   "options": "Nutrient Recipe"
+  },
+  {
+   "fieldname": "cycle_duration",
+   "fieldtype": "Int",
+   "label": "Cycle Duration (Days)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_xjcm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "valuation_at_harvest",
+   "fieldtype": "Currency",
+   "label": "Total Valuation at Harves",
+   "read_only": 1
+  },
+  {
+   "fieldname": "days_to_harvest",
+   "fieldtype": "Int",
+   "label": "Days to First Harvest",
+   "read_only": 1
+  },
+  {
+   "fieldname": "waste_percentage",
+   "fieldtype": "Percent",
+   "label": "Waste Percentage",
+   "read_only": 1
+  },
+  {
+   "collapsible_depends_on": "eval:false",
+   "fieldname": "linked_analysis_section",
+   "fieldtype": "Section Break",
+   "label": "LInked Analysis"
+  },
+  {
+   "fieldname": "expected_harvest_date",
+   "fieldtype": "Date",
+   "label": "Expected Harvest Date"
   }
  ],
  "links": [],
- "modified": "2025-08-09 13:32:17.689711",
+ "modified": "2025-09-15 06:20:43.370998",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Crop Cycle",
@@ -364,7 +472,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

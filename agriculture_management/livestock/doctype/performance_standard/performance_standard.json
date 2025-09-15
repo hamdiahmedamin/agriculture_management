@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-10 14:32:19.624658",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1"
+ ],
+"autoname": "field:standard_name",
+ "fields": [
+  {
+   "fieldname": "standard_name",
+   "fieldtype": "Data",
+   "label": "Standard Name",
+   "reqd": 1,
+   "unique": 1,
+   "description": "e.g., Ross 308 Broiler Performance Standard"
+  },
+  {
+   "fieldname": "strain_or_breed",
+   "fieldtype": "Link",
+   "label": "Strain or Breed",
+   "options": "Livestock Breed",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "performance_data",
+   "fieldtype": "Table",
+   "label": "Performance Data",
+   "options": "Performance Standard Item",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-10 14:32:19.624658",
+ "modified_by": "Administrator",
+ "module": "Livestock",
+ "name": "Performance Standard",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

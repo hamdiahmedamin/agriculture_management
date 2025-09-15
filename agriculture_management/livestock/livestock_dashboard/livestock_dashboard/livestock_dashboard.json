@@ -26,6 +26,14 @@
   {
    "chart": "Herd Weight Gain Over Time",
    "width": "Half"
+  },
+  {
+   "chart": "Poultry Flock Count",
+   "width": "Half"
+  },
+  {
+   "chart": "Total Daily Egg Production",
+   "width": "Half"
   }
  ],
  "creation": "2025-08-06 00:23:26.397928",
@@ -35,9 +43,9 @@
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "modified": "2025-08-06 01:20:06.686023",
+ "modified": "2025-09-09 14:05:30.272291",
  "modified_by": "Administrator",
- "module": "livestock",
+ "module": "Livestock",
  "name": "Livestock Dashboard",
  "owner": "Administrator"
 }

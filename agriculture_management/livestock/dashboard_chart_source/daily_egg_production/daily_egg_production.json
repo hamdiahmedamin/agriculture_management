@@ -1,0 +1,13 @@
+{
+ "creation": "2025-09-09 14:10:52.756546",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2025-09-09 14:10:52.756546",
+ "modified_by": "Administrator",
+ "module": "Livestock",
+ "name": "Daily Egg Production",
+ "owner": "Administrator",
+ "source_name": "Daily Egg Production",
+ "timeseries": 0
+}

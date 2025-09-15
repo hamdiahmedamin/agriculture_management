@@ -1,0 +1,409 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:animal",
+ "creation": "2025-08-04 19:16:13.037438",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "animal",
+  "animal_name",
+  "status",
+  "in_withdrawal_until",
+  "livestock_image",
+  "column_break_pddf",
+  "species",
+  "breed",
+  "gender",
+  "age",
+  "age_display",
+  "current_weight",
+  "livestock_group",
+  "location_pen",
+  "core_details_section",
+  "date_of_birth",
+  "acquisition_type",
+  "acquisition_date",
+  "health_status",
+  "genealogy_tab",
+  "parents_section",
+  "dam_mother",
+  "sire_father",
+  "offspring_section",
+  "offspring_list",
+  "refresh_offspring_list",
+  "breeding_tab",
+  "breeding_history",
+  "refresh_breeding_history",
+  "feeding_history_tab",
+  "animal_feeding_log",
+  "refresh_feeding_history",
+  "weight_and_health_tab",
+  "weight_history",
+  "health_history",
+  "refresh_health_history",
+  "erp_integration_tab",
+  "asset_section",
+  "is_asset",
+  "asset",
+  "inventory_section",
+  "is_serialized_item",
+  "item_code",
+  "serial_no",
+  "stock_receipt_entry",
+  "genetic_traits_tab",
+  "genetic_traits",
+  "genetic_index",
+  "tab_7_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "animal_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Animal Name"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nSold\nCulled\nDeceased\nQuarantined\nIn Withdrawal"
+  },
+  {
+   "fieldname": "livestock_image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "column_break_pddf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "species",
+   "fieldtype": "Link",
+   "label": "Species",
+   "options": "Livestock Species",
+   "reqd": 1
+  },
+  {
+   "fieldname": "breed",
+   "fieldtype": "Link",
+   "label": "Breed",
+   "options": "Livestock Breed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale",
+   "reqd": 1
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Age (Years)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_weight",
+   "fieldtype": "Float",
+   "label": "Current Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "livestock_group",
+   "fieldtype": "Link",
+   "label": "Livestock Group",
+   "options": "Livestock Group"
+  },
+  {
+   "fieldname": "location_pen",
+   "fieldtype": "Link",
+   "label": "Location / Pen",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "core_details_section",
+   "fieldtype": "Section Break",
+   "label": "Core Details"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "acquisition_type",
+   "fieldtype": "Select",
+   "label": "Acquisition Type",
+   "options": "\nBirth\nPurchase",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.acquisition_type=='Purchase'",
+   "fieldname": "acquisition_date",
+   "fieldtype": "Date",
+   "label": "Acquisition Date"
+  },
+  {
+   "fieldname": "health_status",
+   "fieldtype": "Select",
+   "label": "Health Status",
+   "options": "Healthy\nSick\nUnder Treatment"
+  },
+  {
+   "fieldname": "genealogy_tab",
+   "fieldtype": "Tab Break",
+   "label": "Genealogy"
+  },
+  {
+   "fieldname": "parents_section",
+   "fieldtype": "Section Break",
+   "label": "Parents / Ancestry"
+  },
+  {
+   "fieldname": "dam_mother",
+   "fieldtype": "Link",
+   "label": "Dam (Mother)",
+   "options": "Animal"
+  },
+  {
+   "fieldname": "sire_father",
+   "fieldtype": "Link",
+   "label": "Sire (Father)",
+   "options": "Animal"
+  },
+  {
+   "fieldname": "offspring_section",
+   "fieldtype": "Section Break",
+   "label": "Offspring"
+  },
+  {
+   "fieldname": "offspring_list",
+   "fieldtype": "Table",
+   "label": "Offspring List",
+   "options": "Livestock Offspring",
+   "read_only": 1
+  },
+  {
+   "fieldname": "breeding_tab",
+   "fieldtype": "Tab Break",
+   "label": "Breeding"
+  },
+  {
+   "fieldname": "weight_and_health_tab",
+   "fieldtype": "Tab Break",
+   "label": "Weight & Health"
+  },
+  {
+   "fieldname": "weight_history",
+   "fieldtype": "Table",
+   "label": "Weight History",
+   "options": "Weight History"
+  },
+  {
+   "fieldname": "erp_integration_tab",
+   "fieldtype": "Tab Break",
+   "label": "ERP Integration"
+  },
+  {
+   "fieldname": "asset_section",
+   "fieldtype": "Section Break",
+   "label": "Asset Link"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_asset",
+   "fieldtype": "Check",
+   "label": "Is Asset"
+  },
+  {
+   "depends_on": "eval:doc.is_asset==1",
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "label": "Asset",
+   "mandatory_depends_on": "eval:doc.is_asset==1",
+   "options": "Asset"
+  },
+  {
+   "fieldname": "inventory_section",
+   "fieldtype": "Section Break",
+   "label": "Inventory Link"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_serialized_item",
+   "fieldtype": "Check",
+   "label": "Is Serialized Item"
+  },
+  {
+   "depends_on": "eval:doc.is_serialized_item==1",
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "mandatory_depends_on": "eval:doc.is_serialized_item==1",
+   "options": "Item"
+  },
+  {
+   "depends_on": "eval:doc.is_serialized_item==1",
+   "fieldname": "serial_no",
+   "fieldtype": "Link",
+   "label": "Serial No",
+   "options": "Serial No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "genetic_traits_tab",
+   "fieldtype": "Tab Break",
+   "label": "Genetic Traits"
+  },
+  {
+   "fieldname": "genetic_traits",
+   "fieldtype": "Table",
+   "label": "Genetic Traits",
+   "options": "Livestock Trait"
+  },
+  {
+   "fieldname": "genetic_index",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Genetic Index",
+   "read_only": 1
+  },
+  {
+   "fieldname": "age_display",
+   "fieldtype": "Data",
+   "label": "Age",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stock_receipt_entry",
+   "fieldtype": "Link",
+   "label": "Stock Receipt Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "health_history",
+   "fieldtype": "Table",
+   "label": "Health History",
+   "options": "Health History Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "animal",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Animal ID / Tag ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "tab_7_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab 7",
+   "show_dashboard": 1
+  },
+  {
+   "fieldname": "breeding_history",
+   "fieldtype": "Table",
+   "label": "Breeding History",
+   "options": "Breeding History",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refresh_offspring_list",
+   "fieldtype": "Button",
+   "label": "Refresh Offspring List"
+  },
+  {
+   "fieldname": "refresh_breeding_history",
+   "fieldtype": "Button",
+   "label": "Refresh Breeding History"
+  },
+  {
+   "fieldname": "refresh_health_history",
+   "fieldtype": "Button",
+   "label": "Refresh Health History"
+  },
+  {
+   "fieldname": "in_withdrawal_until",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "In Withdrawal Period Until",
+   "read_only": 1
+  },
+  {
+   "fieldname": "feeding_history_tab",
+   "fieldtype": "Tab Break",
+   "label": "Feeding History"
+  },
+  {
+   "fieldname": "animal_feeding_log",
+   "fieldtype": "Table",
+   "label": "Animal Feeding Log",
+   "options": "Animal Feeding Log",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refresh_feeding_history",
+   "fieldtype": "Button",
+   "label": "Refresh Feeding History"
+  }
+ ],
+ "image_field": "livestock_image",
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Breeding Event",
+   "link_fieldname": "name"
+  },
+  {
+   "link_doctype": "Treatment Record",
+   "link_fieldname": "animal"
+  }
+ ],
+ "modified": "2025-09-11 03:45:08.904785",
+ "modified_by": "Administrator",
+ "module": "Livestock",
+ "name": "Animal",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Red",
+   "title": "Quarantined"
+  },
+  {
+   "color": "Blue",
+   "title": "Sold"
+  },
+  {
+   "color": "Purple",
+   "title": "Deceased"
+  }
+ ]
+}

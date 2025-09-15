@@ -1,12 +1,24 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format: FF-{formulation_name}-{YYYY}-{#####}",
  "creation": "2025-08-04 23:43:46.852027",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "details_section",
   "formulation_name",
-  "table_xogn"
+  "buying_price_list",
+  "column_break_jmog",
+  "date",
+  "feed_type",
+  "species",
+  "section_break_anfo",
+  "description",
+  "ingredients_section",
+  "ingredients",
+  "total_percentage",
+  "total_formulation_cost"
  ],
  "fields": [
   {
@@ -17,18 +29,85 @@
    "reqd": 1
   },
   {
-   "fieldname": "table_xogn",
+   "fieldname": "species",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Target Species",
+   "options": "Livestock Species"
+  },
+  {
+   "fieldname": "feed_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Feed Type",
+   "options": "\nStarter\nGrower\nFinisher\nLayer\nBreeder\nMaintenance"
+  },
+  {
+   "description": "Select the Buying Price List to use for cost calculation.",
+   "fieldname": "buying_price_list",
+   "fieldtype": "Link",
+   "label": "Costing Price List",
+   "options": "Price List",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "ingredients_section",
+   "fieldtype": "Section Break",
+   "label": "Ingredients"
+  },
+  {
+   "fieldname": "ingredients",
    "fieldtype": "Table",
-   "options": "Feed Formulation  Item"
+   "label": "Ingredients",
+   "options": "Feed Formulation Item",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "total_percentage",
+   "fieldtype": "Percent",
+   "label": "Total Percentage",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "total_formulation_cost",
+   "fieldtype": "Currency",
+   "label": "Total Estimated Cost (per Kg)",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "column_break_jmog",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_anfo",
+   "fieldtype": "Section Break"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-04 23:48:32.079201",
+ "modified": "2025-09-10 13:27:53.784499",
  "modified_by": "Administrator",
- "module": "livestock",
+ "module": "Livestock",
  "name": "Feed Formulation",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -44,7 +123,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

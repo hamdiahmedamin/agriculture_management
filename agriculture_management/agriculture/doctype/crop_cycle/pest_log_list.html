@@ -1,0 +1,61 @@
+<!-- pest_log_list.html (Final Corrected Version with correct Jinja2 syntax) -->
+
+<style>
+    .severity-border[data-severity="info"] {
+        border-left: 5px solid var(--bs-info) !important;
+    }
+    .severity-border[data-severity="warning"] {
+        border-left: 5px solid var(--bs-warning) !important;
+    }
+    .severity-border[data-severity="danger"] {
+        border-left: 5px solid var(--bs-danger) !important;
+    }
+    .severity-border[data-severity="secondary"] {
+        border-left: 5px solid var(--bs-secondary) !important;
+    }
+</style>
+
+<div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4>Incidents</h4>
+        <button class="btn btn-primary btn-sm btn-add-log">Add Pest and Disease Log</button>
+    </div>
+
+    {% if logs.length > 0 %}
+        <ul class="list-group">
+            {% for log in logs %}
+                
+                {# --- THIS IS THE CORRECTED JINJA2 LOGIC BLOCK --- #}
+                {%- set severity_color = 'secondary' -%}
+                {%- if log.severity == 'Low' -%}
+                    {%- set severity_color = 'info' -%}
+                {%- elif log.severity == 'Medium' -%}
+                    {%- set severity_color = 'warning' -%}
+                {%- elif log.severity == 'High' or log.severity == 'Critical' -%}
+                    {%- set severity_color = 'danger' -%}
+                {%- endif -%}
+                {# --- END OF CORRECTED LOGIC BLOCK --- #}
+
+                <a href="/app/pest-and-disease-log/{{ log.name }}" 
+                   class="list-group-item list-group-item-action severity-border" 
+                   data-severity="{{ severity_color }}">
+                    
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">{{ log.pest_or_disease }}</h6>
+                        <small>{{ frappe.datetime.str_to_user(log.log_date) }}</small>
+                    </div>
+                    
+                    <p class="mb-1">
+                        Severity: <span class="badge bg-{{ severity_color }}">{{ log.severity }}</span> | Status: {{ log.status }}
+                    </p>
+                    
+                    <small class="text-muted">{{ log.name }}</small>
+                </a>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="text-muted p-4 text-center">
+            No Pest or Disease Logs recorded for this Crop Cycle.
+        </div>
+    {% endif %}
+</div>

@@ -1,4 +1,4 @@
 Agriculture Management
 Agriculture
-livestock
-hydroponic
+Livestock
+Hydroponic

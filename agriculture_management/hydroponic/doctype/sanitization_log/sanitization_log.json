@@ -8,10 +8,14 @@
  "field_order": [
   "naming_series",
   "hydroponic_system",
+  "company",
   "sanitization_date",
   "column_break_qjpm",
   "performed_by",
   "linked_maintenance",
+  "task_generation_section",
+  "task_template",
+  "generate_tasks_button",
   "chemicals_consumables",
   "chemicals_used",
   "section_break_qpwx",
@@ -20,7 +24,9 @@
   "stock_traceability",
   "generated_stock_entry",
   "section_break_npbr",
-  "amended_from"
+  "amended_from",
+  "generated_tasks_tab",
+  "task_dashboard"
  ],
  "fields": [
   {
@@ -48,8 +54,11 @@
   {
    "fieldname": "hydroponic_system",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Hydroponic System",
-   "options": "Hydroponic System",
+   "link_filters": "[[\"Asset\",\"asset_category\",\"=\",\"Hydroponic Systems\"]]",
+   "options": "Asset",
    "reqd": 1
   },
   {
@@ -113,13 +122,45 @@
    "label": "Generated Stock Entry",
    "options": "Stock Entry",
    "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "task_generation_section",
+   "fieldtype": "Section Break",
+   "label": "Task Generation"
+  },
+  {
+   "fieldname": "task_template",
+   "fieldtype": "Link",
+   "label": "Task Template",
+   "options": "Task Template"
+  },
+  {
+   "fieldname": "generate_tasks_button",
+   "fieldtype": "Button",
+   "label": "Generate Tasks"
+  },
+  {
+   "fieldname": "generated_tasks_tab",
+   "fieldtype": "Tab Break",
+   "label": "Generated Tasks"
+  },
+  {
+   "fieldname": "task_dashboard",
+   "fieldtype": "HTML",
+   "label": "Task Dashboard"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-04 01:14:25.881221",
+ "modified": "2025-08-26 00:01:55.649700",
  "modified_by": "Administrator",
  "module": "hydroponic",
  "name": "Sanitization Log",
@@ -140,7 +181,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

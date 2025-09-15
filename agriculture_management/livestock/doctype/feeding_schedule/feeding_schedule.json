@@ -1,20 +1,24 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "naming_series:",
+ "autoname": "naming_series:naming_series",
  "creation": "2025-08-04 23:49:03.390503",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "details_section",
   "naming_series",
   "livestock_group",
-  "date",
+  "from_date",
+  "to_date",
   "status",
   "column_break_kxao",
   "feed_formulation",
   "quantity_to_feed",
   "quantity_to_feed_uom",
-  "amended_from"
+  "schedule_log_section",
+  "feeding_schedule_log"
  ],
  "fields": [
   {
@@ -22,11 +26,6 @@
    "fieldtype": "Link",
    "label": "Livestock Group",
    "options": "Livestock Group"
-  },
-  {
-   "fieldname": "date",
-   "fieldtype": "Date",
-   "label": "Date"
   },
   {
    "fieldname": "feed_formulation",
@@ -49,21 +48,11 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Planned\nCompleted\nSkipped"
+   "options": "Draft\nGenerated\nPartially Completed\nCompleted"
   },
   {
    "fieldname": "column_break_kxao",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Feeding Schedule",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
   },
   {
    "default": "FS-.YYYY.-.MM.-",
@@ -75,15 +64,40 @@
    "options": "FS-.YYYY.-\nFS-.YYYY.-.MM.-",
    "reqd": 1,
    "set_only_once": 1
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "schedule_log_section",
+   "fieldtype": "Section Break",
+   "label": "Generated Feeding Log"
+  },
+  {
+   "fieldname": "feeding_schedule_log",
+   "fieldtype": "Table",
+   "label": "Feeding Schedule Log",
+   "options": "Feeding Schedule Log"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
+ "is_calendar_and_gantt": 1,
  "links": [],
- "modified": "2025-08-05 00:13:44.570403",
+ "modified": "2025-09-10 16:33:16.765428",
  "modified_by": "Administrator",
- "module": "livestock",
+ "module": "Livestock",
  "name": "Feeding Schedule",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
@@ -101,10 +115,26 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
+ "states": [
+  {
+   "color": "Gray",
+   "title": "Draft"
+  },
+  {
+   "color": "Blue",
+   "title": "Generated"
+  },
+  {
+   "color": "Cyan",
+   "title": "Partially Completed"
+  },
+  {
+   "color": "Green",
+   "title": "Completed"
+  }
+ ],
  "track_changes": 1,
  "track_seen": 1
 }

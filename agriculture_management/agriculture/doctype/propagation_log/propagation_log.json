@@ -1,0 +1,240 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:PROP-.YYYY.-.####",
+ "creation": "2025-08-20 15:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "status",
+  "seed_details_section",
+  "seed_item",
+  "crop",
+  "supplier",
+  "supplier_lot_no",
+  "column_break_1",
+  "company",
+  "source_warehouse",
+  "consumable_batch",
+  "sowing_details_section",
+  "sowing_date",
+  "quantity_seeded",
+  "expected_germination_days",
+  "days_to_transplant_ready",
+  "column_break_2",
+  "expected_germination_date",
+  "expected_transplant_date",
+  "germination_results_section",
+  "actual_germination_date",
+  "quantity_germinated",
+  "column_break_3",
+  "germination_rate",
+  "section_break_cuiw",
+  "notes",
+  "stock_entry_section",
+  "generated_stock_entry",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "PROP-.YYYY.-.####"
+  },
+  {
+   "default": "Planned",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Planned\nSeeding\nGerminating\nReady for Transplant\nCompleted\nFailed"
+  },
+  {
+   "fieldname": "seed_details_section",
+   "fieldtype": "Section Break",
+   "label": "Seed Details"
+  },
+  {
+   "fieldname": "seed_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Seed Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "crop",
+   "fieldtype": "Link",
+   "label": "Crop",
+   "options": "Crop",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "supplier_lot_no",
+   "fieldtype": "Data",
+   "label": "Supplier Lot No"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sowing_details_section",
+   "fieldtype": "Section Break",
+   "label": "Sowing & Schedule Details"
+  },
+  {
+   "default": "Today",
+   "fieldname": "sowing_date",
+   "fieldtype": "Date",
+   "label": "Sowing Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "quantity_seeded",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Quantity Seeded",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expected_germination_days",
+   "fieldtype": "Int",
+   "label": "Expected Germination (Days)"
+  },
+  {
+   "fieldname": "days_to_transplant_ready",
+   "fieldtype": "Int",
+   "label": "Days to Transplant Ready"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expected_germination_date",
+   "fieldtype": "Date",
+   "label": "Expected Germination Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "expected_transplant_date",
+   "fieldtype": "Date",
+   "label": "Expected Transplant Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "germination_results_section",
+   "fieldtype": "Section Break",
+   "label": "Germination Results"
+  },
+  {
+   "fieldname": "actual_germination_date",
+   "fieldtype": "Date",
+   "label": "Actual Germination Date"
+  },
+  {
+   "fieldname": "quantity_germinated",
+   "fieldtype": "Int",
+   "label": "Quantity Germinated"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "germination_rate",
+   "fieldtype": "Percent",
+   "label": "Germination Rate (%)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "stock_entry_section",
+   "fieldtype": "Section Break",
+   "label": "Stock Entry"
+  },
+  {
+   "fieldname": "generated_stock_entry",
+   "fieldtype": "Link",
+   "label": "Generated Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_cuiw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Propagation Log",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "consumable_batch",
+   "fieldtype": "Link",
+   "label": "Consumable Batch",
+   "options": "Consumable Batch"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-31 11:45:04.668279",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Propagation Log",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

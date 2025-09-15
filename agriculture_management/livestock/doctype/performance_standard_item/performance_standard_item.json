@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-10 14:30:03.937824",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1"
+ ],
+"fields": [
+  {
+   "fieldname": "day",
+   "fieldtype": "Int",
+   "label": "Day (Age in Days)",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "daily_feed_intake_grams",
+   "fieldtype": "Float",
+   "label": "Daily Feed Intake (grams)",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "target_body_weight_grams",
+   "fieldtype": "Float",
+   "label": "Target Body Weight (grams)",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "hen_day_production_percent",
+   "fieldtype": "Percent",
+   "label": "Expected Hen-Day Production (%)"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-10 14:30:03.937824",
+ "modified_by": "Administrator",
+ "module": "Livestock",
+ "name": "Performance Standard Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

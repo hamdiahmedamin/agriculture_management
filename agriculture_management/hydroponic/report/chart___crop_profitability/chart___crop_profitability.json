@@ -1,0 +1,42 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2025-08-22 11:00:24.612930",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "default": "Soil-Based",
+   "fieldname": "growth_method",
+   "fieldtype": "Select",
+   "label": "Growth Method",
+   "mandatory": 0,
+   "options": "Soil-Based\nHydroponic",
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-08-26 13:11:29.460169",
+ "modified_by": "Administrator",
+ "module": "hydroponic",
+ "name": "Chart - Crop Profitability",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "WITH\n    -- Step 1: Calculate Total Revenue per Crop Cycle\n    RevenueData AS (\n        SELECT\n            summary.parent AS crop_cycle,\n            SUM(IFNULL(hl.total_weight_gross, 0) * IFNULL(ip.price_list_rate, 0)) AS total_revenue\n        FROM `tabCrop Cycle Harvest Summary` AS summary\n        JOIN `tabHarvest Log` AS hl ON summary.harvest_log = hl.name\n        JOIN `tabHarvest Log Item` AS hli ON hli.parent = hl.name\n        LEFT JOIN `tabItem Price` AS ip ON hli.item_code = ip.item_code AND ip.selling = 1\n        GROUP BY summary.parent\n    ),\n\n    -- Step 2: Calculate Total Costs per Crop Cycle\n    CostData AS (\n        SELECT\n            cc.name AS crop_cycle,\n            (\n                ( -- Dosing Costs\n                    SELECT IFNULL(SUM(dli.quantity_used * i.standard_rate), 0)\n                    FROM `tabDosing Log Item` AS dli\n                    JOIN `tabDosing Log` AS dl ON dli.parent = dl.name\n                    JOIN `tabItem` AS i ON dli.item = i.name\n                    WHERE dl.crop_cycle = cc.name AND dl.docstatus = 1\n                )\n                +\n                ( -- Sanitization Costs\n                    SELECT IFNULL(SUM(sc.quantity_used * i.standard_rate), 0)\n                    FROM `tabSanitization Chemical` AS sc\n                    JOIN `tabSanitization Log` AS sl ON sc.parent = sl.name\n                    JOIN `tabItem` AS i ON sc.sanitizing_agent = i.name\n                    WHERE sl.hydroponic_system = cc.hydroponic_system AND sl.docstatus = 1 AND sl.sanitization_date BETWEEN cc.start_date AND cc.end_date\n                )\n                +\n                ( -- Other Expenses\n                    SELECT IFNULL(SUM(el.amount), 0)\n                    FROM `tabExpense Log` AS el\n                    WHERE el.crop_cycle = cc.name AND el.docstatus = 1\n                )\n            ) AS total_cost\n        FROM `tabCrop Cycle` AS cc\n        WHERE cc.docstatus = 1\n    )\n\n-- Final Step: Join the revenue and cost data\nSELECT\n    cc.name AS \"Crop Cycle\",\n    cc.crop AS \"Crop\",\n    (IFNULL(rev.total_revenue, 0) - IFNULL(costs.total_cost, 0)) AS \"Net Profit\"\nFROM\n    `tabCrop Cycle` AS cc\nLEFT JOIN RevenueData AS rev ON cc.name = rev.crop_cycle\nLEFT JOIN CostData AS costs ON cc.name = costs.crop_cycle\nWHERE\n    cc.docstatus = 1\n    -- This part allows your 'growth_method' filter to work\n    AND (cc.growth_method = %(growth_method)s OR %(growth_method)s IS NULL OR %(growth_method)s = '')",
+ "ref_doctype": "Crop Cycle",
+ "report_name": "Chart - Crop Profitability",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Agriculture Manager"
+  },
+  {
+   "role": "Agriculture User"
+  }
+ ],
+ "timeout": 0,
+ "use_tabulator": 0
+}

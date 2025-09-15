@@ -1,0 +1,222 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:DLOG-.YYYY.-.MM.-.####",
+ "creation": "2025-08-20 19:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "status",
+  "log_context_section",
+  "company",
+  "crop_cycle",
+  "column_break_1",
+  "log_date",
+  "logged_by",
+  "hydroponic_system",
+  "water_quality_section",
+  "measured_ph",
+  "measured_ec_mscm",
+  "water_temperature_c",
+  "column_break_2",
+  "reservoir_level",
+  "water_added_liters",
+  "dosing_section",
+  "dosing_performed",
+  "linked_dosing_log",
+  "environment_section",
+  "ambient_temperature",
+  "humidity",
+  "column_break_3",
+  "lighting_hours",
+  "observations_section",
+  "general_notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "DLOG-.YYYY.-.MM.-.####"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nSubmitted\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "log_context_section",
+   "fieldtype": "Section Break",
+   "label": "Log Context"
+  },
+  {
+   "fieldname": "crop_cycle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Crop Cycle",
+   "options": "Crop Cycle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "log_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Log Date",
+   "reqd": 1
+  },
+  {
+   "default": "__user",
+   "fieldname": "logged_by",
+   "fieldtype": "Link",
+   "label": "Logged By",
+   "options": "User"
+  },
+  {
+   "fieldname": "hydroponic_system",
+   "fieldtype": "Link",
+   "label": "Hydroponic System",
+   "options": "Asset",
+   "read_only": 1
+  },
+  {
+   "fieldname": "water_quality_section",
+   "fieldtype": "Section Break",
+   "label": "Water Quality & Dosing"
+  },
+  {
+   "fieldname": "measured_ph",
+   "fieldtype": "Float",
+   "label": "Measured pH"
+  },
+  {
+   "fieldname": "measured_ec_mscm",
+   "fieldtype": "Float",
+   "label": "Measured EC (mS/cm)"
+  },
+  {
+   "fieldname": "water_temperature_c",
+   "fieldtype": "Float",
+   "label": "Water Temperature (\u00b0C)"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reservoir_level",
+   "fieldtype": "Percent",
+   "label": "Reservoir Level (%)"
+  },
+  {
+   "fieldname": "water_added_liters",
+   "fieldtype": "Float",
+   "label": "Water Added (Liters)"
+  },
+  {
+   "fieldname": "dosing_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "dosing_performed",
+   "fieldtype": "Check",
+   "label": "Dosing Performed?"
+  },
+  {
+   "depends_on": "eval:doc.dosing_performed",
+   "fieldname": "linked_dosing_log",
+   "fieldtype": "Link",
+   "label": "Linked Dosing Log",
+   "options": "Dosing Log"
+  },
+  {
+   "fieldname": "environment_section",
+   "fieldtype": "Section Break",
+   "label": "Environment"
+  },
+  {
+   "fieldname": "ambient_temperature",
+   "fieldtype": "Float",
+   "label": "Ambient Temperature (\u00b0C)"
+  },
+  {
+   "fieldname": "humidity",
+   "fieldtype": "Percent",
+   "label": "Humidity (%)"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lighting_hours",
+   "fieldtype": "Float",
+   "label": "Lighting Hours"
+  },
+  {
+   "fieldname": "observations_section",
+   "fieldtype": "Section Break",
+   "label": "Observations"
+  },
+  {
+   "fieldname": "general_notes",
+   "fieldtype": "Text Editor",
+   "label": "General Notes & Observations"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Daily Hydroponic Log",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-27 08:36:07.866253",
+ "modified_by": "Administrator",
+ "module": "hydroponic",
+ "name": "Daily Hydroponic Log",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

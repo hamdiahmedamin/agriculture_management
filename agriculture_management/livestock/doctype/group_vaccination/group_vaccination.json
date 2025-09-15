@@ -1,0 +1,214 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:GVAC-{livestock_group}-{YYYY}-{#####}",
+ "creation": "2025-09-01 18:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "group_details_section",
+  "livestock_group",
+  "date",
+  "withdrawal_end_date",
+  "is_flock",
+  "column_break_1",
+  "status",
+  "practitioner",
+  "vaccine_details_section",
+  "based_on_schedule",
+  "vaccine",
+  "column_break_2",
+  "batch_number",
+  "expiry_date",
+  "dosage_per_animal",
+  "dosage_uom",
+  "financials_section",
+  "total_cost",
+  "purchase_invoice",
+  "animals_vaccinated_section",
+  "animals",
+  "remarks_section",
+  "remarks",
+  "generated_stock_entry",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "group_details_section",
+   "fieldtype": "Section Break",
+   "label": "Group Details"
+  },
+  {
+   "fieldname": "livestock_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Livestock Group",
+   "options": "Livestock Group",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Planned\nCompleted"
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "label": "Practitioner",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "vaccine_details_section",
+   "fieldtype": "Section Break",
+   "label": "Vaccine Details"
+  },
+  {
+   "fieldname": "based_on_schedule",
+   "fieldtype": "Link",
+   "label": "Based on Schedule",
+   "options": "Vaccination Schedule"
+  },
+  {
+   "fieldname": "vaccine",
+   "fieldtype": "Link",
+   "label": "Vaccine",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "batch_number",
+   "fieldtype": "Data",
+   "label": "Batch Number"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "dosage_per_animal",
+   "fieldtype": "Float",
+   "label": "Dosage per Animal"
+  },
+  {
+   "fieldname": "dosage_uom",
+   "fieldtype": "Link",
+   "label": "UoM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "financials_section",
+   "fieldtype": "Section Break",
+   "label": "Financials"
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Event Cost (incl. labor)"
+  },
+  {
+   "fieldname": "purchase_invoice",
+   "fieldtype": "Link",
+   "label": "Purchase Invoice (Optional)",
+   "options": "Purchase Invoice"
+  },
+  {
+   "fieldname": "animals_vaccinated_section",
+   "fieldtype": "Section Break",
+   "label": "Animals Vaccinated"
+  },
+  {
+   "fieldname": "animals",
+   "fieldtype": "Table",
+   "label": "Animals",
+   "options": "Animal List"
+  },
+  {
+   "fieldname": "remarks_section",
+   "fieldtype": "Section Break",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Group Vaccination",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "generated_stock_entry",
+   "fieldtype": "Link",
+   "label": "Generated Stock Entry",
+   "no_copy": 1,
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_flock",
+   "fieldtype": "Check",
+   "label": "Is Flock / Group Managed as a Single Unit"
+  },
+  {
+   "fieldname": "withdrawal_end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Withdrawal End Date",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-09-09 22:47:17.138160",
+ "modified_by": "Administrator",
+ "module": "Livestock",
+ "name": "Group Vaccination",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

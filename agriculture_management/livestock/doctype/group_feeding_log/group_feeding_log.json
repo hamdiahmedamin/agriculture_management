@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-09-06 14:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "primary_details_section",
+  "naming_series",
+  "livestock_group",
+  "date",
+  "column_break_1",
+  "cost_center",
+  "feeding_details_section",
+  "items"
+ ],
+ "fields": [
+  {
+   "fieldname": "primary_details_section",
+   "fieldtype": "Section Break",
+   "label": "Primary Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "FEED-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "livestock_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Livestock Group / Flock",
+   "options": "Livestock Group",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "livestock_group.cost_center",
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center",
+   "read_only": 1
+  },
+  {
+   "fieldname": "feeding_details_section",
+   "fieldtype": "Section Break",
+   "label": "Feeding Details"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Stock Entry Detail",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-09-06 14:10:00.000000",
+ "modified_by": "Administrator",
+ "module": "Livestock",
+ "name": "Group Feeding Log",
+ "naming_rule": "By Naming Series",
+ "owner": "Administrator",
+ "permissions": [ {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

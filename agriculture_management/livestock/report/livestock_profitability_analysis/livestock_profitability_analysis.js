@@ -14,10 +14,10 @@ frappe.query_reports["Livestock Profitability Analysis"] = {
             "options": "Livestock Group"
         },
         {
-            "fieldname": "livestock",
-            "label": __("Livestock"),
+            "fieldname": "Animal",
+            "label": __("Animal"),
             "fieldtype": "Link",
-            "options": "Livestock",
+            "options": "Animal",
             // This will filter the livestock based on the selected group
             get_query: function() {
                 var group = frappe.query_report.get_filter_value('livestock_group');

@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-20 02:01:53.274796",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "quantity_used",
+  "uom",
+  "source_warehouse",
+  "nutrient_batch"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "quantity_used",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity Used",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "item.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "nutrient_batch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Nutrient Batch",
+   "link_filters": "[[\"Consumable Batch\",\"consumable_type\",\"=\",\"Nutrient\"]]",
+   "options": "Consumable Batch"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-31 11:41:55.340992",
+ "modified_by": "Administrator",
+ "module": "hydroponic",
+ "name": "Dosing Log Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

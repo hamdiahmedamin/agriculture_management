@@ -1,13 +1,14 @@
 import frappe
 from collections import defaultdict
 
+
 @frappe.whitelist()
 def get_full_family_tree(root_animal_id):
     """
     Fetches the complete family network (ancestors, descendants, AND partners)
     for a single root animal and formats it for the Vis.js library.
     """
-    if not root_animal_id or not frappe.db.exists("Livestock", root_animal_id):
+    if not root_animal_id or not frappe.db.exists("Animal", root_animal_id):
         return {}
 
     # 1. Gather all unique IDs for the entire family network
@@ -16,13 +17,13 @@ def get_full_family_tree(root_animal_id):
     descendant_ids = set()
     _get_descendants(root_animal_id, descendant_ids)
     all_related_ids = {root_animal_id} | ancestor_ids | descendant_ids
-    
+
     # 2. Add all partners to the list of IDs to fetch
     # This query finds all parents of the animals in our main list.
     # This will naturally include partners that weren't in the direct bloodline.
     all_parents_of_family = frappe.db.sql("""
         SELECT DISTINCT sire_father, dam_mother
-        FROM `tabLivestock`
+        FROM `tabAnimal`
         WHERE name IN %(id_list)s
     """, {"id_list": tuple(all_related_ids)}, as_dict=1)
 
@@ -44,10 +45,11 @@ def _get_nodes_and_edges_by_id(id_list):
     if not id_list:
         return {}
 
-    family_data = frappe.get_all("Livestock",
-        fields=["name", "animal_name", "gender", "breed", "date_of_birth", "health_status", "current_weight", "location_pen", "sire_father", "dam_mother", "livestock_image"],
-        filters={"name": ("in", id_list)}
-    )
+    family_data = frappe.get_all("Animal",
+                                 fields=["name", "animal_name", "gender", "breed", "date_of_birth", "health_status",
+                                         "current_weight", "location_pen", "sire_father", "dam_mother", "livestock_image"],
+                                 filters={"name": ("in", id_list)}
+                                 )
 
     nodes = []
     edges = []
@@ -83,28 +85,33 @@ def _get_nodes_and_edges_by_id(id_list):
             partnership_id = f"p-{'&'.join(sorted([sire, dam]))}"
             if partnership_id not in partnerships:
                 # Add the invisible node for the partnership
-                nodes.append({ "id": partnership_id, "shape": "dot", "size": 1, "label": " " })
+                nodes.append(
+                    {"id": partnership_id, "shape": "dot", "size": 1, "label": " "})
                 # Link the partners TO the partnership node
-                edges.append({ "from": sire, "to": partnership_id, "arrows": "" })
-                edges.append({ "from": dam, "to": partnership_id, "arrows": "" })
+                edges.append(
+                    {"from": sire, "to": partnership_id, "arrows": ""})
+                edges.append({"from": dam, "to": partnership_id, "arrows": ""})
                 partnerships[partnership_id] = True
             # Link the partnership node TO the child
-            edges.append({ "from": partnership_id, "to": animal.name, "arrows": "to" })
+            edges.append(
+                {"from": partnership_id, "to": animal.name, "arrows": "to"})
         elif sire in animal_map:
             # Single parent link
-            edges.append({ "from": sire, "to": animal.name, "arrows": "to" })
+            edges.append({"from": sire, "to": animal.name, "arrows": "to"})
         elif dam in animal_map:
             # Single parent link
-            edges.append({ "from": dam, "to": animal.name, "arrows": "to" })
+            edges.append({"from": dam, "to": animal.name, "arrows": "to"})
     # --- END OF FIX ---
-    
-    return { "nodes": nodes, "edges": edges }
+
+    return {"nodes": nodes, "edges": edges}
 
 
 # Helper functions for recursion (these are unchanged and correct)
 def _get_ancestors(animal_id, ancestor_set):
-    if not animal_id or animal_id in ancestor_set: return
-    parents = frappe.get_value("Livestock", animal_id, ["sire_father", "dam_mother"])
+    if not animal_id or animal_id in ancestor_set:
+        return
+    parents = frappe.get_value("Animal", animal_id, [
+                               "sire_father", "dam_mother"])
     if parents:
         sire, dam = parents
         if sire:
@@ -114,9 +121,10 @@ def _get_ancestors(animal_id, ancestor_set):
             ancestor_set.add(dam)
             _get_ancestors(dam, ancestor_set)
 
+
 def _get_descendants(animal_id, descendant_set):
     children = frappe.db.sql("""
-        SELECT name FROM `tabLivestock`
+        SELECT name FROM `tabAnimal`
         WHERE status = 'Active' AND (sire_father = %(animal_id)s OR dam_mother = %(animal_id)s)
     """, {"animal_id": animal_id}, pluck=True)
     for child_id in children:

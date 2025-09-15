@@ -1,0 +1,55 @@
+{
+ "doctype": "DocType",
+ "name": "Sales Log",
+ "module": "Livestock",
+ "custom": 1,
+ "istable": 1,
+ "engine": "InnoDB",
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "options": "Customer",
+   "label": "Customer",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "label": "Quantity Sold",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "record_type",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Record Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "record",
+   "fieldtype": "Dynamic Link",
+   "label": "Delivery Note",
+   "options": "record_type",
+   "in_list_view": 1
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "cards": [],
+ "charts": [
+  {
+   "chart": "Count of Active Crop Cycles",
+   "width": "Half"
+  },
+  {
+   "chart": "Water Quality Trends",
+   "width": "Half"
+  },
+  {
+   "chart": "Count of Overdue Maintenance",
+   "width": "Half"
+  },
+  {
+   "chart": "Last Cycle Gross Profit",
+   "width": "Half"
+  },
+  {
+   "chart": "pH History",
+   "width": "Half"
+  }
+ ],
+ "creation": "2025-08-21 13:14:13.649086",
+ "dashboard_name": "Hydroponic Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 1,
+ "is_standard": 1,
+ "modified": "2025-09-14 17:59:05.438401",
+ "modified_by": "Administrator",
+ "module": "Hydroponic",
+ "name": "Hydroponic Dashboard",
+ "owner": "Administrator"
+}

@@ -1,12 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:filtration_name",
  "creation": "2023-11-11 17:30:48.385887",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "filtration_system_section",
   "filtration_name",
+  "linked_asset",
   "filtration_water_source",
   "column_break_kkfu",
   "filtration_system_type",
@@ -25,7 +27,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "filtration_water_source",
@@ -59,14 +62,22 @@
    "fieldtype": "Table",
    "label": "Schedule",
    "options": "Filter Replacement Schedule"
+  },
+  {
+   "fieldname": "linked_asset",
+   "fieldtype": "Link",
+   "label": "Linked Asset",
+   "options": "Asset",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-11 23:25:03.972195",
+ "modified": "2025-08-26 16:26:47.449595",
  "modified_by": "Administrator",
- "module": "Hydroponic",
+ "module": "hydroponic",
  "name": "Filtration System",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

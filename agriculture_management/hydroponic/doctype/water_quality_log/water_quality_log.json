@@ -11,6 +11,7 @@
   "log_context_section",
   "hydroponic_system",
   "crop_cycle",
+  "nutrient_recipe",
   "column_break_sknf",
   "log_timestamp",
   "logged_by",
@@ -27,7 +28,8 @@
   "root_health",
   "general_notes",
   "actions_taken_section",
-  "corrective_action"
+  "corrective_action",
+  "amended_from"
  ],
  "fields": [
   {
@@ -55,14 +57,14 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Hydroponic System",
-   "options": "Hydroponic System",
+   "options": "Asset",
    "reqd": 1
   },
   {
    "fieldname": "crop_cycle",
    "fieldtype": "Link",
    "label": "Crop Cycle",
-   "options": "Hydroponic Crop Cycle",
+   "options": "Crop Cycle",
    "reqd": 1
   },
   {
@@ -157,12 +159,28 @@
    "fieldtype": "Table",
    "label": "Corrective Action",
    "options": "Corrective Action"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Water Quality Log",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "nutrient_recipe",
+   "fieldtype": "Link",
+   "label": "Nutrient Recipe",
+   "options": "Nutrient Recipe"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-08-02 01:41:16.584648",
+ "modified": "2025-08-27 09:01:04.425765",
  "modified_by": "Administrator",
  "module": "hydroponic",
  "name": "Water Quality Log",
@@ -182,7 +200,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

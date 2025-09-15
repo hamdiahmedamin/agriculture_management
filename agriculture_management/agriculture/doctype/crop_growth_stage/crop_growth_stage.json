@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-15 05:56:19.411983",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "stage",
+  "duration_days",
+  "target_ph_min",
+  "target_ph_max",
+  "target_ec_min",
+  "target_ec_max",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Stage",
+   "options": "Germination\nSeedling\nVegetative\nFlowering\nFruiting\nRipening"
+  },
+  {
+   "fieldname": "duration_days",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Duration (Days)"
+  },
+  {
+   "fieldname": "target_ph_min",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Target pH (Min)"
+  },
+  {
+   "fieldname": "target_ph_max",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Target pH (Max)"
+  },
+  {
+   "fieldname": "target_ec_min",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Target EC (Min)"
+  },
+  {
+   "fieldname": "target_ec_max",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Target EC (Max)"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description / Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-15 05:59:38.823738",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Crop Growth Stage",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

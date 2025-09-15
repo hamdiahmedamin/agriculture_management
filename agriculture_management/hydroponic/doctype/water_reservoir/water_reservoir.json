@@ -1,43 +1,66 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:water_reservoir_name",
  "creation": "2023-11-11 18:23:29.095307",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "section_reservoir_details",
   "water_reservoir_name",
-  "reservoir_water_source",
-  "column_break_hyju",
-  "water_reservoir_material",
   "water_reservoir_size",
   "size_uom",
-  "section_break_ntur",
-  "aeration_system_name",
-  "water_level_monitoring_system",
-  "other_water_level_monitoring_system",
-  "column_break_pkqm",
-  "aeration_system_temperature",
+  "column_break_1",
+  "reservoir_water_source",
+  "water_reservoir_material",
+  "section_water_quality",
+  "ph_monitoring_system",
+  "target_ph",
+  "column_break_2",
+  "ec_monitoring_system",
+  "target_ec",
+  "target_temp",
+  "section_nutrient_management",
+  "nutrient_dosage_plan",
+  "section_system_and_maintenance",
+  "aeration_system",
+  "dosing_pump_system",
+  "column_break_3",
   "water_change_frequency",
-  "method_water_changes"
+  "last_cleaned_date",
+  "method_of_water_changes",
+  "tab_2_tab",
+  "dashboard_html"
  ],
  "fields": [
+  {
+   "fieldname": "section_reservoir_details",
+   "fieldtype": "Section Break",
+   "label": "Reservoir Details"
+  },
   {
    "fieldname": "water_reservoir_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Name",
-   "reqd": 1
+   "label": "Reservoir Name",
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "water_reservoir_size",
    "fieldtype": "Float",
-   "label": "Size"
+   "label": "Capacity / Size"
   },
   {
-   "fieldname": "water_reservoir_material",
-   "fieldtype": "Select",
-   "label": "Material",
-   "options": "\nPlastic (Polyethylene)\nFiberglass\nMetal (Stainless Steel)\nConcrete\nWood\nPVC (Polyvinyl Chloride)\nRubberized Fabric or Pond Liner"
+   "default": "Litre",
+   "fieldname": "size_uom",
+   "fieldtype": "Link",
+   "label": "Capacity UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "reservoir_water_source",
@@ -48,64 +71,127 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_hyju",
+   "fieldname": "water_reservoir_material",
+   "fieldtype": "Select",
+   "label": "Material",
+   "options": "\nPlastic (Food-Grade PE)\nFiberglass\nConcrete\nStainless Steel\nLined Reservoir (EPDM/PVC)"
+  },
+  {
+   "fieldname": "section_water_quality",
+   "fieldtype": "Section Break",
+   "label": "Water Quality Management"
+  },
+  {
+   "fieldname": "ph_monitoring_system",
+   "fieldtype": "Link",
+   "label": "pH Controller / Sensor",
+   "options": "IoT Device"
+  },
+  {
+   "description": "e.g., 5.8. Field visible if a pH system is linked.",
+   "fieldname": "target_ph",
+   "fieldtype": "Float",
+   "label": "Target pH"
+  },
+  {
+   "fieldname": "column_break_2",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_ntur",
-   "fieldtype": "Section Break"
+   "fieldname": "ec_monitoring_system",
+   "fieldtype": "Link",
+   "label": "EC Controller / Sensor",
+   "options": "IoT Device"
   },
   {
-   "fieldname": "aeration_system_name",
+   "description": "e.g., 1.8. Field visible if an EC system is linked.",
+   "fieldname": "target_ec",
+   "fieldtype": "Float",
+   "label": "Target EC (mS/cm)"
+  },
+  {
+   "fieldname": "section_nutrient_management",
+   "fieldtype": "Section Break",
+   "label": "Nutrient Management"
+  },
+  {
+   "fieldname": "nutrient_dosage_plan",
+   "fieldtype": "Table",
+   "label": "Nutrient Dosages",
+   "options": "Nutrient Dosages"
+  },
+  {
+   "fieldname": "section_system_and_maintenance",
+   "fieldtype": "Section Break",
+   "label": "System & Maintenance"
+  },
+  {
+   "description": "e.g., Air Stone Pump, Venturi Injector",
+   "fieldname": "aeration_system",
    "fieldtype": "Data",
    "label": "Aeration System"
   },
   {
-   "fieldname": "water_level_monitoring_system",
-   "fieldtype": "Select",
-   "label": "Water Level Monitoring System",
-   "options": "\nManual Monitoring\nAutomated Sensors\nOther"
-  },
-  {
-   "fieldname": "other_water_level_monitoring_system",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Other Water Level Monitoring System"
-  },
-  {
-   "fieldname": "column_break_pkqm",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "aeration_system_temperature",
-   "fieldtype": "Data",
-   "label": "Temperature"
-  },
-  {
-   "fieldname": "size_uom",
+   "fieldname": "dosing_pump_system",
    "fieldtype": "Link",
-   "label": "Size UOM",
-   "options": "UOM"
+   "label": "Dosing Pump System",
+   "options": "IoT Device"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "water_change_frequency",
    "fieldtype": "Select",
    "label": "Water Change Frequency",
-   "options": "\nWeekly\nBi-weekly\nMonthly\nBi-monthly\nQuarterly\nBi-annually\nAnnually\nOther (Specify)"
+   "options": "\nDaily\nWeekly\nBi-weekly\nMonthly\nAs Needed"
   },
   {
-   "fieldname": "method_water_changes",
+   "fieldname": "last_cleaned_date",
+   "fieldtype": "Date",
+   "label": "Last Cleaned Date"
+  },
+  {
+   "fieldname": "method_of_water_changes",
    "fieldtype": "Select",
    "label": "Method of Water Changes",
-   "options": "\nComplete Water Change\nPartial Water Change"
+   "options": "\nComplete Water Change\nPartial Water Change\nTop-Up Only"
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab 2",
+   "show_dashboard": 1
+  },
+  {
+   "fieldname": "dashboard_html",
+   "fieldtype": "HTML",
+   "label": "Live Dashboard"
+  },
+  {
+   "fieldname": "target_temp",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Water Temperature (\u00b0C)"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2023-11-11 23:27:22.897858",
+ "links": [
+  {
+   "link_doctype": "Water Quality Reading",
+   "link_fieldname": "water_reservoir"
+  },
+  {
+   "link_doctype": "Asset",
+   "link_fieldname": "custom_water_reservoir"
+  }
+ ],
+ "modified": "2025-09-15 15:26:36.165712",
  "modified_by": "Administrator",
  "module": "Hydroponic",
  "name": "Water Reservoir",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

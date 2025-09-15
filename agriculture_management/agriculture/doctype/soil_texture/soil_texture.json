@@ -1,135 +1,112 @@
 {
  "actions": [],
- "autoname": "AG-TEX-.YYYY.-.#####",
+ "allow_rename": 1,
+ "autoname": "naming_series:SOIL-TEX-.YYYY.-.####",
  "creation": "2017-10-18 13:06:47.506762",
  "doctype": "DocType",
- "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "location",
-  "column_break_2",
+  "naming_series",
+  "status",
+  "analysis_context_section",
+  "crop_cycle",
+  "land_unit",
+  "column_break_1",
+  "company",
   "collection_datetime",
+  "location",
+  "lab_details_section",
   "laboratory_testing_datetime",
   "result_datetime",
-  "section_break_4",
-  "soil_type",
-  "clay_composition",
+  "column_break_2",
+  "lab_report_attachment",
+  "composition_section",
   "sand_composition",
   "silt_composition",
-  "column_break_6",
+  "clay_composition",
+  "column_break_3",
+  "soil_type",
   "ternary_plot",
-  "section_break_15",
+  "results_section",
   "soil_texture_criteria"
  ],
  "fields": [
   {
-   "fieldname": "location",
-   "fieldtype": "Geolocation",
-   "label": "Location",
-   "reqd": 1
+   "fieldname": "naming_series", "fieldtype": "Select", "label": "Naming Series", "options": "SOIL-TEX-.YYYY.-.####", "hidden": 1
   },
   {
-   "fieldname": "column_break_2",
-   "fieldtype": "Column Break"
+   "fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "Sample Collected\nIn Laboratory\nResults Received\nArchived", "default": "Sample Collected", "in_list_view": 1
   },
   {
-   "fieldname": "collection_datetime",
-   "fieldtype": "Datetime",
-   "label": "Collection Datetime",
-   "reqd": 1
+   "fieldname": "analysis_context_section", "fieldtype": "Section Break", "label": "Analysis Context"
   },
   {
-   "fieldname": "laboratory_testing_datetime",
-   "fieldtype": "Datetime",
-   "label": "Laboratory Testing Datetime"
+   "fieldname": "crop_cycle", "fieldtype": "Link", "label": "Crop Cycle", "options": "Crop Cycle", "in_list_view": 1
   },
   {
-   "fieldname": "result_datetime",
-   "fieldtype": "Datetime",
-   "in_list_view": 1,
-   "label": "Result Datetime"
+   "fieldname": "land_unit", "fieldtype": "Link", "label": "Land Unit (Field)", "options": "Location", "reqd": 1, "in_list_view": 1
   },
   {
-   "fieldname": "section_break_4",
-   "fieldtype": "Section Break"
+   "fieldname": "column_break_1", "fieldtype": "Column Break"
   },
   {
-   "fieldname": "soil_type",
-   "fieldtype": "Select",
-   "label": "Soil Type",
+   "fieldname": "company", "fieldtype": "Link", "label": "Company", "options": "Company", "reqd": 1, "read_only": 1
+  },
+  {
+   "fieldname": "collection_datetime", "fieldtype": "Datetime", "label": "Collection Datetime", "reqd": 1, "in_list_view": 1
+  },
+  {
+   "fieldname": "location", "fieldtype": "Geolocation", "label": "Geolocation of Sample"
+  },
+  {
+   "fieldname": "lab_details_section", "fieldtype": "Section Break", "label": "Laboratory Details"
+  },
+  {
+   "fieldname": "laboratory_testing_datetime", "fieldtype": "Datetime", "label": "Laboratory Testing Datetime"
+  },
+  {
+   "fieldname": "result_datetime", "fieldtype": "Datetime", "label": "Result Datetime"
+  },
+  {
+   "fieldname": "column_break_2", "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lab_report_attachment", "fieldtype": "Attach", "label": "Attach Lab Report"
+  },
+  {
+   "fieldname": "composition_section", "fieldtype": "Section Break", "label": "Soil Composition & Type"
+  },
+  {
+   "fieldname": "sand_composition", "fieldtype": "Percent", "label": "Sand Composition (%)", "default": "0"
+  },
+  {
+   "fieldname": "silt_composition", "fieldtype": "Percent", "label": "Silt Composition (%)", "default": "0"
+  },
+  {
+   "fieldname": "clay_composition", "fieldtype": "Percent", "label": "Clay Composition (%)", "default": "0"
+  },
+  {
+   "fieldname": "column_break_3", "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "soil_type", "fieldtype": "Select", "label": "Soil Type", "read_only": 1,
    "options": "Select\nSand\nLoamy Sand\nSandy Loam\nLoam\nSilt Loam\nSilt\nSandy Clay Loam\nClay Loam\nSilty Clay Loam\nSandy Clay\nSilty Clay\nClay"
   },
   {
-   "default": "0",
-   "fieldname": "clay_composition",
-   "fieldtype": "Percent",
-   "label": "Clay Composition (%)"
+   "fieldname": "ternary_plot", "fieldtype": "HTML", "label": "Ternary Plot"
   },
   {
-   "default": "0",
-   "fieldname": "sand_composition",
-   "fieldtype": "Percent",
-   "label": "Sand Composition (%)"
+   "fieldname": "results_section", "fieldtype": "Section Break", "label": "Additional Criteria"
   },
   {
-   "default": "0",
-   "fieldname": "silt_composition",
-   "fieldtype": "Percent",
-   "label": "Silt Composition (%)"
-  },
-  {
-   "fieldname": "column_break_6",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "ternary_plot",
-   "fieldtype": "HTML",
-   "label": "Ternary Plot"
-  },
-  {
-   "fieldname": "section_break_15",
-   "fieldtype": "Section Break",
-   "label": "Soil Texture Criteria"
-  },
-  {
-   "fieldname": "soil_texture_criteria",
-   "fieldtype": "Table",
-   "options": "Soil Texture Criteria"
+   "fieldname": "soil_texture_criteria", "fieldtype": "Table", "options": "Soil Texture Criteria"
   }
  ],
- "links": [],
- "modified": "2023-10-29 17:46:22.626869",
- "modified_by": "Administrator",
- "module": "Agriculture",
- "name": "Soil Texture",
- "naming_rule": "Expression (old style)",
- "owner": "Administrator",
+ "index_web_pages_for_search": 1, "links": [], "modified": "2025-08-28 00:00:00.000000", "modified_by": "Administrator",
+ "module": "Agriculture", "name": "Soil Texture", "naming_rule": "By \"Naming Series\" field", "owner": "Administrator",
  "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Agriculture Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Agriculture User",
-   "share": 1,
-   "write": 1
-  }
+  {"create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "Agriculture Manager", "share": 1, "write": 1},
+  {"email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "Agriculture User", "share": 1, "write": 1}
  ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": [],
- "track_changes": 1
+ "sort_field": "modified", "sort_order": "DESC", "states": [], "track_changes": 1
 }

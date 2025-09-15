@@ -1,0 +1,233 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:BRE-{dam}-{sire}-{YYYY}-{MM}-{#####}",
+ "creation": "2025-09-01 17:48:58.781015",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "primary_details_section",
+  "status",
+  "column_break_1",
+  "species",
+  "breed",
+  "parents_and_date_section",
+  "dam",
+  "sire",
+  "column_break_2",
+  "breeding_date",
+  "expected_due_date",
+  "personnel_section",
+  "event_responsible",
+  "practitioner",
+  "outcome_section",
+  "outcome",
+  "offspring",
+  "offspring_details_section",
+  "offspring_id",
+  "offspring_gender",
+  "column_break_3",
+  "birth_date",
+  "health_status",
+  "financials_section",
+  "total_cost",
+  "purchase_invoice"
+ ],
+ "fields": [
+  {
+   "fieldname": "primary_details_section",
+   "fieldtype": "Section Break",
+   "label": "Primary Details"
+  },
+  {
+   "default": "Planned",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Planned\nIn Progress\nCompleted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "species",
+   "fieldtype": "Link",
+   "label": "Species",
+   "options": "Livestock Species",
+   "read_only": 1
+  },
+  {
+   "fieldname": "breed",
+   "fieldtype": "Link",
+   "label": "Breed",
+   "options": "Livestock Breed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "parents_and_date_section",
+   "fieldtype": "Section Break",
+   "label": "Parents & Date"
+  },
+  {
+   "fieldname": "dam",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Dam (Mother)",
+   "options": "Animal",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "sire",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Sire (Father)",
+   "options": "Animal",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "breeding_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Breeding Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expected_due_date",
+   "fieldtype": "Date",
+   "label": "Expected Due Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "personnel_section",
+   "fieldtype": "Section Break",
+   "label": "Personnel"
+  },
+  {
+   "configuration": "{}",
+   "fieldname": "event_responsible",
+   "fieldtype": "Link",
+   "label": "Event Responsible (Internal)",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "label": "Practitioner (External)",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "outcome_section",
+   "fieldtype": "Section Break",
+   "label": "Outcome"
+  },
+  {
+   "default": "In Progress",
+   "fieldname": "outcome",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Outcome",
+   "options": "In Progress\nSuccessful\nFailed\nMiscarriage/Aborted"
+  },
+  {
+   "depends_on": "eval:doc.outcome=='Successful'",
+   "fieldname": "offspring",
+   "fieldtype": "Link",
+   "label": "Offspring (Generated)",
+   "options": "Animal",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.outcome=='Successful'",
+   "fieldname": "offspring_details_section",
+   "fieldtype": "Section Break",
+   "label": "Offspring Details"
+  },
+  {
+   "fieldname": "offspring_id",
+   "fieldtype": "Data",
+   "label": "Offspring ID / Tag ID",
+   "mandatory_depends_on": "eval:doc.outcome=='Successful'"
+  },
+  {
+   "fieldname": "offspring_gender",
+   "fieldtype": "Select",
+   "label": "Offspring Gender",
+   "mandatory_depends_on": "eval:doc.outcome=='Successful'",
+   "options": "Male\nFemale"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "birth_date",
+   "fieldtype": "Date",
+   "label": "Actual Birth Date",
+   "mandatory_depends_on": "eval:doc.outcome=='Successful'"
+  },
+  {
+   "fieldname": "health_status",
+   "fieldtype": "Select",
+   "label": "Health Status",
+   "options": "Healthy\nSick\nUnder Treatment"
+  },
+  {
+   "fieldname": "financials_section",
+   "fieldtype": "Section Break",
+   "label": "Financials"
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Event Cost"
+  },
+  {
+   "fieldname": "purchase_invoice",
+   "fieldtype": "Link",
+   "label": "Purchase Invoice (Optional)",
+   "options": "Purchase Invoice"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Animal",
+   "link_fieldname": "breeding_event"
+  }
+ ],
+ "modified": "2025-09-05 15:21:29.107681",
+ "modified_by": "Administrator",
+ "module": "Livestock",
+ "name": "Breeding Event",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

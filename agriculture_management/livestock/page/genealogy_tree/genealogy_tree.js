@@ -70,7 +70,7 @@
 
 //                         // Add a custom event listener for clicks
 //                         family_tree.on('click', function (sender, args) {
-//                             frappe.set_route("Form", "Livestock", args.node.id);
+//                             frappe.set_route("Form", "Animal", args.node.id);
 //                         });
 
 //                     } else {
@@ -213,7 +213,7 @@ frappe.pages['genealogy-tree'].on_page_load = function(wrapper) {
                     label: __('Select Livestock'),
                     fieldname: 'livestock',
                     fieldtype: 'Link',
-                    options: 'Livestock',
+                    options: 'Animal',
                     get_query: () => { return { filters: { 'species': species || '' } }; },
                     change: () => {
                         let animal_id = livestock_filter.get_value();
@@ -299,7 +299,7 @@ frappe.pages['genealogy-tree'].on_page_load = function(wrapper) {
 
                         network.on("doubleClick", function (params) {
                             if (params.nodes.length > 0) 
-                                frappe.set_route("Form", "Livestock", params.nodes[0]);
+                                frappe.set_route("Form", "Animal", params.nodes[0]);
                         });
                         network.fit({ animation: { duration: 800 } });
                         show_action_buttons();

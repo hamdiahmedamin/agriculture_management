@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:EXP-LOG-.YYYY.-.####",
+ "creation": "2025-08-20 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "status",
+  "expense_details_section",
+  "crop_cycle",
+  "company",
+  "column_break_1",
+  "expense_date",
+  "expense_type",
+  "amount",
+  "description_section",
+  "description",
+  "accounting_link_section",
+  "purchase_invoice"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select", "label": "Naming Series", "options": "EXP-LOG-.YYYY.-.####", "hidden": 1
+  },
+  {
+   "fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "Draft\nSubmitted\nCancelled", "read_only": 1
+  },
+  {
+   "fieldname": "expense_details_section", "fieldtype": "Section Break", "label": "Expense Details"
+  },
+  {
+   "fieldname": "crop_cycle", "fieldtype": "Link", "label": "Crop Cycle", "options": "Crop Cycle", "reqd": 1, "in_list_view": 1
+  },
+  {
+   "fieldname": "company", "fieldtype": "Link", "label": "Company", "options": "Company", "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1", "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expense_date", "fieldtype": "Date", "label": "Expense Date", "default": "Today", "reqd": 1
+  },
+  {
+   "fieldname": "expense_type", "fieldtype": "Select", "label": "Expense Type",
+   "options": "Labor\nUtilities\nRent\nMaintenance Parts\nPackaging\nOther",
+   "reqd": 1, "in_list_view": 1
+  },
+  {
+   "fieldname": "amount", "fieldtype": "Currency", "label": "Amount", "options": "company:company_currency", "reqd": 1, "in_list_view": 1
+  },
+  {
+   "fieldname": "description_section", "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description", "fieldtype": "Small Text", "label": "Description"
+  },
+  {
+   "fieldname": "accounting_link_section", "fieldtype": "Section Break", "label": "Accounting Link (Optional)"
+  },
+  {
+   "fieldname": "purchase_invoice", "fieldtype": "Link", "label": "Linked Purchase Invoice", "options": "Purchase Invoice"
+  }
+ ],
+ "index_web_pages_for_search": 1, "is_submittable": 1, "links": [], "module": "Agriculture", "name": "Expense Log",
+ "naming_rule": "By \"Naming Series\" field", "owner": "Administrator",
+ "permissions": [
+  {"create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "submit": 1, "cancel": 1, "write": 1}
+ ],
+ "sort_field": "modified", "sort_order": "DESC", "states": []
+}

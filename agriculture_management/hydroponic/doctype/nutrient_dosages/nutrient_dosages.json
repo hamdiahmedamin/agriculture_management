@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-14 17:33:22.480360",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "nutrient_product",
+  "amount",
+  "uom",
+  "date_added",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "nutrient_product",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Nutrient/Product",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date_added",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date Added",
+   "reqd": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-14 17:36:00.110677",
+ "modified_by": "Administrator",
+ "module": "Hydroponic",
+ "name": "Nutrient Dosages",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

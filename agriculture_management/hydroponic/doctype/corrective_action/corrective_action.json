@@ -16,23 +16,27 @@
   {
    "fieldname": "action_type",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Action Type",
    "options": "Add pH Adjuster\nAdd Nutrient\nTop-up with Water\nSystem Flush\nOther"
   },
   {
    "fieldname": "item_used",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Item Used",
    "options": "Item"
   },
   {
    "fieldname": "quantity_added",
    "fieldtype": "Float",
+   "in_list_view": 1,
    "label": "Quantity Added"
   },
   {
    "fieldname": "unit_of_measure",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Unit of Measure",
    "options": "UOM"
   },
@@ -42,17 +46,15 @@
    "label": "Reason / Notes"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-02 00:56:55.774226",
+ "modified": "2025-08-26 13:46:29.546161",
  "modified_by": "Administrator",
  "module": "hydroponic",
  "name": "Corrective Action",
  "owner": "Administrator",
  "permissions": [],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

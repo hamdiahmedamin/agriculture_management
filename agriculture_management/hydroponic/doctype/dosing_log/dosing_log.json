@@ -1,0 +1,163 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-08-20 02:07:05.186448",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "status",
+  "dosing_context_section",
+  "company",
+  "hydroponic_system",
+  "crop_cycle",
+  "column_break_1",
+  "dosing_date",
+  "performed_by",
+  "nutrient_recipe",
+  "dosed_items_section",
+  "dosed_items",
+  "stock_entry_section",
+  "generated_stock_entry",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "DOSLOG-.YYYY.-.MM.-"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted\nCancelled"
+  },
+  {
+   "fieldname": "dosing_context_section",
+   "fieldtype": "Section Break",
+   "label": "Dosing Context"
+  },
+  {
+   "fieldname": "hydroponic_system",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Hydroponic System",
+   "options": "Asset",
+   "reqd": 1
+  },
+  {
+   "fieldname": "crop_cycle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Crop Cycle",
+   "options": "Crop Cycle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dosing_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Dosing Date",
+   "reqd": 1
+  },
+  {
+   "default": "__user",
+   "fieldname": "performed_by",
+   "fieldtype": "Link",
+   "label": "Performed By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "nutrient_recipe",
+   "fieldtype": "Link",
+   "label": "Based on Recipe (Optional)",
+   "options": "Nutrient Recipe"
+  },
+  {
+   "fieldname": "dosed_items_section",
+   "fieldtype": "Section Break",
+   "label": "Items Dosed"
+  },
+  {
+   "fieldname": "dosed_items",
+   "fieldtype": "Table",
+   "label": "Dosed Items",
+   "options": "Dosing Log Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "stock_entry_section",
+   "fieldtype": "Section Break",
+   "label": "Stock Traceability"
+  },
+  {
+   "fieldname": "generated_stock_entry",
+   "fieldtype": "Link",
+   "label": "Generated Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Dosing Log",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "company",
+   "options": "Company",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-27 08:19:32.707039",
+ "modified_by": "Administrator",
+ "module": "hydroponic",
+ "name": "Dosing Log",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

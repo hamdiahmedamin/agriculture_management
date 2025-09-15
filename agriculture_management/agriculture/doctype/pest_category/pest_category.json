@@ -11,39 +11,14 @@
  "field_order": [
   "pest_category_name",
   "parent_pest_category",
-  "lft",
-  "rgt",
-  "is_group",
-  "old_parent"
+  "is_group"
  ],
  "fields": [
-  {
-   "fieldname": "lft",
-   "fieldtype": "Int",
-   "hidden": 1,
-   "label": "Left",
-   "no_copy": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "rgt",
-   "fieldtype": "Int",
-   "hidden": 1,
-   "label": "Right",
-   "no_copy": 1,
-   "read_only": 1
-  },
   {
    "default": "0",
    "fieldname": "is_group",
    "fieldtype": "Check",
    "label": "Is Group"
-  },
-  {
-   "fieldname": "old_parent",
-   "fieldtype": "Link",
-   "label": "Old Parent",
-   "options": "Pest Category"
   },
   {
    "fieldname": "parent_pest_category",
@@ -55,16 +30,18 @@
   {
    "fieldname": "pest_category_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Pest Category Name",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "icon": "fa fa-sitemap",
  "index_web_pages_for_search": 1,
- "is_tree": 1,
  "links": [],
  "max_attachments": 3,
- "modified": "2023-11-06 15:04:27.497572",
+ "modified": "2025-08-25 08:35:04.252341",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Pest Category",

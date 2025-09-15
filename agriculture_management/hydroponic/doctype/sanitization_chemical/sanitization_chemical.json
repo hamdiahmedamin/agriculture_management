@@ -9,7 +9,8 @@
   "sanitizing_agent",
   "quantity_used",
   "uom",
-  "source_warehouse"
+  "source_warehouse",
+  "consumable_batch"
  ],
  "fields": [
   {
@@ -44,19 +45,24 @@
    "label": "Source Warehouse",
    "options": "Warehouse",
    "reqd": 1
+  },
+  {
+   "fieldname": "consumable_batch",
+   "fieldtype": "Link",
+   "label": "Consumable Batch",
+   "link_filters": "[[\"Consumable Batch\",\"consumable_type\",\"=\",\"Chemical\"]]",
+   "options": "Consumable Batch"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-04 03:00:11.716037",
+ "modified": "2025-08-31 11:41:50.035784",
  "modified_by": "Administrator",
  "module": "hydroponic",
  "name": "Sanitization Chemical",
  "owner": "Administrator",
  "permissions": [],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-12 05:15:37.497331",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "growing_zone",
+  "quantity_harvested",
+  "uom",
+  "generated_harvest_log",
+  "quality_grade",
+  "waste_weight",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "growing_zone",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Growing Zone",
+   "options": "Growing Zone"
+  },
+  {
+   "fieldname": "quantity_harvested",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity Harvested"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "quality_grade",
+   "fieldtype": "Select",
+   "label": "Quality Grade",
+   "options": "\nPremium\nGrade A\nGrade B\nProcessing Grade\nTotal Loss"
+  },
+  {
+   "fieldname": "waste_weight",
+   "fieldtype": "Float",
+   "label": "Waste Weight"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "generated_harvest_log",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Generated Harvest Log",
+   "options": "Harvest Log",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-12 06:43:54.992229",
+ "modified_by": "Administrator",
+ "module": "Hydroponic",
+ "name": "Harvest Entry Zone",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

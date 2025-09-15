@@ -1,0 +1,42 @@
+{
+ "based_on": "creation",
+ "chart_name": "Water Quality Trends",
+ "chart_type": "Report",
+ "creation": "2025-08-21 13:56:33.357703",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{\"hydroponic_system\":\"ACC-ASS-2025-00001\"}",
+ "group_by_type": "Count",
+ "idx": 4,
+ "is_public": 0,
+ "is_standard": 1,
+ "modified": "2025-08-27 00:44:07.374833",
+ "modified_by": "Administrator",
+ "module": "hydroponic",
+ "name": "Water Quality Trends",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "report_name": "Chart - Water Quality",
+ "roles": [],
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Bar",
+ "use_report_chart": 0,
+ "x_field": "hydrponicsystem",
+ "y_axis": [
+  {
+   "color": "#84c232",
+   "y_field": "ph"
+  },
+  {
+   "color": "#3e79bd",
+   "y_field": "ec"
+  },
+  {
+   "color": "#E13321",
+   "y_field": "temp"
+  }
+ ]
+}

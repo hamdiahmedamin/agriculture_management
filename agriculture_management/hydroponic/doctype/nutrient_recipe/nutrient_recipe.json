@@ -130,12 +130,12 @@
   },
   {
    "fieldname": "markdown_editor_lplz",
-   "fieldtype": "Markdown Editor",
+   "fieldtype": "Text Editor",
    "label": "Stock Solution Mixing Instructions"
   },
   {
    "fieldname": "markdown_editor_zkvn",
-   "fieldtype": "Markdown Editor",
+   "fieldtype": "Text Editor",
    "label": "Safety Notes"
   },
   {
@@ -182,13 +182,12 @@
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Series",
-   "options": "AGR-HNR-.YYYY.-"
+   "options": "HNR-.YYYY.-"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-01 23:43:25.199173",
+ "modified": "2025-08-30 19:00:00.704565",
  "modified_by": "Administrator",
  "module": "hydroponic",
  "name": "Nutrient Recipe",
@@ -208,7 +207,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

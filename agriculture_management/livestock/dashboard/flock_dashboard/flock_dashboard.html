@@ -1,0 +1,24 @@
+<div class="flock-stock-level">
+    <div class="row">
+        <div class="col-sm-6 text-muted">Current Warehouse:</div>
+        <div class="col-sm-6">
+            <a href="/app/warehouse/{{ warehouse }}">{{ warehouse }}</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 text-muted">Live Stock Count:</div>
+        <div class="col-sm-6">
+            <strong>{{ actual_qty }} {{ stock_uom }}</strong>
+        </div>
+    </div>
+</div>
+
+<style>
+    .flock-stock-level {
+        padding: var(--padding-sm);
+        font-size: var(--text-md);
+    }
+    .flock-stock-level .row {
+        margin-bottom: var(--margin-xs);
+    }
+</style>

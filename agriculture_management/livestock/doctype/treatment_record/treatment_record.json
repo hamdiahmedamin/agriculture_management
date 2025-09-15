@@ -1,57 +1,49 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:TREAT-{livestock}-{YYYY}-{#####}",
+ "autoname": "format:TREAT-{animal}-{YYYY}-{#####}",
  "creation": "2025-08-05 16:52:36.302790",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "livestock",
-  "disease",
+  "animal",
   "date_of_treatment",
+  "disease",
   "veterinarian",
   "medications_administered",
+  "withdrawal_section",
   "milk_withdrawal_period",
   "meat_withdrawal_period",
+  "column_break_1",
   "withdrawal_end_date",
   "status",
-  "section_break_os73",
+  "financial_section",
+  "total_cost",
+  "purchase_invoice",
+  "amended_from_section",
   "amended_from"
  ],
  "fields": [
   {
-   "fieldname": "section_break_os73",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Treatment Record",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
-   "fieldname": "livestock",
+   "fieldname": "animal",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Livestock",
-   "options": "Livestock",
-   "reqd": 1
-  },
-  {
-   "fieldname": "disease",
-   "fieldtype": "Link",
-   "label": "Disease",
-   "options": "Livestock Disease"
+   "label": "Animal",
+   "options": "Animal",
+   "reqd": 1,
+   "search_index": 1
   },
   {
    "default": "Today",
    "fieldname": "date_of_treatment",
    "fieldtype": "Date",
    "label": "Date of Treatment"
+  },
+  {
+   "fieldname": "disease",
+   "fieldtype": "Link",
+   "label": "Disease",
+   "options": "Livestock Disease"
   },
   {
    "fieldname": "veterinarian",
@@ -66,14 +58,23 @@
    "options": "Medications Administered"
   },
   {
+   "fieldname": "withdrawal_section",
+   "fieldtype": "Section Break",
+   "label": "Withdrawal Periods"
+  },
+  {
    "fieldname": "milk_withdrawal_period",
    "fieldtype": "Int",
-   "label": "Milk Withdrawal Period"
+   "label": "Milk Withdrawal Period (Days)"
   },
   {
    "fieldname": "meat_withdrawal_period",
    "fieldtype": "Int",
-   "label": "Meat Withdrawal Period"
+   "label": "Meat Withdrawal Period (Days)"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "withdrawal_end_date",
@@ -84,17 +85,46 @@
   {
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Status",
    "options": "Planned\nWithdrawal Period Active\nCompleted"
+  },
+  {
+   "fieldname": "financial_section",
+   "fieldtype": "Section Break",
+   "label": "Financials"
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Event Cost"
+  },
+  {
+   "fieldname": "purchase_invoice",
+   "fieldtype": "Link",
+   "label": "Purchase Invoice (Optional)",
+   "options": "Purchase Invoice"
+  },
+  {
+   "fieldname": "amended_from_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Treatment Record",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-05 19:29:23.553307",
+ "modified": "2025-09-05 15:17:56.251386",
  "modified_by": "Administrator",
- "module": "livestock",
+ "module": "Livestock",
  "name": "Treatment Record",
  "naming_rule": "Expression",
  "owner": "Administrator",
@@ -113,7 +143,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

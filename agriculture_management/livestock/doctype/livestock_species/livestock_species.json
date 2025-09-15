@@ -1,13 +1,21 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:species_name",
  "creation": "2025-08-04 19:20:03.153651",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "species_name",
+  "gestation_period_days",
+  "column_break_bfqc",
   "scientific_name",
-  "gestation_period_days"
+  "default_item_group",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent",
+  "parent_livestock_species"
  ],
  "fields": [
   {
@@ -15,7 +23,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Species Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "scientific_name",
@@ -26,15 +35,61 @@
    "fieldname": "gestation_period_days",
    "fieldtype": "Int",
    "label": "Gestation Period Days"
+  },
+  {
+   "fieldname": "default_item_group",
+   "fieldtype": "Link",
+   "label": "Default Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "column_break_bfqc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "Livestock Species"
+  },
+  {
+   "fieldname": "parent_livestock_species",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Livestock Species",
+   "options": "Livestock Species"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_tree": 1,
  "links": [],
- "modified": "2025-08-04 23:16:37.340471",
+ "modified": "2025-09-05 16:02:47.906028",
  "modified_by": "Administrator",
- "module": "livestock",
+ "module": "Livestock",
  "name": "Livestock Species",
+ "naming_rule": "By fieldname",
+ "nsm_parent_field": "parent_livestock_species",
  "owner": "Administrator",
  "permissions": [
   {
@@ -50,7 +105,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

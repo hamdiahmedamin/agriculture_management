@@ -5,7 +5,8 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "qi_mandatory_for_harvest"
+  "qi_mandatory_for_harvest",
+  "default_parent_cost_center"
  ],
  "fields": [
   {
@@ -14,13 +15,19 @@
    "fieldname": "qi_mandatory_for_harvest",
    "fieldtype": "Check",
    "label": "Quality Inspection Mandatory for Harvest"
+  },
+  {
+   "fieldname": "default_parent_cost_center",
+   "fieldtype": "Link",
+   "label": "Default Cost Center",
+   "link_filters": "[[\"Cost Center\",\"is_group\",\"=\",1]]",
+   "options": "Cost Center"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-08-09 12:41:42.459833",
+ "modified": "2025-09-12 00:59:08.061414",
  "modified_by": "Administrator",
  "module": "Agriculture Management",
  "name": "Agriculture Settings",
@@ -37,7 +44,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

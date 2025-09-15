@@ -1,0 +1,206 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:GTREAT-{YYYY}-{#####}",
+ "creation": "2025-09-01 00:44:13.826497",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_group_details",
+  "livestock_group",
+  "date",
+  "is_flock",
+  "column_break_1",
+  "status",
+  "disease",
+  "practitioner",
+  "animals_treated_section",
+  "animals",
+  "section_break_medication",
+  "medications_administered",
+  "withdrawal_section",
+  "milk_withdrawal_period",
+  "meat_withdrawal_period",
+  "column_break_2",
+  "withdrawal_end_date",
+  "financial_section",
+  "total_cost",
+  "purchase_invoice",
+  "remarks_section",
+  "description",
+  "generated_stock_entry",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_group_details",
+   "fieldtype": "Section Break",
+   "label": "Primary Details"
+  },
+  {
+   "fieldname": "livestock_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Livestock Group",
+   "options": "Livestock Group",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Planned",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Planned\nWithdrawal Period Active\nCompleted"
+  },
+  {
+   "fieldname": "disease",
+   "fieldtype": "Link",
+   "label": "Disease",
+   "options": "Livestock Disease"
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "label": "Practitioner",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "section_break_medication",
+   "fieldtype": "Section Break",
+   "label": "Treatment Details"
+  },
+  {
+   "fieldname": "medications_administered",
+   "fieldtype": "Table",
+   "label": "Medications Administered to Group",
+   "options": "Medications Administered"
+  },
+  {
+   "fieldname": "withdrawal_section",
+   "fieldtype": "Section Break",
+   "label": "Compliance & Status"
+  },
+  {
+   "fieldname": "milk_withdrawal_period",
+   "fieldtype": "Int",
+   "label": "Milk Withdrawal Period (Days)"
+  },
+  {
+   "fieldname": "meat_withdrawal_period",
+   "fieldtype": "Int",
+   "label": "Meat Withdrawal Period (Days)"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "withdrawal_end_date",
+   "fieldtype": "Date",
+   "label": "Withdrawal End Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "financial_section",
+   "fieldtype": "Section Break",
+   "label": "Financials"
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Event Cost"
+  },
+  {
+   "fieldname": "purchase_invoice",
+   "fieldtype": "Link",
+   "label": "Purchase Invoice (Optional)",
+   "options": "Purchase Invoice"
+  },
+  {
+   "fieldname": "animals_treated_section",
+   "fieldtype": "Section Break",
+   "label": "Animals Treated"
+  },
+  {
+   "fieldname": "animals",
+   "fieldtype": "Table",
+   "label": "Animals in Group",
+   "options": "Animal List"
+  },
+  {
+   "fieldname": "remarks_section",
+   "fieldtype": "Section Break",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Group Treatment",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "generated_stock_entry",
+   "fieldtype": "Link",
+   "label": "Generated Stock Entry",
+   "no_copy": 1,
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_flock",
+   "fieldtype": "Check",
+   "label": "Is Flock / Group Managed as a Single Unit"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-09-06 03:43:45.096264",
+ "modified_by": "Administrator",
+ "module": "Livestock",
+ "name": "Group Treatment",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

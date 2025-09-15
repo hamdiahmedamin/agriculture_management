@@ -1,105 +1,104 @@
 {
  "actions": [],
- "autoname": "AG-PLA-.YYYY.-.#####",
+ "allow_rename": 1,
+ "autoname": "naming_series:PLANT-ANL-.YYYY.-.####",
  "creation": "2017-10-18 12:45:13.575986",
  "doctype": "DocType",
- "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
+  "status",
+  "log_context_section",
+  "crop_cycle",
   "crop",
-  "section_break_1",
+  "column_break_1",
+  "company",
+  "collection_datetime",
+  "sample_details_section",
+  "growing_zone",
+  "land_unit",
   "location",
   "column_break_2",
-  "collection_datetime",
+  "person_responsible",
+  "lab_details_section",
   "laboratory_testing_datetime",
   "result_datetime",
-  "section_break_2",
+  "column_break_3",
+  "lab_report_attachment",
+  "results_section",
   "plant_analysis_criteria"
  ],
  "fields": [
   {
-   "fieldname": "crop",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Crop",
-   "options": "Crop",
-   "reqd": 1
+   "fieldname": "naming_series", "fieldtype": "Select", "label": "Naming Series", "options": "PLANT-ANL-.YYYY.-.####", "hidden": 1
   },
   {
-   "fieldname": "section_break_1",
-   "fieldtype": "Section Break"
+   "fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "Sample Collected\nIn Laboratory\nResults Received\nArchived", "default": "Sample Collected", "in_list_view": 1
   },
   {
-   "fieldname": "location",
-   "fieldtype": "Geolocation",
-   "label": "Location"
+   "fieldname": "log_context_section", "fieldtype": "Section Break", "label": "Analysis Context"
   },
   {
-   "fieldname": "column_break_2",
-   "fieldtype": "Column Break"
+   "fieldname": "crop_cycle", "fieldtype": "Link", "label": "Crop Cycle", "options": "Crop Cycle", "reqd": 1, "in_list_view": 1
   },
   {
-   "fieldname": "collection_datetime",
-   "fieldtype": "Datetime",
-   "label": "Collection Datetime",
-   "reqd": 1
+   "fetch_from": "crop_cycle.crop", "fieldname": "crop", "fieldtype": "Link", "label": "Crop", "options": "Crop", "read_only": 1
   },
   {
-   "fieldname": "laboratory_testing_datetime",
-   "fieldtype": "Datetime",
-   "label": "Laboratory Testing Datetime"
+   "fieldname": "column_break_1", "fieldtype": "Column Break"
   },
   {
-   "fieldname": "result_datetime",
-   "fieldtype": "Datetime",
-   "in_list_view": 1,
-   "label": "Result Datetime"
+   "fieldname": "company", "fieldtype": "Link", "label": "Company", "options": "Company", "reqd": 1, "read_only": 1
   },
   {
-   "fieldname": "section_break_2",
-   "fieldtype": "Section Break",
-   "label": "Plant Analysis Criterias"
+   "fieldname": "collection_datetime", "fieldtype": "Datetime", "label": "Collection Datetime", "reqd": 1, "in_list_view": 1
   },
   {
-   "fieldname": "plant_analysis_criteria",
-   "fieldtype": "Table",
-   "options": "Plant Analysis Criteria"
-  }
+   "fieldname": "sample_details_section", "fieldtype": "Section Break", "label": "Sample Location & Details"
+  },
+  {
+   "depends_on": "eval:doc.growth_method == 'Hydroponic'", "fieldname": "growing_zone", "fieldtype": "Link", "label": "Growing Zone", "options": "Growing Zone"
+  },
+  {
+   "depends_on": "eval:doc.growth_method == 'Soil-Based'", "fieldname": "land_unit", "fieldtype": "Link", "label": "Land Unit", "options": "Location"
+  },
+  {
+   "fieldname": "location", "fieldtype": "Geolocation", "label": "Geolocation"
+  },
+  {
+   "fieldname": "column_break_2", "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "person_responsible", "fieldtype": "Link", "label": "Person Responsible", "options": "User", "default": "__user"
+  },
+  {
+   "fieldname": "lab_details_section", "fieldtype": "Section Break", "label": "Laboratory Details"
+  },
+  {
+   "fieldname": "laboratory_testing_datetime", "fieldtype": "Datetime", "label": "Laboratory Testing Datetime"
+  },
+  {
+   "fieldname": "result_datetime", "fieldtype": "Datetime", "label": "Result Datetime"
+  },
+  {
+   "fieldname": "column_break_3", "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lab_report_attachment", "fieldtype": "Attach", "label": "Attach Lab Report"
+  },
+  {
+   "fieldname": "results_section", "fieldtype": "Section Break", "label": "Plant Analysis Results"
+  },
+  {
+   "fieldname": "plant_analysis_criteria", "fieldtype": "Table", "options": "Plant Analysis Criteria"
+  },
+  {"fieldname": "growth_method", "fieldtype": "Data", "hidden": 1}
  ],
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2023-10-30 11:42:14.477163",
- "modified_by": "Administrator",
- "module": "Agriculture",
- "name": "Plant Analysis",
- "naming_rule": "Expression (old style)",
- "owner": "Administrator",
+ "index_web_pages_for_search": 1, "links": [], "modified": "2025-08-27 22:27:03.027053", "modified_by": "Administrator",
+ "module": "Agriculture", "name": "Plant Analysis", "naming_rule": "By \"Naming Series\" field", "owner": "Administrator",
  "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Agriculture Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Agriculture User",
-   "share": 1,
-   "write": 1
-  }
+  {"create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "Agriculture Manager", "share": 1, "write": 1},
+  {"email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "Agriculture User", "share": 1, "write": 1}
  ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": [],
- "track_changes": 1
+ "sort_field": "modified", "sort_order": "DESC", "states": [], "track_changes": 1
 }

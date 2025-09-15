@@ -7,14 +7,24 @@
  "engine": "InnoDB",
  "field_order": [
   "group_name",
-  "group_location",
+  "company",
+  "main_group_type",
   "group_type",
+  "is_flock",
+  "poultry_flock",
+  "performance_standard",
+  "column_break_tvqo",
+  "species",
   "status",
+  "group_location",
+  "cost_center",
+  "section_break_miqq",
   "animal_list",
+  "section_break_eutw",
   "total_animals",
   "average_age",
   "average_weight",
-  "cost_center"
+  "mortality_rate"
  ],
  "fields": [
   {
@@ -26,28 +36,37 @@
    "unique": 1
   },
   {
-   "fieldname": "group_type",
-   "fieldtype": "Select",
-   "label": "Group Type",
-   "options": "Breeding Stock\nFattening/Finishing\nDairy Production\nQuarantine\nWeaning Pen\nFree Range Flock"
-  },
-  {
    "fieldname": "group_location",
    "fieldtype": "Link",
    "label": "Group Location",
    "options": "Warehouse"
   },
   {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Active\nDisbanded"
+   "fieldname": "species",
+   "fieldtype": "Link",
+   "label": "Species",
+   "options": "Livestock Species"
   },
   {
-   "fieldname": "animal_list",
-   "fieldtype": "Table",
-   "label": "Animal List",
-   "options": "Animal List"
+   "fieldname": "group_type",
+   "fieldtype": "Link",
+   "label": "Group Type",
+   "options": "Group Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Planning\nActive\nSold\nCulled\nDeceased\nQuarantined\nDisbanded"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_flock",
+   "fieldtype": "Check",
+   "label": "Is Flock / Group Managed as a Single Unit"
   },
   {
    "fieldname": "total_animals",
@@ -58,27 +77,80 @@
   {
    "fieldname": "average_age",
    "fieldtype": "Float",
-   "label": "Average Age"
+   "label": "Average Age (Days)",
+   "read_only": 1
   },
   {
    "fieldname": "average_weight",
    "fieldtype": "Float",
-   "label": "Average Weight",
+   "label": "Average Weight (Kg)",
    "read_only": 1
+  },
+  {
+   "depends_on": "eval:!doc.is_flock",
+   "fieldname": "animal_list",
+   "fieldtype": "Table",
+   "label": "Animal List",
+   "options": "Animal List"
   },
   {
    "fieldname": "cost_center",
    "fieldtype": "Link",
    "label": "Cost Center",
    "options": "Cost Center"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tvqo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_eutw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_miqq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "main_group_type",
+   "fieldtype": "Select",
+   "label": "Main Group Type",
+   "options": "\nBreeding & Young Stock\nProduction\nHealth & Status",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.is_flock",
+   "fieldname": "poultry_flock",
+   "fieldtype": "Link",
+   "label": "Poultry Flock",
+   "options": "Poultry Flock"
+  },
+  {
+   "description": "Select the breed performance standard for this group to enable automated calculations.",
+   "fieldname": "performance_standard",
+   "fieldtype": "Link",
+   "label": "Performance Standard",
+   "options": "Performance Standard"
+  },
+  {
+   "fieldname": "mortality_rate",
+   "fieldtype": "Percent",
+   "label": "Mortality Rate"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-05 11:41:11.638755",
+ "modified": "2025-09-13 19:58:42.932032",
  "modified_by": "Administrator",
- "module": "livestock",
+ "module": "Livestock",
  "name": "Livestock Group",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
@@ -96,7 +168,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

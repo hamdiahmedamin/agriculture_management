@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-25 08:51:57.243771",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "action_type",
+  "item_applied",
+  "quantity",
+  "uom",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "action_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Action Type",
+   "options": "\nChemical Treatment\nBiological Control\nMechanical Removal\nMonitoring",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_applied",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Applied",
+   "options": "Item"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity"
+  },
+  {
+   "fetch_from": "item_applied.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-25 08:55:58.951478",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Pest Log Action Taken",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

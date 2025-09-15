@@ -1,0 +1,148 @@
+{
+ "add_total_row": 0,
+ "columns": [
+  {
+   "fieldname": "Schedule ID",
+   "fieldtype": "Link",
+   "label": "Schedule ID",
+   "options": "Planting Schedule",
+   "width": 0
+  },
+  {
+   "fieldname": "Title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "width": 0
+  },
+  {
+   "fieldname": "Crop",
+   "fieldtype": "Data",
+   "label": "Crop",
+   "width": 0
+  },
+  {
+   "fieldname": "Schedule Status",
+   "fieldtype": "Data",
+   "label": "Schedule Status",
+   "width": 0
+  },
+  {
+   "fieldname": "Planted Quantity",
+   "fieldtype": "Int",
+   "label": "Planted Quantity",
+   "width": 0
+  },
+  {
+   "fieldname": "Planting Date",
+   "fieldtype": "Date",
+   "label": "Planting Date",
+   "width": 0
+  },
+  {
+   "fieldname": "Location/System",
+   "fieldtype": "Data",
+   "label": "Location/System",
+   "width": 0
+  },
+  {
+   "fieldname": "Harvest Log ID",
+   "fieldtype": "Link",
+   "label": "Harvest Log ID",
+   "options": "Harvest Log",
+   "width": 0
+  },
+  {
+   "fieldname": "Harvest Date",
+   "fieldtype": "Date",
+   "label": "Harvest Date",
+   "width": 0
+  },
+  {
+   "fieldname": "Harvested Weight (Gross)",
+   "fieldtype": "Float",
+   "label": "Harvested Weight (Gross)",
+   "width": 0
+  },
+  {
+   "fieldname": "Waste Weight",
+   "fieldtype": "Float",
+   "label": "Waste Weight",
+   "width": 0
+  },
+  {
+   "fieldname": "Actual Days to Harvest",
+   "fieldtype": "Int",
+   "label": "Actual Days to Harvest",
+   "width": 0
+  },
+  {
+   "fieldname": "Yield per Plant Site",
+   "fieldtype": "Float",
+   "label": "Yield per Plant Site",
+   "width": 0
+  },
+  {
+   "fieldname": "Waste Percentage",
+   "fieldtype": "Float",
+   "label": "Waste Percentage (%)",
+   "width": 0
+  }
+ ],
+ "creation": "2025-08-19 15:01:01.278416",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "fieldname": "Crop",
+   "fieldtype": "Link",
+   "label": "Crop",
+   "mandatory": 0,
+   "options": "Crop",
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "Asset",
+   "fieldtype": "Link",
+   "label": "Hydroponic System",
+   "mandatory": 0,
+   "options": "Asset",
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "Location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "mandatory": 0,
+   "options": "Location",
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "Harvest Date",
+   "fieldtype": "Time",
+   "label": "Harvest Date",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-08-19 15:09:49.632869",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Crop Cycle Performance Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    -- Fields from Planting Schedule (The Plan)\n    ps.name AS \"Schedule ID\",\n    ps.title AS \"Title\",\n    ps.crop AS \"Crop\",\n    ps.status AS \"Schedule Status\",\n    ps.quantity_to_plant AS \"Planted Quantity\",\n    ps.target_planting_date AS \"Planting Date\",\n\n    -- Logic to show the correct location/system\n    CASE\n        WHEN ps.is_hydroponic_schedule = 1 THEN ps.hydroponic_system\n        ELSE ps.location\n    END AS \"Location/System\",\n\n    -- Fields from Harvest Log (The Result)\n    hl.name AS \"Harvest Log ID\",\n    hl.modified AS \"Harvest Date\", -- The submission/modification date is the harvest date\n    hl.total_weight_gross AS \"Harvested Weight (Gross)\",\n    hl.waste_weight AS \"Waste Weight\",\n\n    -- Calculated Performance Metrics\n    hl.days_to_harvest AS \"Actual Days to Harvest\",\n    hl.yield_per_plant_site AS \"Yield per Plant Site\",\n    hl.waste_percentage AS \"Waste Percentage\"\n\nFROM\n    `tabPlanting Schedule` AS ps\n\n-- Join the schedule to its corresponding crop cycle\nLEFT JOIN\n    `tabCrop Cycle` AS cc ON ps.linked_crop_cycle = cc.name\n\n-- Join the crop cycle to its corresponding harvest log\nLEFT JOIN\n    `tabHarvest Log` AS hl ON hl.crop_cycle = cc.name\n\n-- Only show schedules that have a completed harvest log\nWHERE\n    hl.name IS NOT NULL\n    AND hl.docstatus = 1 -- Ensures the Harvest Log is Submitted",
+ "ref_doctype": "Planting Schedule",
+ "report_name": "Crop Cycle Performance Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0,
+ "use_tabulator": 0
+}

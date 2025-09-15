@@ -1,0 +1,21 @@
+[
+ {
+  "allow_guest": 0,
+  "api_method": null,
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Insert",
+  "enable_rate_limit": 0,
+  "event_frequency": "Hourly",
+  "modified": "2025-08-26 17:24:58.925112",
+  "module": "hydroponic",
+  "name": "Update Hydroponic Metrics",
+  "rate_limit_count": 5,
+  "rate_limit_seconds": 86400,
+  "reference_doctype": null,
+  "script": "# This script runs daily to update key metrics for the dashboard.\n\n# --- Metric 1: Overdue Maintenance ---\nmaintenance_report_get_data = frappe.get_attr(\"agriculture_management.hydroponic.report.maintenance_and_compliance_schedule.maintenance_and_compliance_schedule.get_data\")\nfilters = {\"status\": \"Overdue\"}\noverdue_tasks = maintenance_report_get_data(filters)\noverdue_count = len(overdue_tasks)\n\n# --- Metric 2: Gross Profit of the Most Recently Completed Crop Cycle ---\nprofit = 0\n# Get the profitability report's data function\nprofit_report_get_data = frappe.get_attr(\"agriculture_management.agriculture.report.crop_profitability_report.crop_profitability_report.get_data\")\n\n# Run the report with no filters to get all data\nall_profit_data = profit_report_get_data({})\n\n# Sort the data by harvest date to find the most recent one\nif all_profit_data:\n    # Sort in place by the 'harvest_date' key, newest first\n    all_profit_data.sort(key=lambda x: x['harvest_date'], reverse=True)\n    # Get the gross profit from the very first item in the sorted list\n    profit = all_profit_data[0]['gross_profit']\n\n\n# --- Update the KPI Document ---\n# Fetch the specific KPI document by its unique name/ID.\n# !! REPLACE 'KPI-2025-00001' WITH THE ID OF YOUR KPI DOCUMENT !!\nkpi_doc_name = 'KPI-2025-00001' \nkpi_doc = frappe.get_doc(\"Hydroponic KPI\", kpi_doc_name)\n\n# Set the new values\nkpi_doc.overdue_maintenance_tasks = overdue_count\nkpi_doc.last_cycle_gross_profit = profit\n\n# Save the document\nkpi_doc.save(ignore_permissions=True)\n\n# Optional: Log to the error log to confirm it ran\nfrappe.log_error(f\"Hydroponic KPI updated. Overdue: {overdue_count}, Last Profit: {profit}\", \"Update Hydroponic Metrics\")",
+  "script_type": "Scheduler Event"
+ }
+]

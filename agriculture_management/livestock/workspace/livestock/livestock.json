@@ -1,0 +1,374 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"nUCdMozHOd\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Livestock Dashboard\",\"col\":3}},{\"id\":\"ffZ8d8PZVU\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"card_kpi_1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Active Animals\",\"col\":4}},{\"id\":\"card_kpi_2\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Animals in Withdrawal\",\"col\":4}},{\"id\":\"card_kpi_3\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Asset Value of Herd\",\"col\":4}},{\"id\":\"header_1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Operations</span>\",\"col\":12}},{\"id\":\"bg9CG_k2PB\",\"type\":\"card\",\"data\":{\"card_name\":\"Core Livestock Management\",\"col\":4}},{\"id\":\"9KrMcZHl5N\",\"type\":\"card\",\"data\":{\"card_name\":\"Health and Medical\",\"col\":4}},{\"id\":\"z5xchw4bb3\",\"type\":\"card\",\"data\":{\"card_name\":\"Performance and Traits\",\"col\":4}},{\"id\":\"xC4CDVmTas\",\"type\":\"card\",\"data\":{\"card_name\":\"Feeding and Nutrition\",\"col\":4}},{\"id\":\"fPN4cXFqbs\",\"type\":\"card\",\"data\":{\"card_name\":\"Grazing and Movement\",\"col\":4}},{\"id\":\"nYBFRHe2pd\",\"type\":\"card\",\"data\":{\"card_name\":\"Financial and Transactions:\",\"col\":4}},{\"id\":\"23J7DCKEZy\",\"type\":\"card\",\"data\":{\"card_name\":\"Settings and Integration\",\"col\":4}},{\"id\":\"sew1c9Yecz\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "creation": "2025-08-06 02:33:26.122597",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "livestock",
+ "idx": 0,
+ "is_hidden": 0,
+ "is_standard": 1,
+ "label": "Livestock",
+ "links": [
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Health and Medical",
+   "link_count": 6,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Treatment Record",
+   "link_count": 0,
+   "link_to": "Treatment Record",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Group Treatment",
+   "link_count": 0,
+   "link_to": "Group Treatment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Livestock Disease",
+   "link_count": 0,
+   "link_to": "Livestock Disease",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vaccination Schedule",
+   "link_count": 0,
+   "link_to": "Vaccination Schedule",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vaccination Record",
+   "link_count": 0,
+   "link_to": "Vaccination Record",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Group Vaccination",
+   "link_count": 0,
+   "link_to": "Group Vaccination",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Breeding Log",
+   "link_count": 0,
+   "link_to": "Breeding Log",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Animal Health Log",
+   "link_count": 0,
+   "link_to": "Animal Health Log",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Performance and Traits",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Livestock Performance Log",
+   "link_count": 0,
+   "link_to": "Livestock Performance Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Trait",
+   "link_count": 0,
+   "link_to": "Trait",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Feeding and Nutrition",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Feeding Schedule",
+   "link_count": 0,
+   "link_to": "Feeding Schedule",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Feed Formulation",
+   "link_count": 0,
+   "link_to": "Feed Formulation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Grazing and Movement",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Grazing Plan",
+   "link_count": 0,
+   "link_to": "Grazing Plan",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Financial and Transactions:",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Livestock Movement",
+   "link_count": 0,
+   "link_to": "Livestock Movement",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Herd Snapshot",
+   "link_count": 0,
+   "link_to": "Herd Snapshot",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Settings and Integration",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Livestock Settings",
+   "link_count": 0,
+   "link_to": "Livestock Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Device Integration Log",
+   "link_count": 0,
+   "link_to": "Device Integration Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Core Livestock Management",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Animal",
+   "link_count": 0,
+   "link_to": "Animal",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Poultry Flock",
+   "link_count": 0,
+   "link_to": "Poultry Flock",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Livestock Group",
+   "link_count": 0,
+   "link_to": "Livestock Group",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Specie",
+   "link_count": 0,
+   "link_to": "Livestock Species",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "columns": 4,
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Breed",
+   "link_count": 0,
+   "link_to": "Livestock Breed",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-09-07 13:31:32.872357",
+ "modified_by": "Administrator",
+ "module": "Livestock",
+ "name": "Livestock",
+ "number_cards": [
+  {
+   "label": "Total Active Animals",
+   "number_card_name": "Total Active Animals"
+  },
+  {
+   "label": "Animals in Withdrawal",
+   "number_card_name": "Animals in Withdrawal"
+  },
+  {
+   "label": "Total Asset Value of Herd",
+   "number_card_name": "Total Asset Value of Herd"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 28.0,
+ "shortcuts": [
+  {
+   "color": "Gray",
+   "columns": 3,
+   "doc_view": "List",
+   "label": "Livestock Dashboard",
+   "link_to": "Livestock Dashboard",
+   "type": "Dashboard"
+  }
+ ],
+ "title": "Livestock Management"
+}

@@ -1,0 +1,132 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-08-04 19:22:50.359979",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "primary_details_section",
+  "naming_series",
+  "movement_type",
+  "column_break_1",
+  "movement_date",
+  "reason",
+  "subject_section",
+  "animal",
+  "livestock_group",
+  "location_section",
+  "from_location",
+  "to_location",
+  "notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "primary_details_section",
+   "fieldtype": "Section Break",
+   "label": "Primary Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "MOVE-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "default": "Individual",
+   "fieldname": "movement_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Movement Type",
+   "options": "Individual\nGroup",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "movement_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Movement Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Select",
+   "label": "Reason for Movement",
+   "options": "\nPasture Rotation\nQuarantine\nSale Preparation\nWeaning\nHealth Isolation"
+  },
+  {
+   "fieldname": "subject_section",
+   "fieldtype": "Section Break",
+   "label": "Subject of Movement"
+  },
+  {
+   "depends_on": "eval:doc.movement_type=='Individual'",
+   "fieldname": "animal",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Animal",
+   "options": "Animal",
+   "mandatory_depends_on": "eval:doc.movement_type=='Individual'"
+  },
+  {
+   "depends_on": "eval:doc.movement_type=='Group'",
+   "fieldname": "livestock_group",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Livestock Group",
+   "options": "Livestock Group",
+   "mandatory_depends_on": "eval:doc.movement_type=='Group'"
+  },
+  {
+   "fieldname": "location_section",
+   "fieldtype": "Section Break",
+   "label": "Location Details"
+  },
+  {
+   "fieldname": "from_location",
+   "fieldtype": "Link",
+   "label": "From Location",
+   "options": "Warehouse",
+   "read_only": 1
+  },
+  {
+   "fieldname": "to_location",
+   "fieldtype": "Link",
+   "label": "To Location",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-09-05 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Livestock",
+ "name": "Livestock Movement",
+ "naming_rule": "By Naming Series",
+ "owner": "Administrator",
+ "permissions": [
+  { "create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "submit": 1, "write": 1 }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

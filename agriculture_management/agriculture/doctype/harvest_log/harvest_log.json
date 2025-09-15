@@ -9,12 +9,16 @@
   "title",
   "status",
   "column_break_bmhs",
+  "harvest_date",
+  "posting_time",
+  "set_posting_time",
   "naming_series",
   "harvest_context_section",
   "company",
   "crop_cycle",
   "column_break_zpwp",
   "harvested_by",
+  "source_harvest_entry",
   "section_break_yalq",
   "harvested_items",
   "quantitative_yield_section",
@@ -124,7 +128,7 @@
    "fieldname": "quality_grade",
    "fieldtype": "Select",
    "label": "Quality Grade\t",
-   "options": "Premium\nGrade A\nGrade B\nProcessing Grade\nTotal Loss"
+   "options": "\nPremium\nGrade A\nGrade B\nProcessing Grade\nTotal Loss"
   },
   {
    "fieldname": "column_break_oefl",
@@ -139,7 +143,7 @@
    "fieldname": "reason_for_waste",
    "fieldtype": "Select",
    "label": "Reason for Waste",
-   "options": "Pest Damage\nDisease\nUnderdeveloped\nPhysical Damage\nBolted"
+   "options": "\nPest Damage\nDisease\nUnderdeveloped\nPhysical Damage\nBolted"
   },
   {
    "fieldname": "section_break_ovwr",
@@ -206,13 +210,41 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "source_harvest_entry",
+   "fieldtype": "Link",
+   "label": "Source Harvest Entry",
+   "options": "Harvest Entry",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "harvest_date",
+   "fieldtype": "Date",
+   "label": "Harvest Date",
+   "read_only_depends_on": "eval:doc.set_posting_time==0",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time",
+   "read_only_depends_on": "eval:doc.set_posting_time==0"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.docstatus==0",
+   "fieldname": "set_posting_time",
+   "fieldtype": "Check",
+   "label": "Edit Posting Date and Time"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-09 12:46:06.613751",
+ "modified": "2025-09-12 08:17:47.831414",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Harvest Log",
@@ -232,7 +264,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

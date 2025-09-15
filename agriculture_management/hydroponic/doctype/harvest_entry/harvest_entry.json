@@ -1,0 +1,154 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:naming_series",
+ "creation": "2025-09-12 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "primary_details_section",
+  "harvest_date",
+  "harvested_by",
+  "crop_cycle",
+  "item_code",
+  "target_warehouse",
+  "column_break_1",
+  "status",
+  "company",
+  "total_quantity_harvested",
+  "total_waste",
+  "zones_section",
+  "zones_harvested",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "HARV-E-.YYYY.-.MM.-.####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "no_copy": 1,
+   "options": "HARV-E-.YYYY.-.MM.-.####"
+  },
+  {
+   "fieldname": "primary_details_section",
+   "fieldtype": "Section Break",
+   "label": "Primary Details"
+  },
+  {
+   "fieldname": "harvest_date",
+   "fieldtype": "Date",
+   "label": "Harvest Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "harvested_by",
+   "fieldtype": "Link",
+   "label": "Harvested By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "crop_cycle",
+   "fieldtype": "Link",
+   "label": "Crop Cycle",
+   "options": "Crop Cycle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nCompleted\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_quantity_harvested",
+   "fieldtype": "Float",
+   "label": "Total Quantity Harvested",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_waste",
+   "fieldtype": "Float",
+   "label": "Total Waste",
+   "read_only": 1
+  },
+  {
+   "fieldname": "zones_section",
+   "fieldtype": "Section Break",
+   "label": "Zones Harvested"
+  },
+  {
+   "fieldname": "zones_harvested",
+   "fieldtype": "Table",
+   "label": "Zones Harvested",
+   "options": "Harvest Entry Zone"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Harvest Entry",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-09-15 09:10:56.890571",
+ "modified_by": "Administrator",
+ "module": "Hydroponic",
+ "name": "Harvest Entry",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "crop_cycle",
+ "track_changes": 1
+}

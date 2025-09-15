@@ -1,0 +1,39 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-25 16:06:19.364646",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "description",
+  "duration_in_minutes"
+ ],
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Step Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "duration_in_minutes",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Expected Duration (Mins)"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-25 16:11:07.583381",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Task Template Step",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -17,7 +17,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Offspring",
-   "options": "Livestock",
+   "options": "Animal",
    "read_only": 1
   },
   {
@@ -40,21 +40,19 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Mate (Other Parent)",
-   "options": "Livestock",
+   "options": "Animal",
    "read_only": 1
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-07 15:20:58.723837",
+ "modified": "2025-08-31 15:24:11.902715",
  "modified_by": "Administrator",
- "module": "livestock",
+ "module": "Livestock",
  "name": "Livestock Offspring",
  "owner": "Administrator",
  "permissions": [],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

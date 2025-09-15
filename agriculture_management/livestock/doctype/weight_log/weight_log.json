@@ -1,0 +1,38 @@
+{
+ "doctype": "DocType",
+ "name": "Weight Log",
+ "module": "Livestock",
+ "custom": 1,
+ "istable": 1,
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "default": "Today",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "average_weight",
+   "fieldtype": "Float",
+   "label": "Average Weight",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UoM",
+   "options": "UOM",
+   "default": "Kg",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sample_size",
+   "fieldtype": "Int",
+   "label": "Sample Size",
+   "description": "How many birds were weighed to get this average."
+  }
+ ]
+}

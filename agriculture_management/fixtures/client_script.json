@@ -1,0 +1,13 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Purchase Receipt",
+  "enabled": 1,
+  "modified": "2025-08-30 12:36:55.151985",
+  "module": "hydroponic",
+  "name": "Create Nutrient Batch",
+  "script": "/*\n* Custom Script for Purchase Receipt\n* Adds a \"Create Nutrient Batch\" button to the form.\n*/\nfrappe.ui.form.on('Purchase Receipt', {\n    /**\n     * REFRESH: This event runs every time the form is drawn.\n     */\n    refresh: function(frm) {\n        // --- Add the \"Create Nutrient Batch\" button ---\n\n        // Only show the button for submitted documents that have items.\n        if (frm.doc.docstatus === 1 && frm.doc.items && frm.doc.items.length > 0) {\n            \n            // This adds the button to the \"Create\" menu in the top-right of the form.\n            frm.add_custom_button(__('Create Nutrient Batch'), function() {\n                // When clicked, call our helper function to start the process.\n                create_nutrient_batches_from_receipt(frm);\n            }, __('Create')); // The last argument specifies the button group\n        }\n    }\n});\n\n/**\n * This is the helper function that contains the main logic.\n */\nfunction create_nutrient_batches_from_receipt(frm) {\n    // This function will handle creating one or more Nutrient Batch documents.\n    // We will use a dedicated Client Script on the Nutrient Batch side to handle\n    // the pre-filling, which is a cleaner approach.\n\n    // 1. Prepare the data to be passed.\n    // We create an array of objects, one for each item row in the Purchase Receipt.\n    let items_to_process = frm.doc.items.map(function(item_row) {\n        return {\n            item: item_row.item_code,\n            quantity_received: item_row.qty,\n            uom: item_row.uom,\n            warehouse: item_row.warehouse,\n            // Also pass context from the parent document\n            company: frm.doc.company,\n            supplier: frm.doc.supplier\n        };\n    });\n\n    // 2. Save this data to local storage. This is the most reliable way to\n    //    pass a list of data to a new document form.\n    localStorage.setItem('new_nutrient_batch_data', JSON.stringify(items_to_process));\n\n    // 3. Open the form for a new Nutrient Batch.\n    frappe.new_doc('Nutrient Batch');\n}",
+  "view": "Form"
+ }
+]

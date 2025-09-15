@@ -1,5 +1,9 @@
 {
     "js/genealogy-chart.js": [
         "public/js/genealogy_chart/genealogy_chart.js"
+    ],
+    "flock-dashboard.bundle.js": [
+        "../../livestock/dashboard/flock_dashboard/flock_dashboard.js",
+        "../../livestock/dashboard/flock_dashboard/flock_dashboard.html"
     ]
 }

@@ -6,7 +6,7 @@
  "currency": "",
  "docstatus": 0,
  "doctype": "Dashboard Chart",
- "document_type": "Livestock",
+ "document_type": "Animal",
  "dynamic_filters_json": "[]",
  "filters_json": "[]",
  "group_by_based_on": "species",

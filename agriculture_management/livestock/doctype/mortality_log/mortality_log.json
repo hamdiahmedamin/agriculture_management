@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-06 16:53:54.389230",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Int",
+   "label": "Quantity",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cause",
+   "fieldtype": "Small Text",
+   "label": "Cause / Notes",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "record_type",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Record Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "record",
+   "fieldtype": "Dynamic Link",
+   "label": "Stock Entry",
+   "options": "record_type",
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-06 16:54:53.202516",
+ "modified_by": "Administrator",
+ "module": "Livestock",
+ "name": "Mortality Log",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

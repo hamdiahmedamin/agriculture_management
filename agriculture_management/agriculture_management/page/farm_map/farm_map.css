@@ -1,0 +1,849 @@
+/* ======== DESIGN SYSTEM & CSS VARIABLES ======== */
+:root {
+    /* Color Palette - Modern Neutral + Brand */
+    --primary-blue: #0078d4;
+    --primary-blue-hover: #106ebe;
+    --primary-blue-light: #f3f9ff;
+    --accent-green: #107c10;
+    --accent-yellow: #ff8c00;
+    --accent-red: #d13438;
+    
+    /* Light Mode Neutral Scale (Default) */
+    --neutral-0: #ffffff;
+    --neutral-50: #fafbfc;
+    --neutral-100: #f5f7fa;
+    --neutral-200: #e1e7ed;
+    --neutral-300: #d2d9e0;
+    --neutral-400: #a3aab2;
+    --neutral-500: #8a9199;
+    --neutral-600: #69727a;
+    --neutral-700: #4a545c;
+    --neutral-800: #323a42;
+    --neutral-900: #1f262e;
+    
+    /* Light Mode Semantic Colors */
+    --success: var(--accent-green);
+    --success-light: #f3ffed;
+    --success-border: #9fd89f;
+    --warning: var(--accent-yellow);
+    --warning-light: #fff8f0;
+    --warning-border: #ffcb8a;
+    --error: var(--accent-red);
+    --error-light: #fdf6f6;
+    --error-border: #f1a7aa;
+    
+    /* Typography */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Spacing Scale */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-5: 1.25rem;
+    --spacing-6: 1.5rem;
+    --spacing-8: 2rem;
+    --spacing-10: 2.5rem;
+    --spacing-12: 3rem;
+    --spacing-16: 4rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    
+    /* Light Mode Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
+    --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.16), 0 16px 32px rgba(0, 0, 0, 0.08);
+    --shadow-focus: 0 0 0 2px var(--primary-blue-light), 0 0 0 4px var(--primary-blue);
+    
+    /* Transitions */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 
+===========================================================
+    DARK MODE FOR ERPNEXT THEME SWITCHER
+===========================================================
+This single block replaces both the `@media` query and the 
+`.dark-mode` class. It specifically targets the `data-theme="dark"`
+attribute that ERPNext adds to the <html> element.
+*/
+html[data-theme="dark"] {
+    /* Dark Mode Brand Colors - Adjusted for better contrast */
+    --primary-blue: #4cc2ff;
+    --primary-blue-hover: #1ba1f2;
+    --primary-blue-light: rgba(76, 194, 255, 0.1);
+    --accent-green: #6bcf7f;
+    --accent-yellow: #ffb84d;
+    --accent-red: #ff6b6b;
+    
+    /* Dark Mode Neutral Scale */
+    --neutral-0: #0d1117;
+    --neutral-50: #161b22;
+    --neutral-100: #21262d;
+    --neutral-200: #30363d;
+    --neutral-300: #484f58;
+    --neutral-400: #6e7681;
+    --neutral-500: #8b949e;
+    --neutral-600: #b1bac4;
+    --neutral-700: #c9d1d9;
+    --neutral-800: #e6edf3;
+    --neutral-900: #f0f6fc;
+    
+    /* Dark Mode Semantic Colors */
+    --success: #6bcf7f;
+    --success-light: rgba(107, 207, 127, 0.1);
+    --success-border: rgba(107, 207, 127, 0.3);
+    --warning: #ffb84d;
+    --warning-light: rgba(255, 184, 77, 0.1);
+    --warning-border: rgba(255, 184, 77, 0.3);
+    --error: #ff6b6b;
+    --error-light: rgba(255, 107, 107, 0.1);
+    --error-border: rgba(255, 107, 107, 0.3);
+    
+    /* Dark Mode Shadows - Enhanced for depth */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.25);
+    --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.6), 0 16px 32px rgba(0, 0, 0, 0.3);
+    --shadow-focus: 0 0 0 2px var(--primary-blue-light), 0 0 0 4px var(--primary-blue);
+}
+
+/* 
+===========================================================
+    REMAINING STYLES (UNCHANGED)
+===========================================================
+*/
+
+/* REMOVED: Your custom dark mode toggle button is no longer needed.
+   ERPNext's built-in theme switcher will handle this.
+.dark-mode-toggle { ... } */
+
+/* ======== BASE RESET & TYPOGRAPHY ======== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    color: var(--neutral-800);
+    background-color: var(--neutral-50);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+/* ======== MAIN PAGE & CARD STYLES - ENHANCED ======== */
+.farm-map-container {
+    background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
+    min-height: 100vh;
+    padding: var(--spacing-8);
+}
+
+.farm-layout-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-12);
+}
+
+.section-title {
+    width: 100%;
+    margin: var(--spacing-10) 0 var(--spacing-6);
+    padding-bottom: var(--spacing-4);
+    position: relative;
+    color: var(--neutral-900);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.025em;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-blue-hover));
+    border-radius: var(--radius-sm);
+}
+
+.farm-area {
+    background: var(--neutral-0);
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-6);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.farm-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-blue-hover));
+    transform: scaleX(0);
+    transition: transform var(--transition-base);
+}
+
+.farm-area:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--neutral-300);
+}
+
+.farm-area:hover::before {
+    transform: scaleX(1);
+}
+
+.farm-area:focus {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+/* ======== VISUAL LAYOUT DIALOG - MODERN FLUENT ======== */
+.visual-layout-dialog .modal-dialog {
+    max-width: 95vw !important;
+    width: 95vw !important;
+    margin: 2vh auto;
+}
+
+.visual-layout-dialog .modal-content {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--neutral-0);
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+}
+
+.visual-layout-dialog .modal-body {
+    padding: 0;
+    overflow: hidden;
+    flex: 1;
+}
+
+.visual-layout-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ======== MASTER-DETAIL LAYOUT ======== */
+.master-detail-container {
+    display: flex;
+    height: 100%;
+    flex: 1;
+}
+
+.rack-navigator {
+    width: 320px;
+    flex-shrink: 0;
+    background: var(--neutral-100);
+    border-right: 1px solid var(--neutral-200);
+    padding: var(--spacing-6);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.rack-nav-item {
+    padding: var(--spacing-4) var(--spacing-5);
+    border-radius: var(--radius-md);
+    background: var(--neutral-0);
+    border: 1px solid var(--neutral-200);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.rack-nav-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--primary-blue);
+    transform: scaleY(0);
+    transition: transform var(--transition-base);
+}
+
+.rack-nav-item:hover {
+    background: var(--neutral-50);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+}
+
+.rack-nav-item.active {
+    background: var(--primary-blue-light);
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-sm);
+}
+
+.rack-nav-item.active::before {
+    transform: scaleY(1);
+}
+
+.rack-nav-name {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-lg);
+    color: var(--neutral-900);
+    margin-bottom: 0;
+    line-height: 1.3;
+}
+
+.rack-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    padding: 0 var(--spacing-2);
+}
+
+.rack-summary span {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    font-weight: var(--font-weight-medium);
+    background: transparent;
+    padding: var(--spacing-1) var(--spacing-2);
+    border-radius: var(--radius-sm);
+}
+
+.rack-summary .fa {
+    font-size: 1.1em;
+}
+
+.status-optimal {
+    color: var(--success);
+    background: var(--success-light);
+}
+
+.status-maintenance {
+    color: var(--warning);
+    background: var(--warning-light);
+}
+
+.status-inactive {
+    color: var(--error);
+    background: var(--error-light);
+}
+
+/* ======== DETAIL PANE ======== */
+.detail-pane-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--neutral-0);
+}
+
+.detail-pane {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+}
+
+.detail-pane.active {
+    display: flex;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ======== SEARCH BAR - MODERN FLUENT ======== */
+.gully-search-bar {
+    padding: var(--spacing-6);
+    border-bottom: 1px solid var(--neutral-200);
+    background: var(--neutral-50);
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.gully-search-input {
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-5) var(--spacing-3) var(--spacing-12);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    font-family: inherit;
+    background: var(--neutral-0);
+    color: var(--neutral-800);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.gully-search-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-focus);
+}
+
+.gully-search-input::placeholder {
+    color: var(--neutral-500);
+}
+
+.gully-search-bar .fa-search {
+    position: absolute;
+    left: var(--spacing-10);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--neutral-500);
+    pointer-events: none;
+    font-size: 1.1em;
+}
+
+/* ======== CONTENT AREA ======== */
+.detail-pane-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-8);
+}
+
+.tier-header-alt {
+    margin: var(--spacing-8) 0 var(--spacing-4);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    position: relative;
+    padding-left: var(--spacing-4);
+}
+
+.tier-header-alt:first-child {
+    margin-top: 0;
+}
+
+.tier-header-alt::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--primary-blue);
+    border-radius: var(--radius-sm);
+}
+
+/* ======== GULLY GRID ======== */
+.gully-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--spacing-5);
+}
+
+.gully-card {
+    padding: var(--spacing-4);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    border: 1px solid;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.gully-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    z-index: -1;
+}
+
+.gully-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+    text-decoration: none;
+}
+
+.gully-card:hover::before {
+    opacity: 1;
+}
+
+.gully-card-name {
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-800);
+    margin-bottom: var(--spacing-2);
+    font-size: var(--font-size-base);
+    line-height: 1.4;
+}
+
+.gully-card-status {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    font-weight: var(--font-weight-medium);
+}
+
+/* ======== STATUS COLORS - DARK MODE ENHANCED ======== */
+.status-empty {
+    background: linear-gradient(135deg, var(--neutral-100), var(--neutral-50));
+    color: var(--neutral-700);
+    border-color: var(--neutral-300);
+}
+
+.status-maintenance {
+    background: linear-gradient(135deg, var(--warning-light), rgba(255, 184, 77, 0.05));
+    color: var(--warning);
+    border-color: var(--warning-border);
+}
+
+.status-maintenance .gully-card-name {
+    font-weight: var(--font-weight-bold);
+    color: var(--warning);
+}
+
+.status-maintenance .gully-card-status {
+    color: var(--warning);
+    opacity: 0.8;
+}
+
+.status-inactive {
+    background: linear-gradient(135deg, var(--error-light), rgba(255, 107, 107, 0.05));
+    color: var(--error);
+    border-color: var(--error-border);
+}
+
+.status-inactive .gully-card-name {
+    font-weight: var(--font-weight-bold);
+    color: var(--error);
+}
+
+.status-inactive .gully-card-status {
+    color: var(--error);
+    opacity: 0.8;
+}
+
+.status-optimal {
+    background: linear-gradient(135deg, var(--success-light), rgba(107, 207, 127, 0.05));
+    color: var(--success);
+    border-color: var(--success-border);
+}
+
+.status-optimal .gully-card-name {
+    color: var(--success);
+    font-weight: var(--font-weight-semibold);
+}
+
+.status-harvest-ready {
+    color: #4dd0e1; /* Cyan for text */
+    background: rgba(77, 208, 225, 0.1); /* Light cyan background */
+}
+
+.gully-card.status-harvest-ready {
+    background: linear-gradient(135deg, rgba(77, 208, 225, 0.1), rgba(77, 208, 225, 0.05));
+    color: #26c6da;
+    border-color: rgba(77, 208, 225, 0.3);
+}
+
+.gully-card.status-harvest-ready .gully-card-name {
+    font-weight: var(--font-weight-bold);
+    color: #26c6da;
+}
+
+.gully-card.status-harvest-ready .gully-card-status {
+    color: #00acc1;
+}
+
+/* ======== EMPTY STATE ======== */
+.no-results-message {
+    text-align: center;
+    padding: var(--spacing-16);
+    color: var(--neutral-500);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+}
+
+/* ======== LIVESTOCK STYLES - MODERN FLUENT ======== */
+.livestock-grid-alt {
+    padding: var(--spacing-8);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-6);
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.livestock-card-alt {
+    background: var(--neutral-0);
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-5);
+    text-decoration: none;
+    color: var(--neutral-700);
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.livestock-card-alt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+
+.livestock-card-alt:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.livestock-card-alt:hover::before {
+    transform: scaleX(1);
+}
+
+/* ======== GULLY FILTER BAR ======== */
+.gully-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-3);
+    padding: var(--spacing-4) var(--spacing-6);
+    border-bottom: 1px solid var(--neutral-200);
+    background: var(--neutral-50);
+    padding-top: 0;
+}
+
+.filter-tag {
+    font-family: inherit;
+    border: 1px solid var(--neutral-300);
+    background-color: var(--neutral-0);
+    color: var(--neutral-700);
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-tag:hover {
+    background-color: var(--neutral-100);
+    border-color: var(--neutral-400);
+    transform: translateY(-2px);
+}
+
+.filter-tag.maintenance.active {
+    background: var(--warning);
+    color: var(--neutral-0);
+    border-color: var(--warning);
+    box-shadow: 0 2px 8px rgba(255, 184, 77, 0.4);
+}
+
+.filter-tag.inactive.active {
+    background: var(--error);
+    color: var(--neutral-0);
+    border-color: var(--error);
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
+}
+
+.filter-tag.harvest-ready.active {
+    background: #26c6da;
+    color: var(--neutral-0);
+    border-color: #26c6da;
+    box-shadow: 0 2px 8px rgba(38, 198, 218, 0.4);
+}
+
+/* ======== RESPONSIVE DESIGN ======== */
+@media (max-width: 768px) {
+    .farm-map-container {
+        padding: var(--spacing-4);
+    }
+    
+    .section-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+    }
+    
+    .master-detail-container {
+        flex-direction: column;
+    }
+    
+    .rack-navigator {
+        width: 100%;
+        max-height: 200px;
+    }
+    
+    .gully-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: var(--spacing-3);
+    }
+    
+    .livestock-grid-alt {
+        grid-template-columns: 1fr;
+        padding: var(--spacing-4);
+    }
+}
+
+/* ======== ACCESSIBILITY ENHANCEMENTS ======== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus indicators for better accessibility */
+.farm-area:focus-visible,
+.rack-nav-item:focus-visible,
+.gully-card:focus-visible,
+.livestock-card-alt:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* ======== DARK MODE SPECIFIC ENHANCEMENTS ======== */
+
+/* Enhanced glassmorphism effect for dark mode */
+html[data-theme="dark"] .visual-layout-dialog .modal-content {
+    backdrop-filter: blur(40px);
+    background: rgba(13, 17, 23, 0.95);
+}
+
+html[data-theme="dark"] .farm-area {
+    backdrop-filter: blur(10px);
+    background: rgba(13, 17, 23, 0.8);
+}
+
+/* Dark mode scrollbar styling */
+html[data-theme="dark"] ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--neutral-100);
+    border-radius: var(--radius-sm);
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--neutral-400);
+    border-radius: var(--radius-sm);
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--neutral-500);
+}
+
+/* Enhanced glow effects for dark mode interactive elements */
+html[data-theme="dark"] .gully-card:hover {
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(76, 194, 255, 0.1);
+}
+
+html[data-theme="dark"] .livestock-card-alt:hover {
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(107, 207, 127, 0.1);
+}
+
+html[data-theme="dark"] .farm-area:hover {
+    box-shadow: var(--shadow-lg), 0 0 25px rgba(76, 194, 255, 0.15);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --neutral-200: #000000;
+        --neutral-300: #333333;
+        --neutral-700: #ffffff;
+        --neutral-800: #ffffff;
+        --neutral-900: #ffffff;
+        --primary-blue: #0066cc;
+        --success: #008800;
+        --warning: #ff6600;
+        --error: #cc0000;
+    }
+    
+    .farm-area,
+    .gully-card,
+    .livestock-card-alt,
+    .rack-nav-item {
+        border-width: 2px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .farm-area,
+    .gully-card,
+    .livestock-card-alt {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    
+    .visual-layout-dialog {
+        display: none;
+    }
+}

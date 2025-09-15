@@ -1,0 +1,214 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:PESTLOG-.YYYY.-.####",
+ "creation": "2025-08-25 08:56:29.199758",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "status",
+  "log_context_section",
+  "crop_cycle",
+  "growth_method",
+  "column_break_1",
+  "company",
+  "log_date",
+  "location_details_section",
+  "location",
+  "growing_zone",
+  "observation_details_section",
+  "observation_type",
+  "pest_or_disease",
+  "column_break_2",
+  "severity",
+  "infestation_level",
+  "section_break_dhhq",
+  "notes",
+  "actions_taken_section",
+  "actions_taken",
+  "stock_entry_section",
+  "generated_stock_entry",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "PESTLOG-.YYYY.-.####"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status",
+   "options": "Open\nTreatment in Progress\nResolved\nCancelled"
+  },
+  {
+   "fieldname": "log_context_section",
+   "fieldtype": "Section Break",
+   "label": "Log Context"
+  },
+  {
+   "fieldname": "crop_cycle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Crop Cycle",
+   "options": "Crop Cycle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "growth_method",
+   "fieldtype": "Select",
+   "label": "Growth Method",
+   "options": "\nSoil-Based\nHydroponic",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "log_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Log Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location_details_section",
+   "fieldtype": "Section Break",
+   "label": "Location Details"
+  },
+  {
+   "depends_on": "eval:doc.growth_method == 'Soil-Based'",
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location (Field)",
+   "options": "Location"
+  },
+  {
+   "depends_on": "eval:doc.growth_method == 'Hydroponic'",
+   "fieldname": "growing_zone",
+   "fieldtype": "Link",
+   "label": "Growing Zone",
+   "options": "Growing Zone"
+  },
+  {
+   "fieldname": "observation_details_section",
+   "fieldtype": "Section Break",
+   "label": "Observation Details"
+  },
+  {
+   "fieldname": "observation_type",
+   "fieldtype": "Select",
+   "label": "Observation Type",
+   "options": "\nPest\nDisease",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pest_or_disease",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Pest / Disease Name",
+   "options": "Pest",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "label": "Severity",
+   "options": "\nLow\nMedium\nHigh\nCritical",
+   "reqd": 1
+  },
+  {
+   "fieldname": "infestation_level",
+   "fieldtype": "Percent",
+   "label": "Infestation Level (%)"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Observations & Notes"
+  },
+  {
+   "fieldname": "actions_taken_section",
+   "fieldtype": "Section Break",
+   "label": "Actions Taken"
+  },
+  {
+   "fieldname": "actions_taken",
+   "fieldtype": "Table",
+   "label": "Actions Taken",
+   "options": "Pest Log Action Taken"
+  },
+  {
+   "fieldname": "stock_entry_section",
+   "fieldtype": "Section Break",
+   "label": "Stock Entry"
+  },
+  {
+   "fieldname": "generated_stock_entry",
+   "fieldtype": "Link",
+   "label": "Generated Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Pest and Disease Log",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_dhhq",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-25 14:28:59.924240",
+ "modified_by": "Administrator",
+ "module": "Agriculture",
+ "name": "Pest and Disease Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

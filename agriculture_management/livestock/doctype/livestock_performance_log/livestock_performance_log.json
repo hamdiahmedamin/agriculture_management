@@ -1,64 +1,168 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:LPERF-{YYYY}-{#####}",
+ "autoname": "naming_series:naming_series",
  "creation": "2025-08-05 04:51:24.731310",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "livestock",
+  "primary_details_section",
+  "naming_series",
+  "log_for",
+  "column_break_1",
   "date",
+  "subject_section",
+  "animal",
+  "poultry_flock",
+  "performance_details_section",
   "log_type",
+  "item",
+  "column_break_2",
   "quantity",
   "uom",
-  "notes"
+  "integration_section",
+  "generated_stock_entry",
+  "notes_section",
+  "notes",
+  "amended_from"
  ],
  "fields": [
   {
-   "fieldname": "livestock",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Livestock",
-   "options": "Livestock",
+   "fieldname": "primary_details_section",
+   "fieldtype": "Section Break",
+   "label": "Primary Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "LPL-.YYYY.-",
    "reqd": 1
   },
   {
+   "default": "Individual Animal",
+   "fieldname": "log_for",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Log For",
+   "options": "Individual Animal\nPoultry Flock",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date"
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "subject_section",
+   "fieldtype": "Section Break",
+   "label": "Subject"
+  },
+  {
+   "depends_on": "eval:doc.log_for=='Individual Animal'",
+   "fieldname": "animal",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Animal",
+   "mandatory_depends_on": "eval:doc.log_for=='Individual Animal'",
+   "options": "Animal"
+  },
+  {
+   "depends_on": "eval:doc.log_for=='Poultry Flock'",
+   "fieldname": "poultry_flock",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Poultry Flock",
+   "mandatory_depends_on": "eval:doc.log_for=='Poultry Flock'",
+   "options": "Poultry Flock"
+  },
+  {
+   "fieldname": "performance_details_section",
+   "fieldtype": "Section Break",
+   "label": "Performance Details"
   },
   {
    "fieldname": "log_type",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Log Type",
-   "options": "Milk Yield\nEgg Count\nWool Shear\nOffspring Count\nOther"
+   "options": "\nMilk Yield\nEgg Collection\nWool Shear\nOffspring Count\nWeight Measurement\nOther",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:['Egg Collection', 'Wool Shear', 'Milk Yield'].includes(doc.log_type)",
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Produced Item",
+   "mandatory_depends_on": "eval:['Egg Collection', 'Wool Shear'].includes(doc.log_type)",
+   "options": "Item"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "quantity",
    "fieldtype": "Float",
    "label": "Quantity",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "uom",
    "fieldtype": "Link",
    "label": "UOM",
-   "options": "UOM"
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "ERP Integration"
+  },
+  {
+   "fieldname": "generated_stock_entry",
+   "fieldtype": "Link",
+   "label": "Generated Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
   },
   {
    "fieldname": "notes",
    "fieldtype": "Small Text",
    "label": "Notes"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Livestock Performance Log",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-08-05 04:59:06.148527",
+ "modified": "2025-09-06 01:01:33.980682",
  "modified_by": "Administrator",
- "module": "livestock",
+ "module": "Livestock",
  "name": "Livestock Performance Log",
- "naming_rule": "Expression",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -74,7 +178,6 @@
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

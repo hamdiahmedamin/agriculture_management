@@ -22,9 +22,9 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-11 14:41:33.749648",
+ "modified": "2025-08-19 07:34:29.312148",
  "modified_by": "Administrator",
- "module": "Hydroponic",
+ "module": "hydroponic",
  "name": "Filter Location Component",
  "owner": "Administrator",
  "permissions": [

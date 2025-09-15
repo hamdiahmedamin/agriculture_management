@@ -1,0 +1,254 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:GZ-.YYYY.-.MM.-.#####",
+ "creation": "2025-08-20 12:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_pjdf",
+  "naming_series",
+  "zone_details_section",
+  "zone_name",
+  "hydroponic_system",
+  "column_break_1",
+  "status",
+  "zone_type",
+  "current_status_section",
+  "current_crop_cycle",
+  "current_crop",
+  "date_planted",
+  "days_in_cycle",
+  "column_break_dash",
+  "occupancy",
+  "expected_harvest_date",
+  "last_harvest_date",
+  "last_yield",
+  "capacity_and_environmental_section",
+  "plant_capacity",
+  "target_ph",
+  "target_ec",
+  "column_break_env",
+  "target_light_hours",
+  "target_water_temperature",
+  "activity_log_section",
+  "activity_log",
+  "tab_2_tab",
+  "section_break_ulrm",
+  "dashboard_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "GZ-.####"
+  },
+  {
+   "fieldname": "dashboard_html",
+   "fieldtype": "HTML",
+   "label": "Live Dashboard"
+  },
+  {
+   "fieldname": "zone_details_section",
+   "fieldtype": "Section Break",
+   "label": "Zone Details"
+  },
+  {
+   "description": "e.g., NFT Gully A-12, DWC Raft 3, Tower 7",
+   "fieldname": "zone_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Zone Name",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "hydroponic_system",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Parent Hydroponic System",
+   "options": "Asset",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nInactive\nUnder Maintenance\nHarvest Ready"
+  },
+  {
+   "fieldname": "zone_type",
+   "fieldtype": "Select",
+   "label": "Zone Type",
+   "options": "NFT Gully\nDWC Raft\nVertical Tower\nEbb & Flow Tray\nBench"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "current_status_section",
+   "fieldtype": "Section Break",
+   "label": "Crop Cycle Details"
+  },
+  {
+   "description": "The Crop Cycle currently active in this zone.",
+   "fieldname": "current_crop_cycle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Current Crop Cycle",
+   "options": "Crop Cycle",
+   "search_index": 1
+  },
+  {
+   "fieldname": "current_crop",
+   "fieldtype": "Data",
+   "label": "Current Crop",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_planted",
+   "fieldtype": "Date",
+   "label": "Date Planted",
+   "read_only": 1
+  },
+  {
+   "description": "Calculated as Today - Date Planted.",
+   "fieldname": "days_in_cycle",
+   "fieldtype": "Int",
+   "label": "Days in Cycle",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dash",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "(Current Plants / Plant Capacity) * 100",
+   "fieldname": "occupancy",
+   "fieldtype": "Percent",
+   "label": "Occupancy",
+   "read_only": 1
+  },
+  {
+   "fieldname": "expected_harvest_date",
+   "fieldtype": "Date",
+   "label": "Expected Harvest Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_harvest_date",
+   "fieldtype": "Date",
+   "label": "Last Harvest Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_yield",
+   "fieldtype": "Float",
+   "label": "Last Yield (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "capacity_and_environmental_section",
+   "fieldtype": "Section Break",
+   "label": "Capacity & Environmental Targets"
+  },
+  {
+   "description": "How many plants can this zone hold?",
+   "fieldname": "plant_capacity",
+   "fieldtype": "Int",
+   "label": "Plant Capacity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_ph",
+   "fieldtype": "Float",
+   "label": "Target pH",
+   "precision": "2"
+  },
+  {
+   "fieldname": "target_ec",
+   "fieldtype": "Float",
+   "label": "Target EC (mS/cm)",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_env",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_light_hours",
+   "fieldtype": "Float",
+   "label": "Target Light Hours",
+   "precision": "2"
+  },
+  {
+   "fieldname": "activity_log_section",
+   "fieldtype": "Section Break",
+   "label": "Zone Activity Log"
+  },
+  {
+   "fieldname": "activity_log",
+   "fieldtype": "Table",
+   "label": "Activity Log",
+   "options": "Zone Activity Log"
+  },
+  {
+   "fieldname": "section_break_pjdf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab 2",
+   "show_dashboard": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_ulrm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "target_water_temperature",
+   "fieldtype": "Float",
+   "label": "Target Water Temperature"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Crop Cycle",
+   "link_fieldname": "name"
+  }
+ ],
+ "modified": "2025-09-15 04:51:45.430829",
+ "modified_by": "Administrator",
+ "module": "Hydroponic",
+ "name": "Growing Zone",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

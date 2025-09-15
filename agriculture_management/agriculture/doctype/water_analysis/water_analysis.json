@@ -1,39 +1,80 @@
 {
  "actions": [],
- "autoname": "HR-WAT-.YYYY.-.#####",
+ "allow_rename": 1,
+ "autoname": "naming_series:WAT-ANL-.YYYY.-.####",
  "creation": "2017-10-17 18:51:19.946950",
  "doctype": "DocType",
- "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "location",
-  "column_break_2",
+  "naming_series",
+  "status",
+  "log_context_section",
+  "company",
+  "crop_cycle",
+  "column_break_1",
+  "water_source",
   "collection_datetime",
-  "laboratory_testing_datetime",
-  "result_datetime",
-  "section_break_4",
+  "sample_details_section",
   "type_of_sample",
   "container",
-  "origin",
-  "column_break_8",
+  "appearance",
+  "column_break_2",
   "collection_temperature",
   "storage_temperature",
-  "appearance",
   "person_responsible",
-  "column_break_29",
+  "lab_details_section",
+  "laboratory_testing_datetime",
+  "result_datetime",
+  "column_break_3",
+  "lab_report_attachment",
+  "results_section",
   "water_analysis_criteria"
  ],
  "fields": [
   {
-   "fieldname": "location",
-   "fieldtype": "Geolocation",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "WAT-ANL-.YYYY.-.####"
+  },
+  {
+   "default": "Sample Collected",
+   "fieldname": "status",
+   "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Location",
+   "label": "Status",
+   "options": "Sample Collected\nIn Laboratory\nResults Received\nArchived"
+  },
+  {
+   "fieldname": "log_context_section",
+   "fieldtype": "Section Break",
+   "label": "Log Context"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
    "reqd": 1
   },
   {
-   "fieldname": "column_break_2",
+   "fieldname": "crop_cycle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Crop Cycle",
+   "options": "Crop Cycle"
+  },
+  {
+   "fieldname": "column_break_1",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "water_source",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Water Source",
+   "options": "Water Source"
   },
   {
    "fieldname": "collection_datetime",
@@ -43,18 +84,9 @@
    "reqd": 1
   },
   {
-   "fieldname": "laboratory_testing_datetime",
-   "fieldtype": "Datetime",
-   "label": "Laboratory Testing Datetime"
-  },
-  {
-   "fieldname": "result_datetime",
-   "fieldtype": "Datetime",
-   "label": "Result Datetime"
-  },
-  {
-   "fieldname": "section_break_4",
-   "fieldtype": "Section Break"
+   "fieldname": "sample_details_section",
+   "fieldtype": "Section Break",
+   "label": "Sample Details"
   },
   {
    "fieldname": "type_of_sample",
@@ -67,18 +99,18 @@
    "label": "Container"
   },
   {
-   "fieldname": "origin",
+   "fieldname": "appearance",
    "fieldtype": "Data",
-   "label": "Origin"
+   "label": "Appearance"
   },
   {
-   "fieldname": "column_break_8",
+   "fieldname": "column_break_2",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "collection_temperature",
    "fieldtype": "Data",
-   "label": "Collection Temperature "
+   "label": "Collection Temperature"
   },
   {
    "fieldname": "storage_temperature",
@@ -86,19 +118,39 @@
    "label": "Storage Temperature"
   },
   {
-   "fieldname": "appearance",
-   "fieldtype": "Data",
-   "label": "Appearance"
-  },
-  {
    "fieldname": "person_responsible",
-   "fieldtype": "Data",
-   "label": "Person Responsible"
+   "fieldtype": "Link",
+   "label": "Person Responsible",
+   "options": "User"
   },
   {
-   "fieldname": "column_break_29",
+   "fieldname": "lab_details_section",
    "fieldtype": "Section Break",
-   "label": "Water Analysis Criteria"
+   "label": "Laboratory Details"
+  },
+  {
+   "fieldname": "laboratory_testing_datetime",
+   "fieldtype": "Datetime",
+   "label": "Laboratory Testing Datetime"
+  },
+  {
+   "fieldname": "result_datetime",
+   "fieldtype": "Datetime",
+   "label": "Result Datetime"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lab_report_attachment",
+   "fieldtype": "Attach",
+   "label": "Attach Lab Report"
+  },
+  {
+   "fieldname": "results_section",
+   "fieldtype": "Section Break",
+   "label": "Water Analysis Results"
   },
   {
    "fieldname": "water_analysis_criteria",
@@ -107,11 +159,11 @@
   }
  ],
  "links": [],
- "modified": "2023-10-29 17:46:19.464534",
+ "modified": "2025-08-26 08:29:59.918550",
  "modified_by": "Administrator",
  "module": "Agriculture",
  "name": "Water Analysis",
- "naming_rule": "Expression (old style)",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -139,6 +191,23 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
+ "states": [
+  {
+   "color": "Orange",
+   "title": "Sample Collected"
+  },
+  {
+   "color": "Blue",
+   "title": "In Laboratory"
+  },
+  {
+   "color": "Green",
+   "title": "Results Received"
+  },
+  {
+   "color": "Gray",
+   "title": "Archived"
+  }
+ ],
  "track_changes": 1
 }
